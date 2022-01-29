@@ -1,0 +1,5002 @@
+[
+  {
+    "address": "701 E Palm Canyon Dr\nPalm Springs, CA 92264",
+    "city": "Palm Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8011160000",
+    "longitude": "-116.5400610000",
+    "nid": "6574",
+    "title": "Ace Hotel Palm Springs"
+  },
+  {
+    "address": "465 Pilgrim Way\nGreen Bay, WI 54304",
+    "city": "Green Bay",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.4785780000",
+    "longitude": "-88.0530610000",
+    "nid": "6575",
+    "title": "Aloft Green Bay"
+  },
+  {
+    "address": "1000 Brush St\nDetroit, MI 48226",
+    "city": "Detroit",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.3339740000",
+    "longitude": "-83.0430690000",
+    "nid": "6576",
+    "title": "Atheneum Suite Hotel"
+  },
+  {
+    "address": "3800 S Virginia St\nReno, NV 89502",
+    "city": "Reno",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.4897200000",
+    "longitude": "-119.7956220000",
+    "nid": "6577",
+    "title": "Atlantis Casino Resort Spa"
+  },
+  {
+    "address": "8301 Hollister Ave\nGoleta, CA 93117",
+    "city": "Goleta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4350650000",
+    "longitude": "-119.9202360000",
+    "nid": "6578",
+    "title": "Bacara Resort & Spa"
+  },
+  {
+    "address": "3600 S Las Vegas Blvd\nLas Vegas, NV 89109",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1112380000",
+    "longitude": "-115.1732450000",
+    "nid": "6580",
+    "title": "Bellagio Las Vegas"
+  },
+  {
+    "address": "501 E Camino Real\nBoca Raton, FL 33432",
+    "city": "Boca Raton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.3399680000",
+    "longitude": "-80.0784010000",
+    "nid": "6581",
+    "title": "Waldorf Astoria Boca Raton Resort & Club"
+  },
+  {
+    "address": "505 E La Plata St\nFarmington, NM 87401",
+    "city": "Farmington",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.7318870000",
+    "longitude": "-108.1998820000",
+    "nid": "6582",
+    "title": "Casa Blanca Inn"
+  },
+  {
+    "address": "10918 Brockway Rd\nTruckee, CA 96161",
+    "city": "Truckee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.3243490000",
+    "longitude": "-120.1693760000",
+    "nid": "6583",
+    "title": "Cedar House Sport Hotel"
+  },
+  {
+    "address": "E11232 Hillside Dr\nWisconsin Dells, WI 53965",
+    "city": "Wisconsin Dells",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.6017180000",
+    "longitude": "-89.7603140000",
+    "nid": "6584",
+    "title": "Cedar Lodge and Settlement"
+  },
+  {
+    "address": "1000 S 22nd Ave\nWausau, WI 54401",
+    "city": "Wausau",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.9508120000",
+    "longitude": "-89.6632640000",
+    "nid": "6585",
+    "title": "Courtyard Wausau"
+  },
+  {
+    "address": "618 S 2nd Ave\nMinneapolis, MN 55402",
+    "city": "Minneapolis",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.9761510000",
+    "longitude": "-93.2692780000",
+    "nid": "6586",
+    "title": "Crowne Plaza Minneapolis Northstar Downtown"
+  },
+  {
+    "address": "650 N Pearl St\nDallas, TX 75201",
+    "city": "Dallas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.7864130000",
+    "longitude": "-96.7954730000",
+    "nid": "6587",
+    "title": "Dallas Marriott City Center"
+  },
+  {
+    "address": "5620 Moonstone Beach Dr\nCambria, CA 93428",
+    "city": "Cambria",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.5689830000",
+    "longitude": "-121.1052610000",
+    "nid": "6589",
+    "title": "El Colibri Boutique Hotel & Spa"
+  },
+  {
+    "address": "398 S Davis St\nTelluride, Colorado 81320",
+    "city": "Telluride",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.9370180000",
+    "longitude": "-107.8178700000",
+    "nid": "6590",
+    "title": "Element 52 Residences"
+  },
+  {
+    "address": "630 N Rush St\nChicago, IL 60611",
+    "city": "Chicago",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.8934990000",
+    "longitude": "-87.6254980000",
+    "nid": "6592",
+    "title": "AC Hotel Chicago Downtown"
+  },
+  {
+    "address": "300 S Doheny Dr\nLos Angeles, CA 90048",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0728830000",
+    "longitude": "-118.3896180000",
+    "nid": "6593",
+    "title": "Four Seasons Hotel Los Angeles at Beverly Hills"
+  },
+  {
+    "address": "99 Union St\r\nSeattle, WA 98101",
+    "city": "Seattle",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6076510000",
+    "longitude": "-122.3394180000",
+    "nid": "6594",
+    "title": "Four Seasons Hotel Seattle"
+  },
+  {
+    "address": "999 N 2nd St\nSt Louis, MO 63102",
+    "city": "St Louis",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6337160000",
+    "longitude": "-90.1839860000",
+    "nid": "6595",
+    "title": "Four Seasons Hotel St. Louis"
+  },
+  {
+    "address": "3960 Las Vegas Strip\nLas Vegas, NV 89119",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.0898450000",
+    "longitude": "-115.1731880000",
+    "nid": "6596",
+    "title": "Four Seasons Hotel Las Vegas"
+  },
+  {
+    "address": "4591 Blackcomb Way\nWhistler, British Columbia V0N 1B4",
+    "city": "Whistler",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.1199090000",
+    "longitude": "-122.9438140000",
+    "nid": "6597",
+    "title": "Four Seasons Resort & Residences Whistler"
+  },
+  {
+    "address": "1260 Channel Dr\nSanta Barbara, California 93108",
+    "city": "Santa Barbara",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4165920000",
+    "longitude": "-119.6415750000",
+    "nid": "6598",
+    "title": "Four Seasons Resort The Biltmore Santa Barbara"
+  },
+  {
+    "address": "7036 Grand Geneva Way\nLake Geneva, WI 53147",
+    "city": "Lake Geneva",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.6102380000",
+    "longitude": "-88.4060310000",
+    "nid": "6599",
+    "title": "Grand Geneva Resort & Spa"
+  },
+  {
+    "address": "1001 Heavenly Village Way\nSouth Lake Tahoe, CA 96150",
+    "city": "South Lake Tahoe",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.9552860000",
+    "longitude": "-119.9433030000",
+    "nid": "6600",
+    "title": "Grand Residences by Marriott, Tahoe"
+  },
+  {
+    "address": "643 Illinois Ave\nGreen Lake, WI 54941",
+    "city": "Green Lake",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.8367470000",
+    "longitude": "-88.9468590000",
+    "nid": "6601",
+    "title": "Heidel House Resort & Spa"
+  },
+  {
+    "address": "509 W Wisconsin Ave\nMilwaukee, WI 53203",
+    "city": "Milwaukee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0384370000",
+    "longitude": "-87.9175600000",
+    "nid": "6602",
+    "title": "Hilton Milwaukee City Center"
+  },
+  {
+    "address": "3900 American Blvd W\nBloomington, MN 55437",
+    "city": "Bloomington",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.8566280000",
+    "longitude": "-93.3313660000",
+    "nid": "6603",
+    "title": "Hilton Minneapolis/Bloomington"
+  },
+  {
+    "address": "1301 Coastal Hwy\nDewey Beach, DE 19971",
+    "city": "Dewey Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6897970000",
+    "longitude": "-75.0749640000",
+    "nid": "6604",
+    "title": "Hyatt Place Dewey Beach"
+  },
+  {
+    "address": "1 Old Golf Course Rd\nMonterey, CA 93940",
+    "city": "Monterey",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.5923870000",
+    "longitude": "-121.8762740000",
+    "nid": "6605",
+    "title": "Hyatt Regency Monterey Hotel and Spa"
+  },
+  {
+    "address": "76661 California 111\nPalm Desert, CA 92260",
+    "city": "Palm Desert",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7214150000",
+    "longitude": "-116.3268110000",
+    "nid": "6606",
+    "title": "Indian Wells Resort Hotel"
+  },
+  {
+    "address": "2014 Mill Creek Rd\nWalla Walla, WA 99362",
+    "city": "Walla Walla",
+    "country": "United States",
+    "hours": "",
+    "latitude": "46.0884780000",
+    "longitude": "-118.2271540000",
+    "nid": "6607",
+    "title": "Inn at Abeja"
+  },
+  {
+    "address": "2151 Avenue of the Stars\nLos Angeles, CA 90067",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0543710000",
+    "longitude": "-118.4119110000",
+    "nid": "6608",
+    "title": "InterContinental Hotel Los Angeles, Century City at Beverly Hills"
+  },
+  {
+    "address": "139 E Kilbourn Ave\nMilwaukee, WI 53202",
+    "city": "Milwaukee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0419290000",
+    "longitude": "-87.9113330000",
+    "nid": "6609",
+    "title": "InterContinental Milwaukee"
+  },
+  {
+    "address": "303 E 2nd St\nWinslow, AZ 86047",
+    "city": "Winslow",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.0223860000",
+    "longitude": "-110.6960180000",
+    "nid": "6610",
+    "title": "La Posada"
+  },
+  {
+    "address": "1177 Melville St\r\nVancouver, British Columbia V6E 0A3",
+    "city": "Vancouver, BC",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.2875210000",
+    "longitude": "-123.1235210000",
+    "nid": "6612",
+    "title": "Loden Hotel"
+  },
+  {
+    "address": "421 N 8th St\nSt Louis, MO 63101",
+    "city": "St Louis",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6299500000",
+    "longitude": "-90.1918490000",
+    "nid": "6613",
+    "title": "Magnolia Hotel St. Louis"
+  },
+  {
+    "address": "3950 S Las Vegas Blvd\nLas Vegas, NV 89119",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.0919930000",
+    "longitude": "-115.1731700000",
+    "nid": "6614",
+    "title": "Mandalay Bay"
+  },
+  {
+    "address": "3799 S Las Vegas Blvd\nLas Vegas, NV 89109",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1012790000",
+    "longitude": "-115.1672900000",
+    "nid": "6616",
+    "title": "MGM Grand"
+  },
+  {
+    "address": "9100 Marsac Ave\nPark City, UT 84060",
+    "city": "Park City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.6158800000",
+    "longitude": "-111.5090280000",
+    "nid": "6617",
+    "title": "Montage Deer Valley"
+  },
+  {
+    "address": "30801 S Coast Hwy\nLaguna Beach, CA 92651",
+    "city": "Laguna Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.5161020000",
+    "longitude": "-117.7574610000",
+    "nid": "6618",
+    "title": "Montage Laguna Beach"
+  },
+  {
+    "address": "32 Star Island Rd\r\nMontauk, NY 11954",
+    "city": "Montauk",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.0687750000",
+    "longitude": "-71.9333610000",
+    "nid": "6619",
+    "title": "Gurney’s Star Island Resort & Marina"
+  },
+  {
+    "address": "1295 Coast Village Rd\r\nSanta Barbara, CA 93108",
+    "city": "Santa Barbara",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4215130000",
+    "longitude": "-119.6405350000",
+    "nid": "6620",
+    "title": "Montecito Inn"
+  },
+  {
+    "address": "625 N Rd\nGroton, CT 06340",
+    "city": "Groton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.3651630000",
+    "longitude": "-72.0261680000",
+    "nid": "6621",
+    "title": "Mystic Marriott Hotel and Spa"
+  },
+  {
+    "address": "500 Main St\nNapa, CA 94559",
+    "city": "Napa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.2962200000",
+    "longitude": "-122.2831380000",
+    "nid": "6622",
+    "title": "Napa River Inn"
+  },
+  {
+    "address": "95 Ocean Ave\nKennebunkport, ME 04046",
+    "city": "Kennebunkport",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.3521540000",
+    "longitude": "-70.4727270000",
+    "nid": "6623",
+    "title": "Nonantum Resort"
+  },
+  {
+    "address": "1 Industry Hills Pkwy\nCity of Industry, CA 91744",
+    "city": "City of Industry",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0205300000",
+    "longitude": "-117.9267660000",
+    "nid": "6624",
+    "title": "Pacific Palms Resort"
+  },
+  {
+    "address": "4320 Sundial Crescent\nWhistler, British Columbia V0N 1B4",
+    "city": "Whistler",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.1141380000",
+    "longitude": "-122.9538150000",
+    "nid": "6625",
+    "title": "Pan Pacific Whistler Mountainside"
+  },
+  {
+    "address": "47900 California 1\r\nBig Sur, CA 93920",
+    "city": "Big Sur",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.2288290000",
+    "longitude": "-121.7648430000",
+    "nid": "6626",
+    "title": "Post Ranch Inn"
+  },
+  {
+    "address": "2600 Tiburon Dr\nNaples, FL 34109",
+    "city": "Naples",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.2489650000",
+    "longitude": "-81.7679410000",
+    "nid": "6627",
+    "title": "The Ritz Carlton Golf Resort, Naples"
+  },
+  {
+    "address": "1600 N Indian Canyon Dr\nPalm Springs, CA 92262",
+    "city": "Palm Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8457902000",
+    "longitude": "-116.5444318000",
+    "nid": "6628",
+    "title": "Riviera Palm Springs"
+  },
+  {
+    "address": "900 San Ysidro Ln\nMontecito, CA 93108",
+    "city": "Montecito",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4468450000",
+    "longitude": "-119.6237180000",
+    "nid": "6629",
+    "title": "San Ysidro Ranch"
+  },
+  {
+    "address": "1080 E Hiawatha Dr\nWisconsin Dells, WI 53965",
+    "city": "Wisconsin Dells",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.6075500000",
+    "longitude": "-89.7825830000",
+    "nid": "6630",
+    "title": "Sandrift Resort"
+  },
+  {
+    "address": "3627 Sagunto St\nSanta Ynez, CA 93460",
+    "city": "Santa Ynez",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.6129550000",
+    "longitude": "-120.0790100000",
+    "nid": "6631",
+    "title": "Santa Ynez Inn"
+  },
+  {
+    "address": "5400 Plantation Rd\nCaptiva, FL 33924",
+    "city": "Captiva",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.5256590000",
+    "longitude": "-82.1917720000",
+    "nid": "6633",
+    "title": "South Seas Island Resort"
+  },
+  {
+    "address": "1 Monarch Beach Resort N\r\nDana Point, California 92629",
+    "city": "Dana Point",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.4825730000",
+    "longitude": "-117.7146370000",
+    "nid": "6634",
+    "title": "Monarch Beach Resort"
+  },
+  {
+    "address": "57071 Great Hall Loop\nBend, OR 97707",
+    "city": "Bend",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.8718900000",
+    "longitude": "-121.4435300000",
+    "nid": "6635",
+    "title": "Sunriver Resort"
+  },
+  {
+    "address": "62 Beachmere Pl\nOgunquit, ME 03907",
+    "city": "Ogunquit",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.2450100000",
+    "longitude": "-70.5939040000",
+    "nid": "6636",
+    "title": "The Beachmere"
+  },
+  {
+    "address": "4222 Vineland Ave\nLos Angeles, CA 91602",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.1449740000",
+    "longitude": "-118.3701050000",
+    "nid": "6637",
+    "title": "The Beverly Garland Hotel"
+  },
+  {
+    "address": "2757 Shell Beach Rd\nPismo Beach, CA 93449",
+    "city": "Pismo Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1658630000",
+    "longitude": "-120.6900500000",
+    "nid": "6638",
+    "title": "The Cliffs Resort"
+  },
+  {
+    "address": "131 N Water St\nEdgartown, MA 02539",
+    "city": "Edgartown",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.3924100000",
+    "longitude": "-70.5066270000",
+    "nid": "6639",
+    "title": "The Harbor View Hotel"
+  },
+  {
+    "address": "19960 Elliott Rd\nLockeford, CA 95237",
+    "city": "Lockeford",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.1652570000",
+    "longitude": "-121.1524980000",
+    "nid": "6640",
+    "title": "The Inn at Locke House"
+  },
+  {
+    "address": "5951 Linea Del Cielo\nRancho Santa Fe, CA 92067",
+    "city": "Rancho Santa Fe",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.0190870000",
+    "longitude": "-117.2057730000",
+    "nid": "6641",
+    "title": "The Inn at Rancho Santa Fe"
+  },
+  {
+    "address": "3400 S Las Vegas Blvd\nLas Vegas, NV 89109",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1201060000",
+    "longitude": "-115.1726650000",
+    "nid": "6642",
+    "title": "The Mirage"
+  },
+  {
+    "address": "424 E Wisconsin Ave\nMilwaukee, WI 53202",
+    "city": "Milwaukee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0388730000",
+    "longitude": "-87.9056520000",
+    "nid": "6643",
+    "title": "The Pfister Hotel"
+  },
+  {
+    "address": "211 E Flamingo Rd\nLas Vegas, NV 89169",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1143110000",
+    "longitude": "-115.1632390000",
+    "nid": "6644",
+    "title": "The Platinum Hotel"
+  },
+  {
+    "address": "325 Ward Pkwy\nKansas City, MO 64112",
+    "city": "Kansas City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.0398840000",
+    "longitude": "-94.5913610000",
+    "nid": "6645",
+    "title": "The Raphael Hotel"
+  },
+  {
+    "address": "22701 S Pelican Hill Rd\nNewport Beach, CA 92657",
+    "city": "Newport Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.5886710000",
+    "longitude": "-117.8421650000",
+    "nid": "6646",
+    "title": "The Resort At Pelican Hill"
+  },
+  {
+    "address": "500 Osprey Ln\nTofino, British Columbia V0R 2Z0",
+    "city": "Tofino",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.1239930000",
+    "longitude": "-125.9010960000",
+    "nid": "6647",
+    "title": "Wickaninnish Inn"
+  },
+  {
+    "address": "1 Miramontes Point Rd\nHalf Moon Bay, California 94019",
+    "city": "Half Moon Bay",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.4337400000",
+    "longitude": "-122.4412480000",
+    "nid": "6705",
+    "title": "The Ritz-Carlton, Half Moon Bay + Golf Links"
+  },
+  {
+    "address": "50 3rd St\nSan Francisco, CA 94103",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7867100000",
+    "longitude": "-122.4028270000",
+    "nid": "6706",
+    "title": "Park Central Hotel"
+  },
+  {
+    "address": "218 Riverfront Ln\nAvon, CO 81620",
+    "city": "Avon",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.6334100000",
+    "longitude": "-106.5242800000",
+    "nid": "6708",
+    "title": "The Westin Riverfront Resort and Spa / Westin Riverfront Mountain Villas"
+  },
+  {
+    "address": "8383 Silverado Trail\nNapa, CA 94558",
+    "city": "Napa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.4765490000",
+    "longitude": "-122.3888800000",
+    "nid": "6709",
+    "title": "ZD Wines"
+  },
+  {
+    "address": "2 Exchange Pl\nJersey City, NJ 07302",
+    "city": "Jersey City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.7169660000",
+    "longitude": "-74.0327690000",
+    "nid": "6710",
+    "title": "Hyatt Regency Jersey City on the Hudson"
+  },
+  {
+    "address": "18767 Main St\nGroveland, CA 95321",
+    "city": "Groveland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.8394480000",
+    "longitude": "-120.2291990000",
+    "nid": "6711",
+    "title": "The Groveland Hotel, a Select Registry Property"
+  },
+  {
+    "address": "3708 S Las Vegas Blvd\nLas Vegas, NV 89109",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1093530000",
+    "longitude": "-115.1752780000",
+    "nid": "6712",
+    "title": "The Cosmopolitan of Las Vegas"
+  },
+  {
+    "address": "208 Barton Springs Rd\nAustin, TX 78704",
+    "city": "Austin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.2590120000",
+    "longitude": "-97.7473520000",
+    "nid": "6714",
+    "title": "Hyatt Regency Austin"
+  },
+  {
+    "address": "200 Congress Pl\nCape May, NJ 08204",
+    "city": "Cape May",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.9310370000",
+    "longitude": "-74.9237030000",
+    "nid": "6715",
+    "title": "Congress Hall"
+  },
+  {
+    "address": "400 Ocean Ave\nFerndale, CA 95536",
+    "city": "Ferndale",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.5754560000",
+    "longitude": "-124.2645330000",
+    "nid": "6716",
+    "title": "The Victorian Inn"
+  },
+  {
+    "address": "210 Peachtree St NE\nAtlanta, GA 30303",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7594600000",
+    "longitude": "-84.3891740000",
+    "nid": "6717",
+    "title": "The Westin Peachtree Plaza"
+  },
+  {
+    "address": "620 Stewart St\nSeattle, WA 98101",
+    "city": "Seattle",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6141410000",
+    "longitude": "-122.3363570000",
+    "nid": "6718",
+    "title": "Hotel Max"
+  },
+  {
+    "address": "750 SW Alder St\r\nPortland, OR 97205",
+    "city": "Portland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.5201920000",
+    "longitude": "-122.6800170000",
+    "nid": "6719",
+    "title": "Dossier Hotel"
+  },
+  {
+    "address": "81 Palmer Ave\nFalmouth, MA 02540",
+    "city": "Falmouth",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.5555990000",
+    "longitude": "-70.6203140000",
+    "nid": "6720",
+    "title": "The Palmer House Inn, a Select Registry Property"
+  },
+  {
+    "address": "929 S Broadway\nLos Angeles, CA 90015",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0419630000",
+    "longitude": "-118.2566070000",
+    "nid": "6721",
+    "title": "Ace Hotel  Los Angeles"
+  },
+  {
+    "address": "515 SW Clay St\nPortland, OR 97201",
+    "city": "Portland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.5136190000",
+    "longitude": "-122.6806760000",
+    "nid": "6723",
+    "title": "Hotel Modera"
+  },
+  {
+    "address": "111 Country Club Dr\nIncline Village, NV 89451",
+    "city": "Incline Village",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.2401010000",
+    "longitude": "-119.9419800000",
+    "nid": "6724",
+    "title": "Hyatt Regency Lake Tahoe"
+  },
+  {
+    "address": "212 Centre St\nBeach Haven, NJ 08008",
+    "city": "Beach Haven",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.5631860000",
+    "longitude": "-74.2391330000",
+    "nid": "6725",
+    "title": "The Gables"
+  },
+  {
+    "address": "3800 East Sunrise Dr\nTucson, Arizona 85718",
+    "city": "Tucson",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.3127150000",
+    "longitude": "-110.9121000000",
+    "nid": "6727",
+    "title": "The Westin La Paloma Resort and Spa"
+  },
+  {
+    "address": "900 S Ocean Blvd\nBoca Raton, FL 33432",
+    "city": "Boca Raton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.3408760000",
+    "longitude": "-80.0718500000",
+    "nid": "6728",
+    "title": "Boca Beach Club"
+  },
+  {
+    "address": "3325 S Las Vegas Blvd\nLas Vegas, NV 89109",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1234160000",
+    "longitude": "-115.1704990000",
+    "nid": "6729",
+    "title": "The Palazzo"
+  },
+  {
+    "address": "40060 Paws Up Rd\nGreenough, MT 59823",
+    "city": "Greenough",
+    "country": "United States",
+    "hours": "",
+    "latitude": "46.9167720000",
+    "longitude": "-113.4345510000",
+    "nid": "6730",
+    "title": "The Resort at Paws Up"
+  },
+  {
+    "address": "10 S Post St\nSpokane, WA 99201",
+    "city": "Spokane",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6565780000",
+    "longitude": "-117.4244140000",
+    "nid": "6735",
+    "title": "The Davenport Hotel"
+  },
+  {
+    "address": "111 S Post St\nSpokane, WA 99201",
+    "city": "Spokane",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6563060000",
+    "longitude": "-117.4234870000",
+    "nid": "6736",
+    "title": "The Davenport Tower"
+  },
+  {
+    "address": "1999 Country Club Way\nVictoria, British Columbia V9B 6R3",
+    "city": "Victoria",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "48.4771240000",
+    "longitude": "-123.5312030000",
+    "nid": "6737",
+    "title": "The Westin Bear Mountain Golf Resort and Spa"
+  },
+  {
+    "address": "4800 Basin Harbor Rd\nVergennes, VT 05491",
+    "city": "Vergennes",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.1970940000",
+    "longitude": "-73.3622380000",
+    "nid": "6739",
+    "title": "Basin Harbor"
+  },
+  {
+    "address": "132 Falmouth Woods Rd\nFalmouth, MA 02536",
+    "city": "Falmouth",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.6312650000",
+    "longitude": "-70.5943470000",
+    "nid": "6740",
+    "title": "The Golf Club of Cape Cod"
+  },
+  {
+    "address": "7749 KOA Rd\nShingletown, CA 96088",
+    "city": "Shingletown",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.5132210000",
+    "longitude": "-121.8123300000",
+    "nid": "6741",
+    "title": "Mt. Lassen Park & Shingletown Campground"
+  },
+  {
+    "address": "6195 Dry Creek Rd\nHealdsburg, CA 95448",
+    "city": "Healdsburg",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6885760000",
+    "longitude": "-122.9467830000",
+    "nid": "6742",
+    "title": "Chateau Diana"
+  },
+  {
+    "address": "808 W Sprague Ave\nSpokane, WA 99201",
+    "city": "Spokane",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6572470000",
+    "longitude": "-117.4239460000",
+    "nid": "6743",
+    "title": "The Hotel Lusso"
+  },
+  {
+    "address": "1755 N. Highway 33\r\nDriggs, ID 83422",
+    "city": "Driggs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.7471620000",
+    "longitude": "-111.1114740000",
+    "nid": "6744",
+    "title": "Grand Teton Distillery"
+  },
+  {
+    "address": "1621 Price St\nPismo Beach, CA 93449",
+    "city": "Pismo Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1466130000",
+    "longitude": "-120.6454440000",
+    "nid": "6745",
+    "title": "Kon Tiki Inn"
+  },
+  {
+    "address": "3900 Wailea Alanui Dr\nKihei, HI 96753",
+    "city": "Kihei",
+    "country": "United States",
+    "hours": "",
+    "latitude": "20.6791160000",
+    "longitude": "-156.4412870000",
+    "nid": "6754",
+    "title": "Four Seasons Maui at Wailea"
+  },
+  {
+    "address": "1561 Akron Peninsula Rd\nAkron, OH 44313",
+    "city": "Akron",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.1377420000",
+    "longitude": "-81.5472820000",
+    "nid": "6757",
+    "title": "Papa Joe's"
+  },
+  {
+    "address": "1470 W Broadway\nVancouver, British Columbia V6H 1H4",
+    "city": "Vancouver",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.2630890000",
+    "longitude": "-123.1375860000",
+    "nid": "6758",
+    "title": "Jordan's"
+  },
+  {
+    "address": "7558 Deer Rd\nCuster, WI 54423",
+    "city": "Custer",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.5098000000",
+    "longitude": "-89.4071000000",
+    "nid": "6760",
+    "title": "Midwest Renewable Energy Association"
+  },
+  {
+    "address": "17555 Tapoco Rd\nRobbinsville, NC 28771",
+    "city": "Robbinsville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.4664450000",
+    "longitude": "-83.9200150000",
+    "nid": "6761",
+    "title": "Deal's Gap Motorcycle Resort"
+  },
+  {
+    "address": "3075 U.S. 97 Business\nBend, OR 97701",
+    "city": "Bend",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.0807100000",
+    "longitude": "-121.3052440000",
+    "nid": "6762",
+    "title": "Riverhouse Hotel & Convention Center"
+  },
+  {
+    "address": "Carlsbad, CA 92011",
+    "city": "Carlsbad",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.0970380000",
+    "longitude": "-117.2837610000",
+    "nid": "6763",
+    "title": "Four Seasons Resort Aviara"
+  },
+  {
+    "address": "532 W 7th St\nDavenport, IA 52803",
+    "city": "Davenport",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.5268290000",
+    "longitude": "-90.5812600000",
+    "nid": "6764",
+    "title": "Beiderbecke Inn"
+  },
+  {
+    "address": "115 S 2nd St\nCoeur d'Alene, ID 83814",
+    "city": "Coeur d'Alene",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6724680000",
+    "longitude": "-116.7844840000",
+    "nid": "6765",
+    "title": "Coeur D' Alene Resort"
+  },
+  {
+    "address": "90 N Main St\nWolfeboro, NH 03894",
+    "city": "Wolfeboro",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.5845710000",
+    "longitude": "-71.2169570000",
+    "nid": "6766",
+    "title": "The Wolfeboro Inn"
+  },
+  {
+    "address": "200 NE A St\nBentonville, AR 72712",
+    "city": "Bentonville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.3741290000",
+    "longitude": "-94.2078050000",
+    "nid": "6767",
+    "title": "21c Hotel Bentonville"
+  },
+  {
+    "address": "2894 Main St\nEast Troy, WI 53120",
+    "city": "East Troy",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.7855650000",
+    "longitude": "-88.4056550000",
+    "nid": "6768",
+    "title": "2894 on Main Cafe"
+  },
+  {
+    "address": "800 N Michigan Ave\nChicago, IL 60611",
+    "city": "Chicago",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.8967920000",
+    "longitude": "-87.6251420000",
+    "nid": "6769",
+    "title": "Park Hyatt Chicago"
+  },
+  {
+    "address": "336 Court St\nBinghamton, NY 13904",
+    "city": "Binghamton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.1033210000",
+    "longitude": "-75.8937540000",
+    "nid": "6772",
+    "title": "ScottTech"
+  },
+  {
+    "address": "0 Duval St\nKey West, FL 33040",
+    "city": "Key West",
+    "country": "United States",
+    "hours": "",
+    "latitude": "24.5607830000",
+    "longitude": "-81.8065180000",
+    "nid": "6773",
+    "title": "Ocean Key Resort and Spa"
+  },
+  {
+    "address": "1303 Legacy Dr\nFrisco, TX 75034",
+    "city": "Frisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.0885070000",
+    "longitude": "-96.8393270000",
+    "nid": "6774",
+    "title": "Silver Fox Steakhouse"
+  },
+  {
+    "address": "609 Walnut St\nCincinnati, OH 45202",
+    "city": "Cincinnati",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1030880000",
+    "longitude": "-84.5120570000",
+    "nid": "6775",
+    "title": "21c Hotel Cincinnati"
+  },
+  {
+    "address": "96 Pleasant St\nConcord, NH 03301",
+    "city": "Concord",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.2011589000",
+    "longitude": "-71.5442280000",
+    "nid": "6788",
+    "title": "The Centennial Inn"
+  },
+  {
+    "address": "1111 2nd St\nSanta Monica, CA 90403",
+    "city": "Santa Monica",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0183110000",
+    "longitude": "-118.5010670000",
+    "nid": "6789",
+    "title": "The Huntley Hotel"
+  },
+  {
+    "address": "1111 14th St\nDenver, CO 80202",
+    "city": "Denver",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.7463680000",
+    "longitude": "-104.9984390000",
+    "nid": "6790",
+    "title": "Four Seasons Hotel Denver"
+  },
+  {
+    "address": "2 Dole Dr\nWestlake Village, CA 91362",
+    "city": "Westlake Village",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.1518440000",
+    "longitude": "-118.8046430000",
+    "nid": "6791",
+    "title": "Four Seasons Westlake Village"
+  },
+  {
+    "address": "14850 NE 145th St\nWoodinville, WA 98072",
+    "city": "Woodinville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.7328640000",
+    "longitude": "-122.1471960000",
+    "nid": "6792",
+    "title": "Willows Lodge"
+  },
+  {
+    "address": "905 Country Club Rd\nOjai, CA 93023",
+    "city": "Ojai",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4382040000",
+    "longitude": "-119.2546090000",
+    "nid": "6793",
+    "title": "Ojai Valley Inn & Spa"
+  },
+  {
+    "address": "729 Southwest 15th Avenue\nPortland, OR 97205",
+    "city": "Portland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.5209868000",
+    "longitude": "-122.6877048000",
+    "nid": "6794",
+    "title": "Hotel deLuxe"
+  },
+  {
+    "address": "170 Railroad St\nSanta Rosa, CA 95401",
+    "city": "Santa Rosa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.4360680000",
+    "longitude": "-122.7198600000",
+    "nid": "6795",
+    "title": "Hyatt Vineyard Creek Hotel and Spa"
+  },
+  {
+    "address": "800 Sorella Ct\nHouston, TX 77024",
+    "city": "Houston",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.7797741000",
+    "longitude": "-95.5616562000",
+    "nid": "6796",
+    "title": "Hotel Sorella - CityCentre"
+  },
+  {
+    "address": "319 W Lake Blvd\r\nTahoe City, CA 96145",
+    "city": "Tahoe City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1609300000",
+    "longitude": "-120.1452950000",
+    "nid": "6797",
+    "title": "Oliver Luxury Real Estate"
+  },
+  {
+    "address": "68900 Frank Sinatra Dr\nRancho Mirage, CA 92270",
+    "city": "Rancho Mirage",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7668150000",
+    "longitude": "-116.4582600000",
+    "nid": "6798",
+    "title": "The Ritz-Carlton, Rancho Mirage"
+  },
+  {
+    "address": "7680 Granite Loop Rd\nTeton village, WY 83025",
+    "city": "Teton village",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.5898560000",
+    "longitude": "-110.8260230000",
+    "nid": "6800",
+    "title": "Four Seasons Resort & Residences Jackson Hole"
+  },
+  {
+    "address": "1325 S Lamar St\nDallas, TX 75215",
+    "city": "Dallas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.7675371000",
+    "longitude": "-96.7962415000",
+    "nid": "6802",
+    "title": "NYLO Dallas South Side"
+  },
+  {
+    "address": "4375 Admiralty Way\nMarina del Rey, CA 90292",
+    "city": "Marina del Rey",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.9841057000",
+    "longitude": "-118.4507094000",
+    "nid": "6803",
+    "title": "The Ritz-Carlton, Marina Del Rey"
+  },
+  {
+    "address": "205 Meeting St\nCharleston, SC 29401",
+    "city": "Charleston",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.7806540000",
+    "longitude": "-79.9323520000",
+    "nid": "6816",
+    "title": "Belmond Charleston Place"
+  },
+  {
+    "address": "465 Lodge Dr\nWheeling, WV 26003",
+    "city": "Wheeling",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.1006340000",
+    "longitude": "-80.6616550000",
+    "nid": "6817",
+    "title": "Oglebay Resort"
+  },
+  {
+    "address": "911 Riverwood Dr\nMurrells Inlet, SC 29576",
+    "city": "Murrells Inlet",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.5610230000",
+    "longitude": "-79.0461930000",
+    "nid": "6818",
+    "title": "Ellington at Wachesaw East"
+  },
+  {
+    "address": "1255 20th St\nSanta Monica, CA 90404",
+    "city": "Santa Monica",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0303200000",
+    "longitude": "-118.4818600000",
+    "nid": "6819",
+    "title": "Ambrose Hotel"
+  },
+  {
+    "address": "700 W Main St\nLouisville, KY 40202",
+    "city": "Louisville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.2567817000",
+    "longitude": "-85.7617756000",
+    "nid": "6820",
+    "title": "21c Hotel Louisville"
+  },
+  {
+    "address": "1320 Broadway Plaza\nTacoma, WA 98444",
+    "city": "Tacoma",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.2505770000",
+    "longitude": "-122.4399470000",
+    "nid": "6821",
+    "title": "Hotel Murano"
+  },
+  {
+    "address": "225 3rd Ave S\r\nMinneapolis, MN 55401",
+    "city": "Minneapolis",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.9803577000",
+    "longitude": "-93.2633657000",
+    "nid": "6822",
+    "title": "Renaissance Minneapolis Hotel"
+  },
+  {
+    "address": "3880 State Frontage Rd\nHood River, OR 97031",
+    "city": "Hood River",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.7115478000",
+    "longitude": "-121.5526164000",
+    "nid": "6823",
+    "title": "Columbia Cliffs Villas"
+  },
+  {
+    "address": "300 W Main St\nWhite Sulphur Springs, WV 24986",
+    "city": "White Sulphur Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7860410000",
+    "longitude": "-80.3079480000",
+    "nid": "6824",
+    "title": "The Greenbrier"
+  },
+  {
+    "address": "600 E Market St\nSan Antonio, TX 78205",
+    "city": "San Antonio",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.4221610000",
+    "longitude": "-98.4845520000",
+    "nid": "6825",
+    "title": "Grand Hyatt San Antonio"
+  },
+  {
+    "address": "4257 Petaluma Hill Rd\nSanta Rosa, CA 95404",
+    "city": "Santa Rosa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.3935452000",
+    "longitude": "-122.6930142000",
+    "nid": "6826",
+    "title": "The Gables Wine Country Inn"
+  },
+  {
+    "address": "100 Stuart St\nBoston, MA 02116",
+    "city": "Boston",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.3509380000",
+    "longitude": "-71.0652645000",
+    "nid": "6827",
+    "title": "W Boston Hotel Hotel & Residences"
+  },
+  {
+    "address": "7700 Stein Way\nPark City, UT 84060",
+    "city": "Park City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.6221159000",
+    "longitude": "-111.4909371000",
+    "nid": "6828",
+    "title": "Stein Eriksen Lodge"
+  },
+  {
+    "address": "161 Museum Dr\nHummelstown, PA 17036",
+    "city": "Hummelstown",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.3000910000",
+    "longitude": "-76.6896676000",
+    "nid": "6829",
+    "title": "AACA Antique Automobile Museum"
+  },
+  {
+    "address": "13031 Ritz Carlton Highlands Ct\nTruckee, CA 96161",
+    "city": "Truckee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.2674200000",
+    "longitude": "-120.1275040000",
+    "nid": "6830",
+    "title": "The Ritz-Carlton, Lake Tahoe"
+  },
+  {
+    "address": "4143 Cedar Ave\nSouth Lake Tahoe, CA 96150",
+    "city": "South Lake Tahoe",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.9599005000",
+    "longitude": "-119.9445238000",
+    "nid": "6831",
+    "title": "Basecamp Hotel"
+  },
+  {
+    "address": "6080 Viscount Rd\nMississauga, Ontario L4V 0A1",
+    "city": "Mississauga",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.6906630000",
+    "longitude": "-79.6170200000",
+    "nid": "6832",
+    "title": "ALT Hotel - Toronto Airport"
+  },
+  {
+    "address": "50 Hillside Dr\nMammoth Lakes, CA 93546",
+    "city": "Mammoth Lakes",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.6494700000",
+    "longitude": "-118.9866810000",
+    "nid": "6833",
+    "title": "Westin Monache Resort"
+  },
+  {
+    "address": "3315 Peachtree Rd\nAtlanta, GA 30326",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8453770000",
+    "longitude": "-84.3686270000",
+    "nid": "6834",
+    "title": "InterContinental Buckhead Atlanta"
+  },
+  {
+    "address": "120 Highlands Dr\nCarmel, CA 93923",
+    "city": "Carmel",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.5018960000",
+    "longitude": "-121.9374874000",
+    "nid": "6835",
+    "title": "Hyatt Carmel Highlands"
+  },
+  {
+    "address": "101 W Royal Ln\nIrving, TX 75039",
+    "city": "Irving",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.8963470000",
+    "longitude": "-96.9628380000",
+    "nid": "6836",
+    "title": "NYLO Irving / Las Colinas"
+  },
+  {
+    "address": "8201 Preston Rd\nPlano, TX 75024",
+    "city": "Plano",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.0889411000",
+    "longitude": "-96.8062995000",
+    "nid": "6837",
+    "title": "NYLO Plano"
+  },
+  {
+    "address": "6589 N Lake Blvd\nTahoe Vista, CA 96148",
+    "city": "Tahoe Vista",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.2408830000",
+    "longitude": "-120.0565400000",
+    "nid": "6864",
+    "title": "Cedar Glen Lodge"
+  },
+  {
+    "address": "292 E Meadow Dr\nVail, CO 81657",
+    "city": "Vail",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.6419040000",
+    "longitude": "-106.3731180000",
+    "nid": "6865",
+    "title": "Vail’s Mountain Haus at the Covered Bridge"
+  },
+  {
+    "address": "355 S Monarch St\nAspen, CO 81611",
+    "city": "Aspen",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1888210000",
+    "longitude": "-106.8211680000",
+    "nid": "6866",
+    "title": "Limelight Hotel"
+  },
+  {
+    "address": "22300 Bluemound Rd\r\nWaukesha, WI 53186",
+    "city": "Waukesha",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0367000000",
+    "longitude": "-88.1922080000",
+    "nid": "6867",
+    "title": "Marshall Auto Body"
+  },
+  {
+    "address": "5007 Fulton Rd\nFulton, CA 95439",
+    "city": "Fulton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.5042170000",
+    "longitude": "-122.7701790000",
+    "nid": "6868",
+    "title": "Kendall Jackson Wine Estate"
+  },
+  {
+    "address": "198 Van Vorst St\r\nJersey City, NJ 07302",
+    "city": "Jersey City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.7138700000",
+    "longitude": "-74.0413800000",
+    "nid": "6869",
+    "title": "Propark - Madox Apartments"
+  },
+  {
+    "address": "100 Orchard Inn Ln\nSaluda, NC 28773",
+    "city": "Saluda",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.2292950000",
+    "longitude": "-82.3352680000",
+    "nid": "6870",
+    "title": "The Orchard Inn, a Select Registry Property"
+  },
+  {
+    "address": "5855 W Century Blvd\nLos Angeles, CA 90045",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.9460820000",
+    "longitude": "-118.3842664000",
+    "nid": "6872",
+    "title": "Los Angeles Airport Marriott"
+  },
+  {
+    "address": "6526 Yount St\nYountville, CA 94599",
+    "city": "Yountville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.4024690000",
+    "longitude": "-122.3611040000",
+    "nid": "6873",
+    "title": "Bardessono Hotel & Spa"
+  },
+  {
+    "address": "11101 Lansing St\nMendocino, CA 95460",
+    "city": "Mendocino",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.3154958000",
+    "longitude": "-123.7992050000",
+    "nid": "6874",
+    "title": "Sea Rock Inn, a Select Registry Property"
+  },
+  {
+    "address": "8007 Walnut Hill Ln\nDallas, TX 75231",
+    "city": "Dallas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.8802400000",
+    "longitude": "-96.7685680000",
+    "nid": "6875",
+    "title": "Preston Hollow Emergency Room"
+  },
+  {
+    "address": "126 Rue Saint Pierre\nQuebec, Quebec G1K 4A8",
+    "city": "Quebec",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "46.8162360000",
+    "longitude": "-71.2034310000",
+    "nid": "6891",
+    "title": "Hotel Le Germain Dominion - Quebec"
+  },
+  {
+    "address": "30 Mercer St\nToronto, Ontario M5V 1H3",
+    "city": "Toronto",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.6456310000",
+    "longitude": "-79.3908570000",
+    "nid": "6892",
+    "title": "Hotel Le Germain - Toronto"
+  },
+  {
+    "address": "2050 RUE Mansfield\nMontreal, Quebec H3A 1Y9",
+    "city": "Montreal",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "45.5026380000",
+    "longitude": "-73.5742510000",
+    "nid": "6893",
+    "title": "Hotel Le Germain - Montreal"
+  },
+  {
+    "address": "1200 Germain-des-Prés Ave\nQuebec City, Quebec G1V 3M7",
+    "city": "Quebec City",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "46.7688820000",
+    "longitude": "-71.2870550000",
+    "nid": "6894",
+    "title": "Alt Hotel - Quebec"
+  },
+  {
+    "address": "6500 Boulevard de Rome\r\nBrossard, Quebec J4Y 0B6",
+    "city": "Brossard",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "45.4407690000",
+    "longitude": "-73.4391850000",
+    "nid": "6895",
+    "title": "Alt Hotel - Brossard Quartier DIX30"
+  },
+  {
+    "address": "120 Peel St\nMontreal, Quebec H3C 0L8",
+    "city": "Montreal",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "45.4928052000",
+    "longitude": "-73.5570462000",
+    "nid": "6896",
+    "title": "Alt Hotel - Montreal Griffintown"
+  },
+  {
+    "address": "1717 Hwy 255 S\nCleveland, Georgia 30528",
+    "city": "Cleveland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.6153710000",
+    "longitude": "-83.7019700000",
+    "nid": "6897",
+    "title": "Yonah Mountain Vineyards"
+  },
+  {
+    "address": "222 Beaverwood Rd\nSaranac Lake, NY 12983",
+    "city": "Saranac Lake",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.3035710000",
+    "longitude": "-74.3302780000",
+    "nid": "6898",
+    "title": "The Point Resort"
+  },
+  {
+    "address": "4200 E Palm Canyon Dr\nPalm Springs, California 92264",
+    "city": "Palm Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7952160000",
+    "longitude": "-116.5015110000",
+    "nid": "6899",
+    "title": "Parker Palm Springs"
+  },
+  {
+    "address": "222 Adams Rd\nWilliamstown, MA 01267",
+    "city": "Williamstown",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.7052817000",
+    "longitude": "-73.1906598000",
+    "nid": "6900",
+    "title": "The Orchards Hotel"
+  },
+  {
+    "address": "75 14th St NE\nAtlanta, GA 30309",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7866470000",
+    "longitude": "-84.3855330000",
+    "nid": "6901",
+    "title": "Four Seasons Hotel Atlanta"
+  },
+  {
+    "address": "1 Crestwood Dr\nWest Orange, NJ 07052",
+    "city": "West Orange",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.8043210000",
+    "longitude": "-74.2376430000",
+    "nid": "6902",
+    "title": "Highlawn Pavilion"
+  },
+  {
+    "address": "1800 Old Bayshore Hwy\nBurlingame, CA 94010",
+    "city": "Burlingame",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.6026450000",
+    "longitude": "-122.3710000000",
+    "nid": "6903",
+    "title": "San Francisco Airport Marriott Waterfront"
+  },
+  {
+    "address": "255 N Virginia St\nReno, NV 89501",
+    "city": "Reno",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.5278800000",
+    "longitude": "-119.8137540000",
+    "nid": "6904",
+    "title": "Whitney Peak Hotel"
+  },
+  {
+    "address": "12500 Crystal Mountain Dr\nThompsonville, MI 49683",
+    "city": "Thompsonville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.5192603000",
+    "longitude": "-85.9906554000",
+    "nid": "6906",
+    "title": "Crystal Mountain"
+  },
+  {
+    "address": "9500 Wilshire Blvd\nBeverly Hills, CA 90212",
+    "city": "Beverly Hills",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0666534000",
+    "longitude": "-118.4010018000",
+    "nid": "6917",
+    "title": "Beverly Wilshire, a Four Seasons Hotel"
+  },
+  {
+    "address": "801 N Beeline Hwy\nPayson, AZ 85541",
+    "city": "Payson",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.2512098000",
+    "longitude": "-111.3217987000",
+    "nid": "6918",
+    "title": "Quality Inn Payson"
+  },
+  {
+    "address": "6470 Moonstone Beach Dr\nCambria, CA 93428",
+    "city": "Cambria",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.5765040000",
+    "longitude": "-121.1135290000",
+    "nid": "6920",
+    "title": "Blue Dolphin Inn"
+  },
+  {
+    "address": "6252 Moonstone Beach Dr\nCambria, CA 93428",
+    "city": "Cambria",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.5736830000",
+    "longitude": "-121.1123150000",
+    "nid": "6921",
+    "title": "Sand Pebbles Inn"
+  },
+  {
+    "address": "1919 Briar Oaks Ln\nHouston, TX 77027",
+    "city": "Houston",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.7470990000",
+    "longitude": "-95.4507340000",
+    "nid": "6922",
+    "title": "The St. Regis Houston"
+  },
+  {
+    "address": "2 Grasslawn Ave\nHilton Head Island, SC 29928",
+    "city": "Hilton Head Island",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.2089885000",
+    "longitude": "-80.6815982000",
+    "nid": "6923",
+    "title": "The Westin Hilton Head Island Resort & Spa"
+  },
+  {
+    "address": "6250 Hollywood Blvd\nLos Angeles, CA 90028",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.1016080000",
+    "longitude": "-118.3258040000",
+    "nid": "6960",
+    "title": "W Hollywood Hotel and Residences"
+  },
+  {
+    "address": "280 Vanderbilt Beach Rd\nNaples, FL 34108",
+    "city": "Naples",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.2514640000",
+    "longitude": "-81.8208000000",
+    "nid": "6961",
+    "title": "The Ritz-Carlton, Naples Beach Resort"
+  },
+  {
+    "address": "500 College Ave\nAthens, GA 30601",
+    "city": "Athens",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.9619830000",
+    "longitude": "-83.3758850000",
+    "nid": "6962",
+    "title": "Hotel Indigo - Athens"
+  },
+  {
+    "address": "6 Christian St\nRehoboth Beach, DE 19971",
+    "city": "Rehoboth Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.7146717000",
+    "longitude": "-75.0824831000",
+    "nid": "6964",
+    "title": "The Bellmoor Inn & Spa, a Select Registry Property"
+  },
+  {
+    "address": "900 North Point St Suite D100\nSan Francisco, CA 94109",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.8053880000",
+    "longitude": "-122.4234180000",
+    "nid": "6965",
+    "title": "Fairmont Heritage Place Ghirardelli Square"
+  },
+  {
+    "address": "920 S Camino Real\nCottonwood, AZ 86326",
+    "city": "Cottonwood",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.7227520000",
+    "longitude": "-112.0062650000",
+    "nid": "6966",
+    "title": "Pines Motel"
+  },
+  {
+    "address": "20 Vail Rd\nVail, CO 81657",
+    "city": "Vail",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.6415870000",
+    "longitude": "-106.3782030000",
+    "nid": "6967",
+    "title": "Sonnenalp Hotel"
+  },
+  {
+    "address": "3376 Peachtree Rd NE\nAtlanta, GA 30326",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8489200000",
+    "longitude": "-84.3660700000",
+    "nid": "6968",
+    "title": "Mandarin Oriental, Atlanta"
+  },
+  {
+    "address": "500 Brickell Key Dr\nMiami, FL 33131",
+    "city": "Miami",
+    "country": "United States",
+    "hours": "",
+    "latitude": "25.7654138000",
+    "longitude": "-80.1851384000",
+    "nid": "6969",
+    "title": "Mandarin Oriental, Miami"
+  },
+  {
+    "address": "4720 Allendale Rd\nOkanagan Falls, British Columbia V0H 1R2",
+    "city": "Okanagan Falls",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.3247253000",
+    "longitude": "-119.5460569000",
+    "nid": "6970",
+    "title": "Liquidity Wines"
+  },
+  {
+    "address": "345 N Virginia St\nReno, NV 89501",
+    "city": "Reno",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.5285650000",
+    "longitude": "-119.8152710000",
+    "nid": "6971",
+    "title": "Eldorado Resort Casino Reno"
+  },
+  {
+    "address": "875 Rutherford Rd\nRutherford, CA 94558",
+    "city": "Rutherford",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.4683160000",
+    "longitude": "-122.4049020000",
+    "nid": "6972",
+    "title": "Round Pond Winery"
+  },
+  {
+    "address": "44400 Indian Wells Ln\nIndian Wells, CA 92210",
+    "city": "Indian Wells",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7233010000",
+    "longitude": "-116.3295380000",
+    "nid": "6973",
+    "title": "Renaissance Indian Wells Resort & Spa"
+  },
+  {
+    "address": "90 Front St\nExeter, NH 03833",
+    "city": "Exeter",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.9777294000",
+    "longitude": "-70.9542299000",
+    "nid": "6975",
+    "title": "The Exeter Inn"
+  },
+  {
+    "address": "59 Ocean Ave\nKennebunkport, ME 04046",
+    "city": "Kennebunkport",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.3571986000",
+    "longitude": "-70.4743118000",
+    "nid": "6976",
+    "title": "Yachtsman Lodge & Marina"
+  },
+  {
+    "address": "311 Lawrence Dr\nTownshend, VT 05359",
+    "city": "Townshend",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0996210000",
+    "longitude": "-72.7036059000",
+    "nid": "6977",
+    "title": "Windham Hill Inn"
+  },
+  {
+    "address": "1 Lincoln Rd\nMiami Beach, FL 33139",
+    "city": "Miami Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "25.7908230000",
+    "longitude": "-80.1291160000",
+    "nid": "6978",
+    "title": "The Ritz-Carlton, South Beach"
+  },
+  {
+    "address": "3000 N Ocean Blvd\nMyrtle Beach, SC 29577",
+    "city": "Myrtle Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7078720000",
+    "longitude": "-78.8616830000",
+    "nid": "6979",
+    "title": "The Caribbean Resort & Villas"
+  },
+  {
+    "address": "100-B Mallard Sunrise Dr\nSuite B\nWestmoreland, Tennessee 37186",
+    "city": "Westmoreland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.5541460000",
+    "longitude": "-86.2379290000",
+    "nid": "6980",
+    "title": "Westmoreland Family Clinic"
+  },
+  {
+    "address": "1200 W Arizona 89A\nSedona, AZ 86336",
+    "city": "Sedona",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.8637690000",
+    "longitude": "-111.7815630000",
+    "nid": "6981",
+    "title": "Best Western Plus Inn of Sedona"
+  },
+  {
+    "address": "675 E Durant Ave\nAspen, CO 81611",
+    "city": "Aspen",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1866234000",
+    "longitude": "-106.8175696000",
+    "nid": "6982",
+    "title": "The Little Nell"
+  },
+  {
+    "address": "5200 E Camelback Rd\nPhoenix, AZ 85018",
+    "city": "Phoenix",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.5042360000",
+    "longitude": "-111.9692470000",
+    "nid": "6983",
+    "title": "Royal Palms Resort and Spa"
+  },
+  {
+    "address": "49684 Hwy 12\nBuxton, NC 27920",
+    "city": "Buxton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.2625520000",
+    "longitude": "-75.5693610000",
+    "nid": "6984",
+    "title": "The Inn on Pamlico Sound"
+  },
+  {
+    "address": "35 W 5th St\nCincinnati, Ohio 45202",
+    "city": "Cincinnati",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1008925000",
+    "longitude": "-84.5141913000",
+    "nid": "6985",
+    "title": "Hilton Cincinnati Netherland Plaza"
+  },
+  {
+    "address": "9 E Wilson St\nMadison, WI 53703",
+    "city": "Madison",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0727820000",
+    "longitude": "-89.3808750000",
+    "nid": "6986",
+    "title": "Hilton Madison Monona Terrace"
+  },
+  {
+    "address": "7 Concourse Parkway Northeast\nAtlanta, GA 30328",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.9148270000",
+    "longitude": "-84.3558040000",
+    "nid": "6987",
+    "title": "Westin Atlanta Perimeter Center"
+  },
+  {
+    "address": "660 Dennett St\nPacific Grove, CA 93950",
+    "city": "Pacific Grove",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.6198213000",
+    "longitude": "-121.9328597000",
+    "nid": "6988",
+    "title": "Best Western The Inn & Suites Pacific Grove"
+  },
+  {
+    "address": "501 N McKenzie St\nFoley, AL 36535",
+    "city": "Foley",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.4108140000",
+    "longitude": "-87.6839560000",
+    "nid": "6989",
+    "title": "Benson's Appliance Center"
+  },
+  {
+    "address": "6th Ave PO Box 3762\nCarmel, CA 93923",
+    "city": "Carmel",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.5556420000",
+    "longitude": "-121.9245630000",
+    "nid": "7015",
+    "title": "Tally Ho"
+  },
+  {
+    "address": "1 Seascape Resort Dr\nAptos, CA 95003",
+    "city": "Aptos",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.9506523000",
+    "longitude": "-121.8769721000",
+    "nid": "7016",
+    "title": "Seascape Beach Resort"
+  },
+  {
+    "address": "525 Boynton Canyon Rd\nSedona, AZ 86336",
+    "city": "Sedona",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.9149020000",
+    "longitude": "-111.8540540000",
+    "nid": "7017",
+    "title": "Enchantment Resort and Mii Amo Spa"
+  },
+  {
+    "address": "4412 Bass Pro Dr\nGarland, TX 75043",
+    "city": "Garland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.8644720000",
+    "longitude": "-96.5415110000",
+    "nid": "7018",
+    "title": "Holiday Inn Express & Suites Garland E - Lake Hubbard I30"
+  },
+  {
+    "address": "2450 Brinker Rd\nDenton, TX 76208",
+    "city": "Denton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.1827870000",
+    "longitude": "-97.1000660000",
+    "nid": "7019",
+    "title": "Best Western Premier  Crown Chase Inn & Suites"
+  },
+  {
+    "address": "7871 River Rd\nForestville, CA 95436",
+    "city": "Forestville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.4900040000",
+    "longitude": "-122.8834770000",
+    "nid": "7020",
+    "title": "Farmhouse Inn"
+  },
+  {
+    "address": "226 N State St\nJackson, MS 39201",
+    "city": "Jackson",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.3009060000",
+    "longitude": "-90.1795560000",
+    "nid": "7021",
+    "title": "Old Capitol Inn"
+  },
+  {
+    "address": "2825 Adelaida Rd\nPaso Robles, CA 93446",
+    "city": "Paso Robles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.6510500000",
+    "longitude": "-120.7414890000",
+    "nid": "7023",
+    "title": "Alta Colina Vineyard & Winery"
+  },
+  {
+    "address": "2931 Moray Ave\r\nCourtenay, British Columbia V9N 7S7",
+    "city": "Courtenay, BC",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.6693810000",
+    "longitude": "-124.9844950000",
+    "nid": "7024",
+    "title": "Wayward Distillation House"
+  },
+  {
+    "address": "148 W Gower Ave\nCannon Beach, OR 97110",
+    "city": "Cannon Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.8905640000",
+    "longitude": "-123.9628750000",
+    "nid": "7026",
+    "title": "Surfsand Resort"
+  },
+  {
+    "address": "25191 US Highway 19 N\nClearwater, FL 33763",
+    "city": "Clearwater",
+    "country": "United States",
+    "hours": "",
+    "latitude": "28.0018790000",
+    "longitude": "-82.7277940000",
+    "nid": "7027",
+    "title": "Dimmitt Automotive Group Collision Center"
+  },
+  {
+    "address": "150 E De Vargas St\nSanta Fe, NM 87501",
+    "city": "Santa Fe",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.6837680000",
+    "longitude": "-105.9380170000",
+    "nid": "7028",
+    "title": "The Inn of The Five Graces"
+  },
+  {
+    "address": "950 Mason St\nSan Francisco, CA 94108",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7924958000",
+    "longitude": "-122.4100354000",
+    "nid": "7029",
+    "title": "The Fairmont San Francisco"
+  },
+  {
+    "address": "4289 Main St\nLaPlace, LA 70068",
+    "city": "LaPlace",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.0845470000",
+    "longitude": "-90.4465630000",
+    "nid": "7030",
+    "title": "Best Western La Place Inn"
+  },
+  {
+    "address": "1705 S Quinlan Park Rd\nAustin, TX 78732",
+    "city": "Austin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.3272668000",
+    "longitude": "-97.9254155000",
+    "nid": "7032",
+    "title": "Lake Austin Spa Resort"
+  },
+  {
+    "address": "300 Light St\nBaltimore, MD 21202",
+    "city": "Baltimore",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.2846200000",
+    "longitude": "-76.6136710000",
+    "nid": "7033",
+    "title": "Hyatt Regency Baltimore"
+  },
+  {
+    "address": "1521 Ski Hill Rd\nBreckenridge, CO 80424",
+    "city": "Breckenridge",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.4804860000",
+    "longitude": "-106.0669080000",
+    "nid": "7034",
+    "title": "One Ski Hill Place A Rock Resort"
+  },
+  {
+    "address": "301 Village Centre Place\nVernon, British Columbia v1h 1t2",
+    "city": "Vernon",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.1884100000",
+    "longitude": "-119.3884230000",
+    "nid": "7035",
+    "title": "Predator Ridge Resort"
+  },
+  {
+    "address": "6645 Fallsview Blvd\nNiagara Falls, Ontario L2G 7G1",
+    "city": "Niagara Falls",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.0792267000",
+    "longitude": "-79.0826094000",
+    "nid": "7036",
+    "title": "Comfort Inn Fallsview"
+  },
+  {
+    "address": "125 E St George Blvd\nSt George, UT 84770",
+    "city": "St George",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.1100279000",
+    "longitude": "-113.5799972000",
+    "nid": "7037",
+    "title": "Best Western Coral Hills"
+  },
+  {
+    "address": "1912 Millbrook Rd\nWaitsfield, VT 05673",
+    "city": "Waitsfield",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.1869150000",
+    "longitude": "-72.8781250000",
+    "nid": "7038",
+    "title": "Mountain View Inn"
+  },
+  {
+    "address": "3300 Lenox Rd NE\nAtlanta, GA 30326",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8454512000",
+    "longitude": "-84.3600387000",
+    "nid": "7039",
+    "title": "JW Marriott Atlanta Buckhead"
+  },
+  {
+    "address": "880 S Westlake Blvd\nWestlake Village, CA 91361",
+    "city": "Westlake Village",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.1550113000",
+    "longitude": "-118.8250613000",
+    "nid": "7040",
+    "title": "Hyatt Westlake Plaza"
+  },
+  {
+    "address": "3000 South Loop 256\nPalestine, TX 75801",
+    "city": "Palestine",
+    "country": "United States",
+    "hours": "",
+    "latitude": "31.7340280000",
+    "longitude": "-95.6294049000",
+    "nid": "7043",
+    "title": "La Quinta Inn & Suites Palestine"
+  },
+  {
+    "address": "3290 S Service Rd\nBurlington, Ontario L7N 3M6",
+    "city": "Burlington",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.3591980000",
+    "longitude": "-79.7949000000",
+    "nid": "7044",
+    "title": "Comfort Inn Burlington, ON"
+  },
+  {
+    "address": "133 Sierra Springs Dr SE\nAirdrie, Alberta T4B 3G7",
+    "city": "Airdrie",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "51.2683690000",
+    "longitude": "-114.0044690000",
+    "nid": "7045",
+    "title": "Comfort Inn & Suites Airdrie"
+  },
+  {
+    "address": "500 Boulevard du Beau Pre\r\nBeaupre, Québec G0A 1E0",
+    "city": "Beaupre",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "47.0739523000",
+    "longitude": "-70.9058124000",
+    "nid": "7046",
+    "title": "Chateau Mont-Ste-Anne"
+  },
+  {
+    "address": "8400 Sunset Blvd\nWest Hollywood, CA 90069",
+    "city": "West Hollywood",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0963159000",
+    "longitude": "-118.3727563000",
+    "nid": "7047",
+    "title": "Best Western Plus Sunset Plaza Hotel"
+  },
+  {
+    "address": "1200 Alta Loma Rd\nWest Hollywood, CA 90069",
+    "city": "West Hollywood",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0919850000",
+    "longitude": "-118.3777660000",
+    "nid": "7050",
+    "title": "Sunset Marquis Hotel"
+  },
+  {
+    "address": "1496 W Hill Rd\nWarren, VT 05674",
+    "city": "Warren",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.1241630000",
+    "longitude": "-72.8825960000",
+    "nid": "7051",
+    "title": "West Hill House B&B, a Select Registry Property"
+  },
+  {
+    "address": "18880 Gale Ave\nRowland Heights, CA 91748",
+    "city": "Rowland Heights",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.9947590000",
+    "longitude": "-117.8914930000",
+    "nid": "7052",
+    "title": "Best Western Plus Executive Inn"
+  },
+  {
+    "address": "2726 Makah Passage\nNeah Bay, WA 98357",
+    "city": "Neah Bay",
+    "country": "United States",
+    "hours": "",
+    "latitude": "48.3407230000",
+    "longitude": "-124.6629240000",
+    "nid": "7053",
+    "title": "Hobuck Beach  Resort"
+  },
+  {
+    "address": "3346 Makah Passage\nNeah Bay, WA 98357",
+    "city": "Neah Bay",
+    "country": "United States",
+    "hours": "",
+    "latitude": "48.3334791000",
+    "longitude": "-124.6593683000",
+    "nid": "7054",
+    "title": "Hobuck Beach Resort  RV Camping"
+  },
+  {
+    "address": "770 28th St\nBoulder, CO 80303",
+    "city": "Boulder",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.0016160000",
+    "longitude": "-105.2579820000",
+    "nid": "7055",
+    "title": "Best Western Plus Boulder Inn"
+  },
+  {
+    "address": "707 S Virginia St\nReno, NV 89501",
+    "city": "Reno",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.4971810000",
+    "longitude": "-119.8002250000",
+    "nid": "7178",
+    "title": "Peppermill Resort Hotel"
+  },
+  {
+    "address": "1 Mohegan Sun Blvd\nUncasville, CT 06382",
+    "city": "Uncasville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.4906920000",
+    "longitude": "-72.0912770000",
+    "nid": "7179",
+    "title": "Mohegan Sun"
+  },
+  {
+    "address": "100 Pioneer Dr\nMarkdale, Ontario N0C 1H0",
+    "city": "Markdale",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "44.3581470000",
+    "longitude": "-80.5452930000",
+    "nid": "7180",
+    "title": "Beaver Valley Ski Club"
+  },
+  {
+    "address": "2701 North Montana Ave\nHelena, MT 59601",
+    "city": "Helena",
+    "country": "United States",
+    "hours": "",
+    "latitude": "46.6115680000",
+    "longitude": "-112.0200130000",
+    "nid": "7181",
+    "title": "Suds Hut Famous Chicken & Casino"
+  },
+  {
+    "address": "200 Boylston St\nBoston, MA 02116",
+    "city": "Boston",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.3521350000",
+    "longitude": "-71.0686730000",
+    "nid": "7182",
+    "title": "Four Seasons Hotel Boston"
+  },
+  {
+    "address": "1228 Sherbrooke St W\nMontreal, Québec H3G 1H6",
+    "city": "Montreal",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "45.4999210000",
+    "longitude": "-73.5784760000",
+    "nid": "7183",
+    "title": "The Ritz-Carlton Montreal"
+  },
+  {
+    "address": "1900 S 1st St\nChampaign, IL 61820",
+    "city": "Champaign",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.0934590000",
+    "longitude": "-88.2377830000",
+    "nid": "7184",
+    "title": "I Hotel and Conference Center"
+  },
+  {
+    "address": "2600 Louisiana Boulevard\nAlbuquerque, NM 87110",
+    "city": "Albuquerque",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1103730000",
+    "longitude": "-106.5677521000",
+    "nid": "7185",
+    "title": "Sheraton Albuquerque Uptown"
+  },
+  {
+    "address": "Fremont, CA 94538",
+    "city": "Fremont",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.5321810000",
+    "longitude": "-122.0002130000",
+    "nid": "7187",
+    "title": "Best Western Garden Court Inn"
+  },
+  {
+    "address": "2134 La Porte Rd\nWaterloo, IA 50702",
+    "city": "Waterloo",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.4665965000",
+    "longitude": "-92.3192290000",
+    "nid": "7189",
+    "title": "Fairfield Inn & Suites Waterloo Cedar Falls"
+  },
+  {
+    "address": "2250 W Seltice Way\nCoeur d'Alene, ID 83814",
+    "city": "Coeur d'Alene",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.6978563000",
+    "longitude": "-116.8086523000",
+    "nid": "7190",
+    "title": "SpringHill Suites Coeur d'Alene"
+  },
+  {
+    "address": "5391 Presquile Dr\nSanta Maria, CA 93455",
+    "city": "Santa Maria",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.8540430000",
+    "longitude": "-120.3708130000",
+    "nid": "7191",
+    "title": "Presqu'ile Winery"
+  },
+  {
+    "address": "1401 SW Naito Pkwy\r\nPortland, OR 97201",
+    "city": "Portland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.5123866000",
+    "longitude": "-122.6756475000",
+    "nid": "7192",
+    "title": "Portland Marriott Downtown Waterfront"
+  },
+  {
+    "address": "3422 Adventure Ln\nKodak, TN 37764",
+    "city": "Kodak",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.9817800000",
+    "longitude": "-83.6133450000",
+    "nid": "7193",
+    "title": "Mountain Motorsports"
+  },
+  {
+    "address": "1 Kayenta Rd\nCanyon Point, UT 84741",
+    "city": "Canyon Point",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.0144000000",
+    "longitude": "-111.6120004000",
+    "nid": "7194",
+    "title": "Amangiri"
+  },
+  {
+    "address": "3200 Boardwalk Dr\nAnn Arbor, MI 48108",
+    "city": "Ann Arbor",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.2411660000",
+    "longitude": "-83.7351750000",
+    "nid": "7195",
+    "title": "Sheraton Ann Arbor Hotel"
+  },
+  {
+    "address": "400 W Waterman St\nWichita, KS 67202",
+    "city": "Wichita",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.6828374000",
+    "longitude": "-97.3412290000",
+    "nid": "7196",
+    "title": "Hyatt Regency Wichita"
+  },
+  {
+    "address": "1025 La Bonita Dr\nSan Marcos, CA 92078",
+    "city": "San Marcos",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.1250370000",
+    "longitude": "-117.2081680000",
+    "nid": "7197",
+    "title": "Lakehouse Hotel & Resort"
+  },
+  {
+    "address": "3635 Fashion Way\nTorrance, CA 90503",
+    "city": "Torrance",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8358020000",
+    "longitude": "-118.3499950000",
+    "nid": "7198",
+    "title": "Torrance Marriott South Bay"
+  },
+  {
+    "address": "494 Arbutus Dr\r\nMayne Island, British Columbia V0N 2J1",
+    "city": "Mayne Island",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "48.8449140000",
+    "longitude": "-123.2514630000",
+    "nid": "7200",
+    "title": "Mayne Island Resort"
+  },
+  {
+    "address": "316 W Tennessee St\nTallahassee, FL 32301",
+    "city": "Tallahassee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.4451860000",
+    "longitude": "-84.2846430000",
+    "nid": "7201",
+    "title": "Four Points by Sheraton Tallahassee Downtown"
+  },
+  {
+    "address": "8670 Hwy 56\nFrench Lick, IN 47432",
+    "city": "French Lick",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.5540960000",
+    "longitude": "-86.6201690000",
+    "nid": "7202",
+    "title": "French Lick Resort"
+  },
+  {
+    "address": "2746 Hooper Ave\nBrick, NJ 08723",
+    "city": "Brick",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.0550410000",
+    "longitude": "-74.1339370000",
+    "nid": "7203",
+    "title": "Wine Shoppe"
+  },
+  {
+    "address": "2411 Price St\nPismo Beach, CA 93449",
+    "city": "Pismo Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1493290000",
+    "longitude": "-120.6513500000",
+    "nid": "7204",
+    "title": "Pismo Lighthouse Suites"
+  },
+  {
+    "address": "480 E. Shaw Ave\nFresno, CA 93710",
+    "city": "Fresno",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.8086559000",
+    "longitude": "-119.7810627000",
+    "nid": "7205",
+    "title": "Best Western Plus Fresno Inn"
+  },
+  {
+    "address": "〒415-0013\r\n静岡県下田市柿崎 633",
+    "city": "下田市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "34.6773838000",
+    "longitude": "138.9719247000",
+    "nid": "7545",
+    "title": "下田 ビューホテル"
+  },
+  {
+    "address": "〒810-0041\r\n福岡県中央区大名 2-6-60",
+    "city": "福岡県",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "33.5896170000",
+    "longitude": "130.3956040000",
+    "nid": "7546",
+    "title": "西鉄グランドホテル"
+  },
+  {
+    "address": "〒938-0282\r\n富山県黒部市宇奈月温泉 53",
+    "city": "黒部市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "36.8180035000",
+    "longitude": "137.5815367000",
+    "nid": "7549",
+    "title": "宇奈月温泉 延対寺荘"
+  },
+  {
+    "address": "〒451-8551\r\n愛知県名古屋市\t西区樋の口町 3-19-14",
+    "city": "名古屋市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "35.1854830000",
+    "longitude": "136.8956000000",
+    "nid": "7551",
+    "title": "ホテルナゴヤキャッスル"
+  },
+  {
+    "address": "〒414-0051\r\n静岡県伊東市吉田 1006",
+    "city": "伊東市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "34.9374440000",
+    "longitude": "139.1261350000",
+    "nid": "7554",
+    "title": "伊豆・伊東 サザンクロス ゴルフ&リゾート"
+  },
+  {
+    "address": "〒650-0003\r\n兵庫県神戸市中央区山本通 3-3-20",
+    "city": "神戸市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "34.6970330000",
+    "longitude": "135.1870150000",
+    "nid": "7555",
+    "title": "神戸北野ホテル"
+  },
+  {
+    "address": "72-74 Lonsdale St\nMelbourne VIC 3000",
+    "city": "Melbourne",
+    "country": "Australia",
+    "hours": "",
+    "latitude": "-37.8094922000",
+    "longitude": "144.9702081000",
+    "nid": "7557",
+    "title": "Melbourne Marriott Hotel"
+  },
+  {
+    "address": "18 Turner Street\nLeongatha VIC 3953",
+    "city": "Leongatha",
+    "country": "Australia",
+    "hours": "",
+    "latitude": "-38.4720580000",
+    "longitude": "145.9476450000",
+    "nid": "7558",
+    "title": "Leongatha Motel"
+  },
+  {
+    "address": "18 National Circuit\nBarton ACT 2600",
+    "city": "Barton",
+    "country": "Australia",
+    "hours": "",
+    "latitude": "-35.3122470000",
+    "longitude": "149.1332360000",
+    "nid": "7559",
+    "title": "Hotel Realm Canberra"
+  },
+  {
+    "address": "45920 First Ave\nChilliwack, British Columbia V2P 7K1",
+    "city": "Chilliwack",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.1681935000",
+    "longitude": "-121.9537286000",
+    "nid": "7594",
+    "title": "Coast Chilliwack Hotel"
+  },
+  {
+    "address": "5119 N. McColl Road\nMcAllen, TX 78504",
+    "city": "McAllen",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.2476090000",
+    "longitude": "-98.2059170000",
+    "nid": "7595",
+    "title": "Rubiano Real Estate Office"
+  },
+  {
+    "address": "800 Alvarado Pl\nSanta Barbara, CA 93103",
+    "city": "Santa Barbara",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4391560000",
+    "longitude": "-119.7042210000",
+    "nid": "7596",
+    "title": "Belmond El Encanto"
+  },
+  {
+    "address": "400 Gran Bahama Blvd\nDavenport, FL 33897",
+    "city": "Davenport",
+    "country": "United States",
+    "hours": "",
+    "latitude": "28.3237120000",
+    "longitude": "-81.6585650000",
+    "nid": "7597",
+    "title": "Bahama Bay Resort"
+  },
+  {
+    "address": "10600 E Crescent Moon Dr\nScottsdale, AZ 85262",
+    "city": "Scottsdale",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7319050000",
+    "longitude": "-111.8529040000",
+    "nid": "7598",
+    "title": "Four Seasons Resort Scottsdale at Troon North"
+  },
+  {
+    "address": "2000 2nd St\nCoronado, CA 92118",
+    "city": "Coronado",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.6948040000",
+    "longitude": "-117.1662150000",
+    "nid": "7599",
+    "title": "Coronado Island Marriott Resort"
+  },
+  {
+    "address": "1103 Spring St\nPaso Robles, CA 93446",
+    "city": "Paso Robles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.6255530000",
+    "longitude": "-120.6920600000",
+    "nid": "7600",
+    "title": "Paso Robles Inn"
+  },
+  {
+    "address": "50 W Thomas Pl\nBeaver Creek, CO 81620",
+    "city": "Beaver Creek",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.6048250000",
+    "longitude": "-106.5154870000",
+    "nid": "7602",
+    "title": "Park Hyatt Beaver Creek Resort and Spa"
+  },
+  {
+    "address": "1255 Boul. Duplessis\r\nAncienne-Lorette, Québec G2G 2B4",
+    "city": "Ancienne-Lorette",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "46.7881955000",
+    "longitude": "-71.3539628000",
+    "nid": "7603",
+    "title": "Comfort Inn Airport East"
+  },
+  {
+    "address": "2555 Price St\r\nPismo Beach, CA 93449",
+    "city": "Pismo Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1491060000",
+    "longitude": "-120.6532720000",
+    "nid": "7604",
+    "title": "Shore Cliff Hotel"
+  },
+  {
+    "address": "3020 Blanshard St\nVictoria, British Columbia V8T 5C7",
+    "city": "Victoria",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "48.4440229000",
+    "longitude": "-123.3674944000",
+    "nid": "7605",
+    "title": "Comfort Inn & Suites Victoria"
+  },
+  {
+    "address": "505 N Fort Lauderdale Beach Blvd\nFort Lauderdale, FL 33304",
+    "city": "Fort Lauderdale",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.1291470000",
+    "longitude": "-80.1040370000",
+    "nid": "7606",
+    "title": "Hilton Fort Lauderdale Beach Resort"
+  },
+  {
+    "address": "550 Front St\nAvila Beach, CA 93424",
+    "city": "Avila Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1800910000",
+    "longitude": "-120.7354810000",
+    "nid": "7607",
+    "title": "Avila Lighthouse Suites"
+  },
+  {
+    "address": "325 Bay St\nToronto, Ontario M5H 4G3",
+    "city": "Toronto",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.6499370000",
+    "longitude": "-79.3801910000",
+    "nid": "7609",
+    "title": "TRUMP Toronto International Hotel and Tower"
+  },
+  {
+    "address": "5360 NW 20th Terrace\nFort Lauderdale, FL 33309",
+    "city": "Fort Lauderdale",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.1937040000",
+    "longitude": "-80.1702870000",
+    "nid": "7610",
+    "title": "Banyan Air Service"
+  },
+  {
+    "address": "34280 Pacific Coast Hwy\nDana Point, CA 92629",
+    "city": "Dana Point",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.4658094000",
+    "longitude": "-117.6893800000",
+    "nid": "7611",
+    "title": "Best Western Plus Marina Shores Hotel"
+  },
+  {
+    "address": "11645 Wilshire Blvd\nLos Angeles, CA 90025",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0501870000",
+    "longitude": "-118.4603420000",
+    "nid": "7612",
+    "title": "Wilshire West Medical Tower"
+  },
+  {
+    "address": "1175 Beach Dr\nVictoria, British Columbia V8S 2N2",
+    "city": "Victoria",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "48.4199482000",
+    "longitude": "-123.2994611000",
+    "nid": "7613",
+    "title": "Oak Bay Beach Hotel"
+  },
+  {
+    "address": "15 S River Ln\nGeneva, IL 60134",
+    "city": "Geneva",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.8868446000",
+    "longitude": "-88.3038036000",
+    "nid": "7614",
+    "title": "The Herrington Inn and Spa"
+  },
+  {
+    "address": "222 Sansome St\nSan Francisco, CA 94104",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7924420000",
+    "longitude": "-122.4010390000",
+    "nid": "7615",
+    "title": "Loews Regency San Francisco"
+  },
+  {
+    "address": "999 California St\nSan Francisco, CA 94108",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7915960000",
+    "longitude": "-122.4103850000",
+    "nid": "7616",
+    "title": "InterContinental Mark Hopkins San Francisco"
+  },
+  {
+    "address": "572 N Indian Canyon Dr\nPalm Springs, CA 92262",
+    "city": "Palm Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8315330000",
+    "longitude": "-116.5454690000",
+    "nid": "7617",
+    "title": "Colony Palms Hotel"
+  },
+  {
+    "address": "10 NW Minnesota Ave\nBend, OR 97701",
+    "city": "Bend",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.0579220000",
+    "longitude": "-121.3120530000",
+    "nid": "7618",
+    "title": "The Oxford Hotel"
+  },
+  {
+    "address": "1129 S Bluff St\nSt George, UT 84770",
+    "city": "St George",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.0888660000",
+    "longitude": "-113.5845240000",
+    "nid": "7619",
+    "title": "Best Western Plus Abbey Inn & Suites"
+  },
+  {
+    "address": "117 Linda Ann Ave\nGray, LA 70359",
+    "city": "Gray",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.6815640000",
+    "longitude": "-90.7821920000",
+    "nid": "7620",
+    "title": "Best Western Plus Houma Inn"
+  },
+  {
+    "address": "316 E St George Blvd\nSt George, UT 84770",
+    "city": "St George",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.1095483000",
+    "longitude": "-113.5765225000",
+    "nid": "7621",
+    "title": "Best Western Travel Inn"
+  },
+  {
+    "address": "60 Yorkville Ave\nToronto, Ontario M4W 0A4",
+    "city": "Toronto",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.6718530000",
+    "longitude": "-79.3895130000",
+    "nid": "7622",
+    "title": "Four Seasons Hotel Toronto"
+  },
+  {
+    "address": "7751 California 1\nLittle River, CA 95456",
+    "city": "Little River",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.2722670000",
+    "longitude": "-123.7891320000",
+    "nid": "7623",
+    "title": "Little River Inn"
+  },
+  {
+    "address": "8538 W Baden Ave\nWest Baden Springs, IN 47469",
+    "city": "West Baden Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.5682150000",
+    "longitude": "-86.6182990000",
+    "nid": "7624",
+    "title": "West Baden Springs Hotel"
+  },
+  {
+    "address": "1330 Maryland Ave SW\nWashington, DC 20024",
+    "city": "Washington",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.8838280000",
+    "longitude": "-77.0302470000",
+    "nid": "7626",
+    "title": "Mandarin Oriental, Washington DC"
+  },
+  {
+    "address": "1 Ahwahnee Dr\nYosemite National Park, CA 95389",
+    "city": "Yosemite National Park",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7461540000",
+    "longitude": "-119.5743357000",
+    "nid": "7627",
+    "title": "The Majestic Yosemite Hotel"
+  },
+  {
+    "address": "1255 41st Ave\nCapitola, CA 95010",
+    "city": "Capitola",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.9697758000",
+    "longitude": "-121.9655326000",
+    "nid": "7628",
+    "title": "Fairfield Inn & Suites by Marriott Santa Cruz - Capitola"
+  },
+  {
+    "address": "115 Battery St\nSan Francisco, California 94111",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7924960000",
+    "longitude": "-122.3999800000",
+    "nid": "7629",
+    "title": "345 California Center Parking Garage"
+  },
+  {
+    "address": "4026 Jackpot Rd\nGrove City, OH 43123",
+    "city": "Grove City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.8798030000",
+    "longitude": "-83.0455049000",
+    "nid": "7631",
+    "title": "Best Western Executive Inn"
+  },
+  {
+    "address": "9565 Semiahmoo Pkwy\nBlaine, WA 98230",
+    "city": "Blaine",
+    "country": "United States",
+    "hours": "",
+    "latitude": "48.9904860000",
+    "longitude": "-122.7744470000",
+    "nid": "7632",
+    "title": "Semiahmoo Resort & Spa"
+  },
+  {
+    "address": "170 S Market St\nSan Jose, CA 95113",
+    "city": "San Jose",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.3327794000",
+    "longitude": "-121.8892745000",
+    "nid": "7633",
+    "title": "The Fairmont San Jose"
+  },
+  {
+    "address": "525 Legget Dr\nOttawa, Ontario K2K 2W2",
+    "city": "Ottawa",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "45.3479590000",
+    "longitude": "-75.9181100000",
+    "nid": "7634",
+    "title": "Brookstreet Hotel"
+  },
+  {
+    "address": "2611 East E St\nTacoma, WA 98421",
+    "city": "Tacoma",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.2385300000",
+    "longitude": "-122.4272130000",
+    "nid": "7635",
+    "title": "Best Western Plus Tacoma Dome Hotel"
+  },
+  {
+    "address": "203 Antelope Blvd\nRed Bluff, CA 96080",
+    "city": "Red Bluff",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.1817150000",
+    "longitude": "-122.2205550000",
+    "nid": "7636",
+    "title": "Best Western Antelope Inn"
+  },
+  {
+    "address": "12001 Hwy 99\nManteca, CA 95336",
+    "city": "Manteca",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.8549750000",
+    "longitude": "-121.2193169000",
+    "nid": "7638",
+    "title": "Delicato Family Vineyards Manteca"
+  },
+  {
+    "address": "100 Chopin Plaza\nMiami, FL 33131",
+    "city": "Miami",
+    "country": "United States",
+    "hours": "",
+    "latitude": "25.7727240000",
+    "longitude": "-80.1859980000",
+    "nid": "7639",
+    "title": "InterContinental Miami"
+  },
+  {
+    "address": "4525 Collins Ave\nMiami Beach, FL 33140",
+    "city": "Miami Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "25.8196360000",
+    "longitude": "-80.1225900000",
+    "nid": "7640",
+    "title": "Eden Roc Miami Beach"
+  },
+  {
+    "address": "3135 Chemin Saint-Louise\nQuebec City, Québec G1W 1R9",
+    "city": "Quebec City",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "46.7564906000",
+    "longitude": "-71.2937583000",
+    "nid": "7641",
+    "title": "Hotel Sepia"
+  },
+  {
+    "address": "811 Athlone Ave\nWoodstock, Ontario N4V 0B6",
+    "city": "Woodstock",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.1126835000",
+    "longitude": "-80.7438781000",
+    "nid": "7642",
+    "title": "Best Western Woodstock Inn & Suites"
+  },
+  {
+    "address": "601 Murray Cir\nSausalito, CA 94965",
+    "city": "Sausalito",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.8378560000",
+    "longitude": "-122.4798360000",
+    "nid": "7643",
+    "title": "Cavallo Point Lodge"
+  },
+  {
+    "address": "780 Mission St\nSan Francisco, CA 94103",
+    "city": "San Francisco",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7849000000",
+    "longitude": "-122.4043000000",
+    "nid": "7644",
+    "title": "San Francisco Marriott Marquis"
+  },
+  {
+    "address": "111 E Ocean Blvd\nLong Beach, CA 90802",
+    "city": "Long Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7671980000",
+    "longitude": "-118.1919870000",
+    "nid": "7655",
+    "title": "Renaissance Long Beach Hotel"
+  },
+  {
+    "address": "501 E Dean St\nAspen, CO 81611",
+    "city": "Aspen",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1867140000",
+    "longitude": "-106.8191640000",
+    "nid": "7656",
+    "title": "Residences at the Little Nell"
+  },
+  {
+    "address": "74855 Country Club Dr\nPalm Desert, CA 92260",
+    "city": "Palm Desert",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7579980000",
+    "longitude": "-116.3606170000",
+    "nid": "7657",
+    "title": "JW Marriott Desert Springs Resort and Spa"
+  },
+  {
+    "address": "200 Lavaca St\nAustin, TX 78701",
+    "city": "Austin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.2653970000",
+    "longitude": "-97.7465660000",
+    "nid": "7658",
+    "title": "W Austin Hotel & Residences"
+  },
+  {
+    "address": "330 E Main St\nAspen, CO 81611",
+    "city": "Aspen",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1908200000",
+    "longitude": "-106.8194920000",
+    "nid": "7659",
+    "title": "Hotel Jerome"
+  },
+  {
+    "address": "2300 Hilltop Dr\nRedding, CA 96002",
+    "city": "Redding",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.5740300000",
+    "longitude": "-122.3583230000",
+    "nid": "7660",
+    "title": "Best Western Plus Hilltop Inn"
+  },
+  {
+    "address": "1 Old Ranch Rd\nCarmel, CA 93923",
+    "city": "Carmel",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.5193920000",
+    "longitude": "-121.8067810000",
+    "nid": "7662",
+    "title": "Carmel Valley Ranch"
+  },
+  {
+    "address": "2365 43rd Street Northwest\nOwatonna, MN 55060",
+    "city": "Owatonna",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.1366260000",
+    "longitude": "-93.2546450000",
+    "nid": "7663",
+    "title": "Holiday Inn & Suites Owatonna"
+  },
+  {
+    "address": "165 Chemin Sainte-Anne\r\nSorel, Québec J3P 6J7",
+    "city": "Sorel",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "46.0488469000",
+    "longitude": "-73.0904734000",
+    "nid": "7664",
+    "title": "Auberge de la Rive"
+  },
+  {
+    "address": "1310 Water St\nKelowna, British Columbia V1Y 9P4",
+    "city": "Kelowna",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.8915172000",
+    "longitude": "-119.4969177000",
+    "nid": "7665",
+    "title": "Delta Grand Okanagan Resort"
+  },
+  {
+    "address": "11 1st St N\nJacksonville Beach, FL 32250",
+    "city": "Jacksonville Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.2896250000",
+    "longitude": "-81.3892330000",
+    "nid": "7666",
+    "title": "Four Points by Sheraton Jacksonville Beachfront"
+  },
+  {
+    "address": "50711  Highway 62\nFort Klamath, Oregon 97626",
+    "city": "Fort Klamath",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.6846210000",
+    "longitude": "-121.9730690000",
+    "nid": "7667",
+    "title": "Crater Lake Resort"
+  },
+  {
+    "address": "5506 Main St\nOsoyoos, British Columbia V0H 1V3",
+    "city": "Osoyoos",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.0287670000",
+    "longitude": "-119.4427400000",
+    "nid": "7668",
+    "title": "Best Western Plus Sunrise Inn"
+  },
+  {
+    "address": "191 N Main St\nRoanoke, IN 46783",
+    "city": "Roanoke",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.9618980000",
+    "longitude": "-85.3736260000",
+    "nid": "7670",
+    "title": "Joseph Decuis Restaurant"
+  },
+  {
+    "address": "6756 E 900 S\nColumbia City, IN 46725",
+    "city": "Columbia City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.0343210000",
+    "longitude": "-85.3599940000",
+    "nid": "7671",
+    "title": "Joseph Decuis Farmstead"
+  },
+  {
+    "address": "61238 Skyline Ranch Rd\nBend, OR 97702",
+    "city": "Bend",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.0248506000",
+    "longitude": "-121.3653404000",
+    "nid": "7675",
+    "title": "Tetherow Lodge & Golf Course"
+  },
+  {
+    "address": "1 Castle Peak Road, Tuen Mun, New Territories 新界 屯門 青山公路青山灣段1號",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "hours": "",
+    "latitude": "22.3702830000",
+    "longitude": "113.9933950000",
+    "nid": "7685",
+    "title": "Gold Coast Yacht and Country Club HK 香港黃金海岸鄉村俱樂部遊艇會"
+  },
+  {
+    "address": "353 Castle Peak Rd, Tsuen Wan, New Territories 新界 荃灣 青山公路353號",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "hours": "",
+    "latitude": "22.3688120000",
+    "longitude": "114.0780970000",
+    "nid": "7686",
+    "title": "Royal View Hotel 香港帝景酒店"
+  },
+  {
+    "address": "1900 Rio Grande St\nAustin, TX 78705",
+    "city": "Austin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.2830180000",
+    "longitude": "-97.7457360000",
+    "nid": "7688",
+    "title": "Hotel Ella"
+  },
+  {
+    "address": "777 Albert St\nRegina, Saskatchewan S4R 1A5",
+    "city": "Regina",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.4658502000",
+    "longitude": "-104.6171594000",
+    "nid": "7689",
+    "title": "Best Western Seven Oaks Inn Regina"
+  },
+  {
+    "address": "522 Heritage Rd\nSouthbury, CT 06488",
+    "city": "Southbury",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.4913770000",
+    "longitude": "-73.2251500000",
+    "nid": "7690",
+    "title": "Heritage Hotel"
+  },
+  {
+    "address": "28700 Arnold Dr\nSonoma, CA 95476",
+    "city": "Sonoma",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.1743070000",
+    "longitude": "-122.4512740000",
+    "nid": "7691",
+    "title": "Ram's Gate Winery"
+  },
+  {
+    "address": "445 Main St\nHighlands, NC 28741",
+    "city": "Highlands",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.0522970000",
+    "longitude": "-83.1969380000",
+    "nid": "7692",
+    "title": "Old Edwards Inn and Spa"
+  },
+  {
+    "address": "151 McLeod Rd\nBellingham, WA 98226",
+    "city": "Bellingham",
+    "country": "United States",
+    "hours": "",
+    "latitude": "48.7831410000",
+    "longitude": "-122.4840010000",
+    "nid": "7693",
+    "title": "Best Western Plus Heritage Inn"
+  },
+  {
+    "address": "505 Live Oak St\nSan Antonio, TX 78202",
+    "city": "San Antonio",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.4265470000",
+    "longitude": "-98.4810860000",
+    "nid": "7694",
+    "title": "Comfort Suites Alamo/Riverwalk"
+  },
+  {
+    "address": "112 Academy Dr\nAustin, TX 78704",
+    "city": "Austin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.2519600000",
+    "longitude": "-97.7467250000",
+    "nid": "7746",
+    "title": "Hotel Saint Cecilia"
+  },
+  {
+    "address": "5733 W Whittier Ave\nHemet, CA 92545",
+    "city": "Hemet",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7355620000",
+    "longitude": "-117.0307790000",
+    "nid": "7747",
+    "title": "TE Connectivity"
+  },
+  {
+    "address": "701 Stone Canyon Rd\nLos Angeles, CA 90077",
+    "city": "Los Angeles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0865150000",
+    "longitude": "-118.4456970000",
+    "nid": "7748",
+    "title": "Hotel Bel-Air"
+  },
+  {
+    "address": "10950 Hutchesons Ferry Rd\nChatt Hills, GA 30268",
+    "city": "Chatt Hills",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.5286020000",
+    "longitude": "-84.7439710000",
+    "nid": "7749",
+    "title": "The Inn at Serenbe + Farmhouse Restaurant at Serenbe"
+  },
+  {
+    "address": "307 Church St\nLatta, SC 29565",
+    "city": "Latta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.3439030000",
+    "longitude": "-79.4313860000",
+    "nid": "7750",
+    "title": "Abingdon Manor, Country Inn & Restaurant, a Select Registry Property"
+  },
+  {
+    "address": "92 Picton St\nNiagara-on-the-Lake, Ontario L0S 1J0",
+    "city": "Niagara-on-the-Lake",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.2533712000",
+    "longitude": "-79.0682364000",
+    "nid": "7751",
+    "title": "Shaw Club Hotel & Spa"
+  },
+  {
+    "address": "5606 Carpinteria Ave\nCarpinteria, CA 93013",
+    "city": "Carpinteria",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.3923251000",
+    "longitude": "-119.5095392000",
+    "nid": "7752",
+    "title": "Holiday Inn Express & Suites"
+  },
+  {
+    "address": "7 Ave\nShaunavon, Saskatchewan S0N 2M0",
+    "city": "Shaunavon",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.6512660000",
+    "longitude": "-108.4129190000",
+    "nid": "7753",
+    "title": "Town of Shaunavon"
+  },
+  {
+    "address": "201 Ocean Ave\nMelbourne Beach, FL 32951",
+    "city": "Melbourne Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "28.0680940000",
+    "longitude": "-80.5576650000",
+    "nid": "7754",
+    "title": "Port d'Hiver Bed & Breakfast, a Select Registry Property"
+  },
+  {
+    "address": "2466 Toomey Rd\nVinton, LA 70668",
+    "city": "Vinton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.1516232000",
+    "longitude": "-93.6375554000",
+    "nid": "7755",
+    "title": "Best Western Casino Inn"
+  },
+  {
+    "address": "3215 W 76 Country Blvd\nBranson, MO 65616",
+    "city": "Branson",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.6391043000",
+    "longitude": "-93.2788854000",
+    "nid": "7756",
+    "title": "Best Western Center Pointe Inn"
+  },
+  {
+    "address": "350 Calle Principal\nMonterey, CA 93940",
+    "city": "Monterey",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.6008432000",
+    "longitude": "-121.8951335000",
+    "nid": "7757",
+    "title": "Monterey Marriott"
+  },
+  {
+    "address": "760 Cooper Rd\nInvermere, British Columbia V0A 1K2",
+    "city": "Invermere",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.5122160000",
+    "longitude": "-115.9930740000",
+    "nid": "7758",
+    "title": "Copper Point Resort"
+  },
+  {
+    "address": "940 W 200 N\nCedar City, UT 84721",
+    "city": "Cedar City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.6817053000",
+    "longitude": "-113.0755125000",
+    "nid": "7759",
+    "title": "Abbey Inn Cedar City"
+  },
+  {
+    "address": "344 Silica Rd NW\nQuincy, WA 98848",
+    "city": "Quincy",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.0987920000",
+    "longitude": "-119.9962040000",
+    "nid": "7760",
+    "title": "Cave B Estate Winery & Resort"
+  },
+  {
+    "address": "30480 71 St\nOliver, British Columbia V0H 1T0",
+    "city": "Oliver",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.1026810000",
+    "longitude": "-119.5467190000",
+    "nid": "7761",
+    "title": "Desert Hills Estate Winery"
+  },
+  {
+    "address": "209 Queen St\nNiagara-on-the-Lake, Ontario L0S 1J0",
+    "city": "Niagara-on-the-Lake",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "43.2579040000",
+    "longitude": "-79.0771990000",
+    "nid": "7762",
+    "title": "The Charles Inn"
+  },
+  {
+    "address": "31 W Carrillo St\nSanta Barbara, CA 93101",
+    "city": "Santa Barbara",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4206320000",
+    "longitude": "-119.7027480000",
+    "nid": "7813",
+    "title": "The Canary Hotel"
+  },
+  {
+    "address": "10155 105 St NW\nEdmonton, Alberta T5J 1C9",
+    "city": "Edmonton",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "53.5421516000",
+    "longitude": "-113.5008612000",
+    "nid": "7814",
+    "title": "Coast Edmonton Plaza Hotel"
+  },
+  {
+    "address": "60 Sea Walk Dr\nSea Ranch, CA 95497",
+    "city": "Sea Ranch",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6808220000",
+    "longitude": "-123.4292760000",
+    "nid": "7815",
+    "title": "Sea Ranch Lodge"
+  },
+  {
+    "address": "500 Steamboat Rd\nGreenwich, CT 06830",
+    "city": "Greenwich",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.0180940000",
+    "longitude": "-73.6236590000",
+    "nid": "7816",
+    "title": "Delamar Greenwich Harbor"
+  },
+  {
+    "address": "75 W Thousand Oaks Blvd\nThousand Oaks, CA 91360",
+    "city": "Thousand Oaks",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.1785380000",
+    "longitude": "-118.8785878000",
+    "nid": "7817",
+    "title": "Best Western Plus Thousand Oaks Inn"
+  },
+  {
+    "address": "100 Townsend St\nBirmingham, MI 48009",
+    "city": "Birmingham",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.5447770000",
+    "longitude": "-83.2158110000",
+    "nid": "7818",
+    "title": "The Townsend Hotel"
+  },
+  {
+    "address": "33 The Oaks St\nHenniker, NH 03242",
+    "city": "Henniker",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.1799690000",
+    "longitude": "-71.8336274000",
+    "nid": "7819",
+    "title": "Colby Hill Inn, a Select Registry Property"
+  },
+  {
+    "address": "401 W Main St\nLuray, VA 22835",
+    "city": "Luray",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6641820000",
+    "longitude": "-78.4663700000",
+    "nid": "7821",
+    "title": "The Mimslyn Inn"
+  },
+  {
+    "address": "200 Chemin des Saisons\r\nMont-Tremblant, Québec J8E 1G1",
+    "city": "Mont-Tremblant",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "46.2068940000",
+    "longitude": "-74.5967820000",
+    "nid": "7823",
+    "title": "Club Intrawest - Tremblant"
+  },
+  {
+    "address": "300 Reunion Blvd\nDallas, TX 75207",
+    "city": "Dallas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.7762350000",
+    "longitude": "-96.8092810000",
+    "nid": "7824",
+    "title": "Hyatt Regency Dallas"
+  },
+  {
+    "address": "33160 Evergreen Rd\nGroveland, CA 95321",
+    "city": "Groveland",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.8759690000",
+    "longitude": "-119.8582660000",
+    "nid": "7826",
+    "title": "Evergreen Lodge"
+  },
+  {
+    "address": "101 Bryant St E\nSt Marys, GA 31558",
+    "city": "St Marys",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.7218050000",
+    "longitude": "-81.5478850000",
+    "nid": "7827",
+    "title": "Spencer House Inn, a Select Registry Property"
+  },
+  {
+    "address": "146 Kingston St\nVictoria, British Columbia V8V 1V4",
+    "city": "Victoria",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "48.4222022000",
+    "longitude": "-123.3796262000",
+    "nid": "7828",
+    "title": "Coast Victoria Harbourside Hotel & Marina"
+  },
+  {
+    "address": "1 S County Rd\nPalm Beach, FL 33480",
+    "city": "Palm Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "26.7153270000",
+    "longitude": "-80.0351160000",
+    "nid": "7829",
+    "title": "The Breakers"
+  },
+  {
+    "address": "325 Convention Center Dr\nLas Vegas, NV 89109",
+    "city": "Las Vegas",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1323030000",
+    "longitude": "-115.1576470000",
+    "nid": "7830",
+    "title": "Las Vegas Marriott"
+  },
+  {
+    "address": "10660 SW Youngberg Hill Rd\nMcMinnville, OR 97128",
+    "city": "McMinnville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.1902250000",
+    "longitude": "-123.2907020000",
+    "nid": "7831",
+    "title": "Youngberg Hill, a Select Registry Property"
+  },
+  {
+    "address": "4580 Chateau Blvd\nWhistler, British Columbia V0N 1B4",
+    "city": "Whistler",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.1177000000",
+    "longitude": "-122.9466330000",
+    "nid": "7832",
+    "title": "Club Intrawest - Whistler"
+  },
+  {
+    "address": "16161 Northeast McDougall Road\nDayton, OR 97114",
+    "city": "Dayton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.2411500000",
+    "longitude": "-123.0697290000",
+    "nid": "7833",
+    "title": "Stoller Family Estate"
+  },
+  {
+    "address": "900 Quayside Dr\nNew Westminster, British Columbia V3M 6G2",
+    "city": "New Westminster",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.1997920000",
+    "longitude": "-122.9126030000",
+    "nid": "7834",
+    "title": "Inn at the Quay"
+  },
+  {
+    "address": "1550 Avenue du Phare Ouest\nMatane, Quebec G4W 3M6",
+    "city": "Matane",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "48.8355410000",
+    "longitude": "-67.5723250000",
+    "nid": "7835",
+    "title": "Quality Inn & Suites Matane"
+  },
+  {
+    "address": "1207 S Howard Ave\nTampa, FL 33606",
+    "city": "Tampa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "27.9308670000",
+    "longitude": "-82.4834480000",
+    "nid": "7836",
+    "title": "Epicurean Hotel"
+  },
+  {
+    "address": "23251 Hwy 108\nTwain Harte, CA 95383",
+    "city": "Twain Harte",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.0435364000",
+    "longitude": "-120.2107225000",
+    "nid": "7837",
+    "title": "McCaffrey House Bed & Breakfast Inn, a Select Registry Property"
+  },
+  {
+    "address": "14400 Hindry Ave\nHawthorne, CA 90250",
+    "city": "Hawthorne",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.9012530000",
+    "longitude": "-118.3711810000",
+    "nid": "7858",
+    "title": "Ayres Hotel Manhattan Beach/Hawthorne"
+  },
+  {
+    "address": "151 E Church St\nAnderson, SC 29624",
+    "city": "Anderson",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.5025840000",
+    "longitude": "-82.6486090000",
+    "nid": "7859",
+    "title": "The Bleckley Inn"
+  },
+  {
+    "address": "1994 U.S. 281\nGeorge West, TX 78022",
+    "city": "George West",
+    "country": "United States",
+    "hours": "",
+    "latitude": "28.3191100000",
+    "longitude": "-98.1136390000",
+    "nid": "7893",
+    "title": "Home Made Kitchen"
+  },
+  {
+    "address": "100 Rue Charlemagne Dr\nBraselton, GA 30517",
+    "city": "Braselton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.1012970000",
+    "longitude": "-83.8176540000",
+    "nid": "7894",
+    "title": "Chateau Elan Winery & Resort"
+  },
+  {
+    "address": "5400 Kearny Mesa Rd\nSan Diego, CA 92111",
+    "city": "San Diego",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.8335800000",
+    "longitude": "-117.1438170000",
+    "nid": "7895",
+    "title": "Residence Inn by Marriott San Diego Central"
+  },
+  {
+    "address": "21500 Pacific Coast Hwy\nHuntington Beach, CA 92648",
+    "city": "Huntington Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.6511516000",
+    "longitude": "-117.9905260000",
+    "nid": "7896",
+    "title": "Hyatt Regency Huntington Beach"
+  },
+  {
+    "address": "7100 Aviara Resort Dr\r\nCarlsbad, CA 92056",
+    "city": "Carlsbad",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.1000510000",
+    "longitude": "-117.2850390000",
+    "nid": "7897",
+    "title": "Park Hyatt Aviara"
+  },
+  {
+    "address": "675 Lionshead Pl\nVail, CO 81657",
+    "city": "Vail",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.6433049000",
+    "longitude": "-106.3882985000",
+    "nid": "7899",
+    "title": "The Arrabelle at Vail Square"
+  },
+  {
+    "address": "300 Rick Lewis Way\nFloyd, VA 24091",
+    "city": "Floyd",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.9104560000",
+    "longitude": "-80.3174400000",
+    "nid": "7900",
+    "title": "Hotel Floyd"
+  },
+  {
+    "address": "181 N Ocean Ave\nCayucos, CA 93430",
+    "city": "Cayucos",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.4492970000",
+    "longitude": "-120.9058870000",
+    "nid": "7901",
+    "title": "On the Beach Bed and Breakfast"
+  },
+  {
+    "address": "10 E Alderbrook Ridge Dr\nUnion, WA 98592",
+    "city": "Union",
+    "country": "United States",
+    "hours": "",
+    "latitude": "47.3471843000",
+    "longitude": "-123.0676404000",
+    "nid": "7902",
+    "title": "Alderbrook Resort & Spa"
+  },
+  {
+    "address": "1 Willow Ridge\r\nPalm Desert, CA 92260",
+    "city": "Palm Desert",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.7603000000",
+    "longitude": "-116.3622180000",
+    "nid": "7903",
+    "title": "Embarc Palm Desert"
+  },
+  {
+    "address": "922 E Hwy 67\nDuncanville, TX 75137",
+    "city": "Duncanville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.6417450000",
+    "longitude": "-96.8885060000",
+    "nid": "7904",
+    "title": "Best Western Plus Duncanville/Dallas"
+  },
+  {
+    "address": "305 2nd St\nRocheport, MO 65279",
+    "city": "Rocheport",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.9788384000",
+    "longitude": "-92.5654654000",
+    "nid": "7905",
+    "title": "Yates House Bed & Breakfast, a Select Registry Property"
+  },
+  {
+    "address": "1021 E Desperado Trail\nSisters, OR 97759",
+    "city": "Sisters",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.2862790000",
+    "longitude": "-121.5368780000",
+    "nid": "7906",
+    "title": "FivePine Lodge and Spa"
+  },
+  {
+    "address": "1700 Ocean Ave\nSanta Monica, CA 90401",
+    "city": "Santa Monica",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0092070000",
+    "longitude": "-118.4928670000",
+    "nid": "7907",
+    "title": "Loews Santa Monica Beach Hotel"
+  },
+  {
+    "address": "275 Mesa Blvd\nMesquite, NV 89027",
+    "city": "Mesquite",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.8166010000",
+    "longitude": "-114.0639870000",
+    "nid": "7908",
+    "title": "Eureka Casino and Hotel"
+  },
+  {
+    "address": "104 Lookout Cir\nLake Hamilton, AR 71913",
+    "city": "Lake Hamilton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.4275540000",
+    "longitude": "-93.0844720000",
+    "nid": "7909",
+    "title": "Lookout Point Lakeside Inn, a Select Registry Property"
+  },
+  {
+    "address": "81801 Overseas Hwy\nIslamorada, FL 33036",
+    "city": "Islamorada",
+    "country": "United States",
+    "hours": "",
+    "latitude": "24.9162950000",
+    "longitude": "-80.6333720000",
+    "nid": "7910",
+    "title": "Cheeca Lodge & Spa"
+  },
+  {
+    "address": "1707 Lyttleton St\nCamden, SC 29020",
+    "city": "Camden",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.2587670000",
+    "longitude": "-80.6048340000",
+    "nid": "7911",
+    "title": "Bloomsbury Inn, a Select Registry Property"
+  },
+  {
+    "address": "2175 Arbor Rd\nPaso Robles, CA 93446",
+    "city": "Paso Robles",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.5841580000",
+    "longitude": "-120.7149710000",
+    "nid": "7912",
+    "title": "SummerWood Winery & Inn"
+  },
+  {
+    "address": "3657 Church St\nOccidental, CA 95465",
+    "city": "Occidental",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.4072190000",
+    "longitude": "-122.9464300000",
+    "nid": "7913",
+    "title": "Inn at Occidental, a Select Registry Property"
+  },
+  {
+    "address": "206 Commercial St\nDownieville, CA 95936",
+    "city": "Downieville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.5596250000",
+    "longitude": "-120.8280170000",
+    "nid": "7914",
+    "title": "Riverside Inn, a Select Registry Property"
+  },
+  {
+    "address": "200 Taplin Rd\nSt Helena, CA 94574",
+    "city": "St Helena",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.5073420000",
+    "longitude": "-122.4285430000",
+    "nid": "7915",
+    "title": "Joseph Phelps Vineyards"
+  },
+  {
+    "address": "15 Hawthorne St\r\nLenox, MA 01240",
+    "city": "Lenox",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.3525640000",
+    "longitude": "-73.2885070000",
+    "nid": "7916",
+    "title": "Brook Farm Inn, a Select Registry Property"
+  },
+  {
+    "address": "4400 W Boy Scout Blvd\nTampa, FL 33607",
+    "city": "Tampa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "27.9602720000",
+    "longitude": "-82.5185760000",
+    "nid": "7917",
+    "title": "Eddie V's Prime Seafood"
+  },
+  {
+    "address": "209 Ames Dr\nDresden, OH 43821",
+    "city": "Dresden",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.1205460000",
+    "longitude": "-82.0227560000",
+    "nid": "7918",
+    "title": "The Inn at Dresden, a Select Registry Property"
+  },
+  {
+    "address": "1049 E King St\nLancaster, PA 17602",
+    "city": "Lancaster",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.0398040000",
+    "longitude": "-76.2813700000",
+    "nid": "7919",
+    "title": "King's Cottage Bed & Breakfast, a Select Registry Property"
+  },
+  {
+    "address": "7 Hubbard St\nLenox, MA 01240",
+    "city": "Lenox",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.3628480000",
+    "longitude": "-73.2818329000",
+    "nid": "7920",
+    "title": "Birchwood Inn, a Select Registry Property"
+  },
+  {
+    "address": "4790 Wild Rose St\nOliver, British Columbia V0H 1T0",
+    "city": "Oliver",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.1345520000",
+    "longitude": "-119.5926540000",
+    "nid": "8173",
+    "title": "Culmina Family Estate Winery"
+  },
+  {
+    "address": "110 Avenue of the Pines\nSaratoga Springs, NY 12866",
+    "city": "Saratoga Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.0572790000",
+    "longitude": "-73.8043340000",
+    "nid": "8174",
+    "title": "Saratoga Auto Museum"
+  },
+  {
+    "address": "101 Wilshire Blvd\nSanta Monica, CA 90401",
+    "city": "Santa Monica",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.0176500000",
+    "longitude": "-118.5012170000",
+    "nid": "8175",
+    "title": "Fairmont Miramar Hotel & Bungalows"
+  },
+  {
+    "address": "4041 Collins Ave\nMiami Beach, FL 33140",
+    "city": "Miami Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "25.8127620000",
+    "longitude": "-80.1229040000",
+    "nid": "8176",
+    "title": "Thompson Miami Beach"
+  },
+  {
+    "address": "100 Boyes Blvd\r\nSonoma, CA 95476",
+    "city": "Sonoma",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.3128910000",
+    "longitude": "-122.4824710000",
+    "nid": "8178",
+    "title": "The Fairmont Sonoma Mission Inn & Spa"
+  },
+  {
+    "address": "650 W 41st Ave\nVancouver, British Columbia V5Z 2M9",
+    "city": "Vancouver",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "49.2324880000",
+    "longitude": "-123.1193160000",
+    "nid": "8180",
+    "title": "Oakridge Centre"
+  },
+  {
+    "address": "301 Park Ave\nNew York, NY 10022",
+    "city": "New York",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.7567220000",
+    "longitude": "-73.9740600000",
+    "nid": "8181",
+    "title": "Waldorf Astoria New York"
+  },
+  {
+    "address": "4716 34 St\nVernon, British Columbia V1T5Y9",
+    "city": "Vernon",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "50.2811660000",
+    "longitude": "-119.2765360000",
+    "nid": "8182",
+    "title": "Holiday Inn Express and Suites Vernon"
+  },
+  {
+    "address": "4872 N Clark St\nChicago, IL 60640",
+    "city": "Chicago",
+    "country": "United States",
+    "hours": "",
+    "latitude": "41.9708140000",
+    "longitude": "-87.6677516000",
+    "nid": "8183",
+    "title": "The Guesthouse Hotel, a Select Registry Property"
+  },
+  {
+    "address": "3391 Peachtree Rd\nAtlanta, GA 30326",
+    "city": "Atlanta",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8484010000",
+    "longitude": "-84.3653850000",
+    "nid": "8184",
+    "title": "The Westin Buckhead Atlanta"
+  },
+  {
+    "address": "35 Rue Principale\r\nFort-Coulonge, Québec J0X 1V0",
+    "city": "Fort-Coulonge",
+    "country": "Canada",
+    "hours": "",
+    "latitude": "45.8383610000",
+    "longitude": "-76.7035740000",
+    "nid": "8185",
+    "title": "Domaine de l'O, Inc."
+  },
+  {
+    "address": "103 W Strand Rd\nOxford, MD 21654",
+    "city": "Oxford",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.6921180000",
+    "longitude": "-76.1754490000",
+    "nid": "8186",
+    "title": "Sandaway Waterfront Lodging, a Select Registry Property"
+  },
+  {
+    "address": "830 Truman Ave\nKey West, FL 33040",
+    "city": "Key West",
+    "country": "United States",
+    "hours": "",
+    "latitude": "24.5536090000",
+    "longitude": "-81.7947640000",
+    "nid": "8187",
+    "title": "Silver Palms Inn"
+  },
+  {
+    "address": "5890 Hwy 12\nBethel, VT 05032",
+    "city": "Bethel",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.7246220000",
+    "longitude": "-72.6158105000",
+    "nid": "8188",
+    "title": "Maple Leaf Inn"
+  },
+  {
+    "address": "10001 Minaret Rd\nMammoth Lakes, CA 93546",
+    "city": "Mammoth Lakes",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.6513210000",
+    "longitude": "-118.9861230000",
+    "nid": "8191",
+    "title": "The Village Lodge at Mammoth"
+  },
+  {
+    "address": "200 Main St\r\nDubuque, IA 52001",
+    "city": "Dubuque",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.4962120000",
+    "longitude": "-90.6644360000",
+    "nid": "8192",
+    "title": "Hotel Julien Dubuque"
+  },
+  {
+    "address": "191 Chinquapin Dr\nWaynesboro, VA 22980",
+    "city": "Waynesboro",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.0440242000",
+    "longitude": "-78.9045217000",
+    "nid": "8193",
+    "title": "Iris Inn Bed & Breakfast, a Select Registry Property"
+  },
+  {
+    "address": "6750 Northeast Breyman Orchards Road\nDayton, OR 97114",
+    "city": "Dayton",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.2659050000",
+    "longitude": "-123.0555000000",
+    "nid": "8194",
+    "title": "Domaine Drouhin"
+  },
+  {
+    "address": "29683 Walhonding Rd\nDanville, OH 43014",
+    "city": "Danville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.3831550000",
+    "longitude": "-82.2118000000",
+    "nid": "8195",
+    "title": "The White Oak Inn, a Select Registry Property"
+  },
+  {
+    "address": "1789 Bear Gap Rd\nClarkesville, GA 30523",
+    "city": "Clarkesville",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.7250279000",
+    "longitude": "-83.4535375000",
+    "nid": "8197",
+    "title": "Glen-Ella Springs, a Select Registry Property"
+  },
+  {
+    "address": "148 S Hanover St\nCarlisle, PA 17013",
+    "city": "Carlisle",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.1988030000",
+    "longitude": "-77.1900500000",
+    "nid": "8199",
+    "title": "Carlisle House Bed & Breakfast, a Select Registry Property"
+  },
+  {
+    "address": "7 Hickson Road\nThe Rocks NSW 2000",
+    "city": "The Rocks",
+    "country": "Australia",
+    "hours": "",
+    "latitude": "-33.8555840000",
+    "longitude": "151.2094880000",
+    "nid": "8202",
+    "title": "Park Hyatt Sydney"
+  },
+  {
+    "address": "40 William Street\nPort Macquarie NSW 2444",
+    "city": "Port Macquarie",
+    "country": "Australia",
+    "hours": "",
+    "latitude": "-31.4310600000",
+    "longitude": "152.9190690000",
+    "nid": "8203",
+    "title": "Mantra The Observatory"
+  },
+  {
+    "address": "1341 Dandenong Road\nChadstone VIC 3148",
+    "city": "Chadstone",
+    "country": "Australia",
+    "hours": "",
+    "latitude": "-37.8866760000",
+    "longitude": "145.0811940000",
+    "nid": "8204",
+    "title": "Chadstone Shopping Centre -  Ground Level"
+  },
+  {
+    "address": "〒224-0053\r\n神奈川県横浜市都筑区池辺町 4532",
+    "city": "横浜市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "35.5157407000",
+    "longitude": "139.5685182000",
+    "nid": "8245",
+    "title": "(有) トーニチユニオンサービス"
+  },
+  {
+    "address": "〒560-0082\r\n大阪府豊中市新千里東町 2-1-14",
+    "city": "豊中市",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "34.8098670000",
+    "longitude": "135.4959570000",
+    "nid": "8246",
+    "title": "千里阪急ホテル"
+  },
+  {
+    "address": "〒299-1901\n千葉県安房郡鋸南町元名 442",
+    "city": "安房郡",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "35.1466819000",
+    "longitude": "139.8314615000",
+    "nid": "8249",
+    "title": "ビーチサイド温泉リゾート ゆうみ"
+  },
+  {
+    "address": "〒720-0551\r\n広島県尾道市浦崎町大平木 1344-2",
+    "city": "尾道市浦崎町",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "34.3923597000",
+    "longitude": "133.2876680000",
+    "nid": "8250",
+    "title": "リゾートホテル ベラビスタ境ガ浜"
+  },
+  {
+    "address": "〒321-4217\r\n栃木県芳賀郡益子町益子 1397-1",
+    "city": "芳賀郡",
+    "country": "Japan",
+    "hours": "",
+    "latitude": "36.4636316000",
+    "longitude": "140.0863307000",
+    "nid": "8252",
+    "title": "キグナス石油 セルフ益子店 （有）高島油店"
+  },
+  {
+    "address": "326 Broadway\nSan Diego, CA 92101",
+    "city": "San Diego",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.7157970000",
+    "longitude": "-117.1615440000",
+    "nid": "8273",
+    "title": "US Grant"
+  },
+  {
+    "address": "2740 Pacific Ave\nCannon Beach, OR 97145",
+    "city": "Cannon Beach",
+    "country": "United States",
+    "hours": "",
+    "latitude": "45.8770183000",
+    "longitude": "-123.9619663000",
+    "nid": "8274",
+    "title": "Stephanie Inn"
+  },
+  {
+    "address": "13500 Farm to Market Rd 2769\nAustin, TX 78726",
+    "city": "Austin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.4459900000",
+    "longitude": "-97.8688450000",
+    "nid": "8280",
+    "title": "Travaasa Austin Resort & Spa"
+  },
+  {
+    "address": "8330 W Amarillo Blvd\nAmarillo, TX 79124",
+    "city": "Amarillo",
+    "country": "United States",
+    "hours": "",
+    "latitude": "35.1926730000",
+    "longitude": "-101.9329790000",
+    "nid": "8281",
+    "title": "Holiday Inn Express and Suites Amarillo West"
+  },
+  {
+    "address": "3835 Hwy 128\nCalistoga, CA 94515",
+    "city": "Calistoga",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.5999180000",
+    "longitude": "-122.6392620000",
+    "nid": "8282",
+    "title": "Storybook Mountain Winery"
+  },
+  {
+    "address": "2201 S Melrose Dr\nVista, CA 92081",
+    "city": "Vista",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.1466640000",
+    "longitude": "-117.2420440000",
+    "nid": "8285",
+    "title": "Marriott TownePlace Suites"
+  },
+  {
+    "address": "1600 E Palm Canyon Dr\nPalm Springs, CA 92264",
+    "city": "Palm Springs",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.8016430000",
+    "longitude": "-116.5292910000",
+    "nid": "8286",
+    "title": "La Maison Hotel"
+  },
+  {
+    "address": "23 S 8th St\nColumbia, MO 65201",
+    "city": "Columbia",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.9508370000",
+    "longitude": "-92.3287970000",
+    "nid": "8287",
+    "title": "The Tiger Hotel"
+  },
+  {
+    "address": "217 E Huntingdon St\nSavannah, GA 31401",
+    "city": "Savannah",
+    "country": "United States",
+    "hours": "",
+    "latitude": "32.0682392000",
+    "longitude": "-81.0925612000",
+    "nid": "8288",
+    "title": "Azalea Inn & Villas, a Select Registry Property"
+  },
+  {
+    "address": "200 E San Bernard St\nBrazoria, TX 77422",
+    "city": "Brazoria",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.0488050000",
+    "longitude": "-95.5664590000",
+    "nid": "8289",
+    "title": "Kenjo's Barbeque"
+  },
+  {
+    "address": "555 S Main St\nSalt Lake City, UT 84111",
+    "city": "Salt Lake City",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.7574400000",
+    "longitude": "-111.8905450000",
+    "nid": "8290",
+    "title": "Grand America Hotel"
+  },
+  {
+    "address": "964 Rabun Rd\nSautee Nacoochee, GA 30571",
+    "city": "Sautee Nacoochee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "34.6928310000",
+    "longitude": "-83.6816810000",
+    "nid": "8291",
+    "title": "Lucille's Mountain Top Inn & Spa, a Select Registry Property"
+  },
+  {
+    "address": "8400 N Lee Hwy\nRaphine, VA 24472",
+    "city": "Raphine",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.9237706000",
+    "longitude": "-79.2036335000",
+    "nid": "8293",
+    "title": "Steeles Tavern Manor and Alpine Hideaway Cabins, a Select Registry Property"
+  },
+  {
+    "address": "60 River Rd\nNewcastle, ME 04553",
+    "city": "Newcastle",
+    "country": "United States",
+    "hours": "",
+    "latitude": "44.0311193000",
+    "longitude": "-69.5425126000",
+    "nid": "8294",
+    "title": "Newcastle Inn, a Select Registry Property"
+  },
+  {
+    "address": "4100 Presidential Blvd\r\nPhiladelphia, PA 19131",
+    "city": "Philadelphia",
+    "country": "United States",
+    "hours": "",
+    "latitude": "40.0068960000",
+    "longitude": "-75.2107630000",
+    "nid": "8295",
+    "title": "Courtyard Philadelphia City Avenue"
+  },
+  {
+    "address": "7277 E Camelback Rd\nScottsdale, AZ 85251",
+    "city": "Scottsdale",
+    "country": "United States",
+    "hours": "",
+    "latitude": "33.5014850000",
+    "longitude": "-111.9240580000",
+    "nid": "8296",
+    "title": "W Scottsdale"
+  },
+  {
+    "address": "180 Main St\nFreeport, ME 04032",
+    "city": "Freeport",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.8617455000",
+    "longitude": "-70.1002136000",
+    "nid": "8297",
+    "title": "Brewster House B&B, a Select Registry Property"
+  },
+  {
+    "address": "506 Kennett Pike\nChadds Ford, PA 19317",
+    "city": "Chadds Ford",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.8459468000",
+    "longitude": "-75.6321627000",
+    "nid": "8298",
+    "title": "Fairville Inn, a Select Registry Property"
+  },
+  {
+    "address": "693 S Orchard Ave\nUkiah, CA 95482",
+    "city": "Ukiah",
+    "country": "United States",
+    "hours": "",
+    "latitude": "39.1451620000",
+    "longitude": "-123.1978070000",
+    "nid": "8299",
+    "title": "Super 8 Ukiah"
+  },
+  {
+    "address": "411 Randolph St\nNapa, CA 94559",
+    "city": "Napa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.2926150000",
+    "longitude": "-122.2870150000",
+    "nid": "8300",
+    "title": "Inn on Randolph, a Select Registry Property"
+  },
+  {
+    "address": "55000 California 1\nBig Sur, CA 93920",
+    "city": "Big Sur",
+    "country": "United States",
+    "hours": "",
+    "latitude": "36.1242390000",
+    "longitude": "-121.6370410000",
+    "nid": "8301",
+    "title": "The Esalen Institute"
+  },
+  {
+    "address": "960 N Main St\nSun Valley, ID 83353",
+    "city": "Sun Valley",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.6859080000",
+    "longitude": "-114.3666800000",
+    "nid": "8303",
+    "title": "Knob Hill Inn"
+  },
+  {
+    "address": "1240 Brazosport Blvd N\nRichwood, TX 77531",
+    "city": "Richwood",
+    "country": "United States",
+    "hours": "",
+    "latitude": "29.0421520000",
+    "longitude": "-95.4013480000",
+    "nid": "8304",
+    "title": "New Era Automotive"
+  },
+  {
+    "address": "16 Blantyre Rd\nLenox, MA 01240",
+    "city": "Lenox",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.3361210000",
+    "longitude": "-73.2589239000",
+    "nid": "8522",
+    "title": "Blantyre"
+  },
+  {
+    "address": "700 N Cole Rd\nBoise, ID 83704",
+    "city": "Boise",
+    "country": "United States",
+    "hours": "",
+    "latitude": "43.6113070000",
+    "longitude": "-116.2733311000",
+    "nid": "8523",
+    "title": "Candlewood Suites Boise - Town Square"
+  },
+  {
+    "address": "1600 Soscol Ave\nNapa, CA 94559",
+    "city": "Napa",
+    "country": "United States",
+    "hours": "",
+    "latitude": "38.3052750000",
+    "longitude": "-122.2834530000",
+    "nid": "8524",
+    "title": "River Terrace Inn"
+  },
+  {
+    "address": "985 Borden Rd\nLexington, VA 24450",
+    "city": "Lexington",
+    "country": "United States",
+    "hours": "",
+    "latitude": "37.7947045000",
+    "longitude": "-79.4699173000",
+    "nid": "8526",
+    "title": "Brierley Hill Bed and Breakfast, a Select Registry Property"
+  },
+  {
+    "address": "30 East St\nLee, MA 01238",
+    "city": "Lee",
+    "country": "United States",
+    "hours": "",
+    "latitude": "42.2989220000",
+    "longitude": "-73.2920230000",
+    "nid": "8527",
+    "title": "The Inn at Stockbridge, a Select Registry Property"
+  },
+  {
+    "address": "8626 Baytowne Ave\r\nSandestin, FL 32550",
+    "city": "Sandestin",
+    "country": "United States",
+    "hours": "",
+    "latitude": "30.3848280000",
+    "longitude": "-86.3239390000",
+    "nid": "8528",
+    "title": "Embarc-Sandestin by Diamond Resorts"
+  },
+  {
+    "address": "湖北省武汉市江汉区新华西路与发展大道交汇处无号",
+    "city": "Wuhan",
+    "country": "China",
+    "hours": "",
+    "latitude": "30.6140860000",
+    "longitude": "114.2626830000",
+    "nid": "8536",
+    "title": "1911 Big Wuhan"
+  },
+  {
+    "address": "北京市北京市朝阳区东三环北路8号",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.9459510000",
+    "longitude": "116.4628510000",
+    "nid": "8537",
+    "title": "8MM Club"
+  },
+  {
+    "address": "福建省厦门市思明区望海路10号之四1楼",
+    "city": "Xiamen City",
+    "country": "China",
+    "hours": "",
+    "latitude": "24.4879740000",
+    "longitude": "118.1827480000",
+    "nid": "8538",
+    "title": "Actel Cafe"
+  },
+  {
+    "address": "上海市上海市徐汇区肇嘉浜路221号",
+    "city": "Shanghai",
+    "country": "China",
+    "hours": "",
+    "latitude": "31.1944180000",
+    "longitude": "121.4417650000",
+    "nid": "8539",
+    "title": "All Seasons Hotel"
+  },
+  {
+    "address": "陕西省西安市临潼区悦椿东路8号",
+    "city": "Xi'an",
+    "country": "China",
+    "hours": "",
+    "latitude": "34.3617310000",
+    "longitude": "109.1803850000",
+    "nid": "8540",
+    "title": "Angsana Xi'an Lintong"
+  },
+  {
+    "address": "浙江省湖州市安吉县沼源路1号",
+    "city": "Huzhou City",
+    "country": "China",
+    "hours": "",
+    "latitude": "30.5991270000",
+    "longitude": "119.5937320000",
+    "nid": "8541",
+    "title": "Anji King Valley Country Club"
+  },
+  {
+    "address": "河南省郑州市市辖区东风南路与商鼎路交汇处西100米号",
+    "city": "Zhengzhou City",
+    "country": "China",
+    "hours": "",
+    "latitude": "34.7541320000",
+    "longitude": "113.7663900000",
+    "nid": "8542",
+    "title": "Antai Square"
+  },
+  {
+    "address": "海南省琼海市博鳌镇博鳌镇滨海大道8号",
+    "city": "Qionghai",
+    "country": "China",
+    "hours": "",
+    "latitude": "19.1917010000",
+    "longitude": "110.5949980000",
+    "nid": "8543",
+    "title": "Asia Bay Hotel & Resort"
+  },
+  {
+    "address": "北京市北京市朝阳区广渠路66号院22号楼",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.8911450000",
+    "longitude": "116.4677310000",
+    "nid": "8544",
+    "title": "Baihuan Office Building"
+  },
+  {
+    "address": "重庆市重庆市北碚区温泉路101号",
+    "city": "Chongqing",
+    "country": "China",
+    "hours": "",
+    "latitude": "29.8564030000",
+    "longitude": "106.3803310000",
+    "nid": "8545",
+    "title": "Banyan Tree Chongqing Beibei"
+  },
+  {
+    "address": "浙江省杭州市西湖区紫金港路21号",
+    "city": "Hangzhou",
+    "country": "China",
+    "hours": "",
+    "latitude": "30.2673400000",
+    "longitude": "120.0870300000",
+    "nid": "8546",
+    "title": "Banyan Tree Hangzhou"
+  },
+  {
+    "address": "广东省深圳市蛇口太子路水湾地铁站D出口号",
+    "city": "Shenzhen",
+    "country": "China",
+    "hours": "",
+    "latitude": "22.4890750000",
+    "longitude": "113.9191780000",
+    "nid": "8548",
+    "title": "Bay 1979"
+  },
+  {
+    "address": "北京市北京市海淀区学院路37号",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.9797170000",
+    "longitude": "116.3488800000",
+    "nid": "8549",
+    "title": "Beihang University Tennis Courts"
+  },
+  {
+    "address": "北京市北京市西城区金城坊街2号",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.9154550000",
+    "longitude": "116.3622790000",
+    "nid": "8550",
+    "title": "Beijing Financial Street Shopping Center, Meichetang"
+  },
+  {
+    "address": "北京市北京市东城区藏经馆胡同17号C102",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.9474920000",
+    "longitude": "116.4190920000",
+    "nid": "8551",
+    "title": "Beijing HE Cafe"
+  },
+  {
+    "address": "北京市北京市海淀区西三环北路87",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.9357480000",
+    "longitude": "116.3091940000",
+    "nid": "8553",
+    "title": "Beijing International Finance Center"
+  },
+  {
+    "address": "北京市北京市昌平区昌平路317号",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "40.0871590000",
+    "longitude": "116.3013290000",
+    "nid": "8554",
+    "title": "Beijing Loong Palace Hotel & Resort"
+  },
+  {
+    "address": "北京市北京市朝阳区北四环东路118号",
+    "city": "Beijing",
+    "country": "China",
+    "hours": "",
+    "latitude": "39.9878750000",
+    "longitude": "116.4139200000",
+    "nid": "8555",
+    "title": "Beijing Tibet Hotel"
+  },
+  {
+    "address": "青海省海西州格尔木市唐古拉镇沱沱河号",
+    "city": "Haixi",
+    "country": "China",
+    "hours": "",
+    "latitude": "34.2138970000",
+    "longitude": "92.4421800000",
+    "nid": "8558",
+    "title": "Changjiangyuan Hotel"
+  },
+  {
+    "address": "四川省成都市锦江区人民南路2段1号",
+    "city": "Chengdu",
+    "country": "China",
+    "hours": "",
+    "latitude": "30.6515150000",
+    "longitude": "104.0667260000",
+    "nid": "8559",
+    "title": "Chendu Yanlord Landmark"
+  },
+  {
+    "address": "西藏自治区拉萨市城关区金珠东路15号附1号",
+    "city": "Lhasa",
+    "country": "China",
+    "hours": "",
+    "latitude": "29.6463510000",
+    "longitude": "91.1061710000",
+    "nid": "8560",
+    "title": "Chengxiang Dongguang Hotel"
+  },
+  {
+    "address": "广东省佛山市顺德区大良镇东乐路号",
+    "city": "Foshan",
+    "country": "China",
+    "hours": "",
+    "latitude": "22.8347070000",
+    "longitude": "113.2687180000",
+    "nid": "8561",
+    "title": "China Merchants Securities Shunde"
+  }
+]
