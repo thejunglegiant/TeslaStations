@@ -1,31 +1,23 @@
 package com.thejunglegiant.teslastations.presentation.map
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.thejunglegiant.teslastations.data.model.StationDTO
-import com.thejunglegiant.teslastations.utils.getJsonDataFromAsset
-import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
+import androidx.lifecycle.viewModelScope
+import com.thejunglegiant.teslastations.domain.entity.StationEntity
+import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
+import kotlinx.coroutines.launch
 
-@HiltViewModel
-class MapViewModel @Inject constructor(
-    @ApplicationContext context: Context
+class MapViewModel(
+    stationsRepository: IStationsRepository
 ) : ViewModel() {
 
-    private val _stationsList = MutableLiveData<List<StationDTO>>()
-    val stationsList: LiveData<List<StationDTO>> = _stationsList
+    private val _stationsList = MutableLiveData<List<StationEntity>>()
+    val stationsList: LiveData<List<StationEntity>> = _stationsList
 
     init {
-        val jsonFileString = getJsonDataFromAsset(context, "stations.json")
-        val gson = Gson()
-        val listPersonType = object : TypeToken<List<StationDTO>>() {}.type
-
-        val stations: List<StationDTO> = gson.fromJson(jsonFileString, listPersonType)
-        _stationsList.postValue(stations)
+        viewModelScope.launch {
+            _stationsList.value = stationsRepository.fetchStations()
+        }
     }
 }

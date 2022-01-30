@@ -1,7 +1,20 @@
 package com.thejunglegiant.teslastations
 
 import androidx.multidex.MultiDexApplication
-import dagger.hilt.android.HiltAndroidApp
+import com.thejunglegiant.teslastations.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
-@HiltAndroidApp
-class TeslaStationApp : MultiDexApplication()
+class TeslaStationApp : MultiDexApplication() {
+    override fun onCreate() {
+        super.onCreate()
+
+        startKoin{
+            androidLogger(Level.ERROR)
+            androidContext(this@TeslaStationApp)
+            modules(appModule)
+        }
+    }
+}

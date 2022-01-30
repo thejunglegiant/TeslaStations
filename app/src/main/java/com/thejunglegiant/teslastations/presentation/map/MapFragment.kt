@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -14,12 +13,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
 
-    private val viewModel: MapViewModel by viewModels()
+    private val viewModel: MapViewModel by viewModel()
     private lateinit var binding: FragmentMapBinding
 
     private lateinit var map: GoogleMap

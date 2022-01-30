@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
@@ -68,11 +67,15 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
-    //Hilt
-    def hiltVersion = "2.40.5"
-    implementation "com.google.dagger:hilt-android:$hiltVersion"
-    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    kapt "androidx.hilt:hilt-compiler:1.0.0"
+    def koinVersion = "3.1.5"
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:$koinVersion"
+    // Koin Test features
+    testImplementation "io.insert-koin:koin-test:$koinVersion"
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:$koinVersion"
+    // Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:$koinVersion"
 
     // Maps
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
