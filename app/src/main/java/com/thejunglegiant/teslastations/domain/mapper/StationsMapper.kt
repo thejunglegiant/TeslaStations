@@ -7,9 +7,9 @@ fun StationDTO.toStationEntity(): StationEntity = StationEntity(
     address = address,
     city = city,
     country = country,
-    latitude = latitude,
-    longitude = longitude,
+    latitude = latitude.toDouble(),
+    longitude = longitude.toDouble(),
     hours = hours,
     id = nid,
-    title = title
+    stationTitle = title
 )

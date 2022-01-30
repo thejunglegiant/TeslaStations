@@ -79,6 +79,8 @@ dependencies {
 
     // Maps
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
+    implementation 'com.google.maps.android:maps-utils-ktx:3.3.0'
 
     // Tests
     testImplementation 'junit:junit:4.13.2'
