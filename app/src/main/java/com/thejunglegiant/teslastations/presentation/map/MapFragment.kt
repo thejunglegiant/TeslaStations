@@ -9,6 +9,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.maps.android.clustering.ClusterManager
+import com.google.maps.android.clustering.algo.GridBasedAlgorithm
+import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
+import com.google.maps.android.clustering.algo.PreCachingAlgorithmDecorator
+import com.google.maps.android.clustering.algo.ScreenBasedAlgorithm
+import com.google.maps.android.clustering.view.DefaultClusterRenderer
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
@@ -50,8 +55,11 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        clusterManager = ClusterManager(context, map)
-        map.setOnCameraIdleListener(clusterManager)
+        clusterManager = ClusterManager<StationEntity>(context, map).apply {
+            algorithm = NonHierarchicalViewBasedAlgorithm(binding.map.width, binding.map.height)
+            renderer = StationsRender(binding.map.context, map, this)
+            map.setOnCameraIdleListener(this)
+        }
 
         viewModel.stationsList.observe(viewLifecycleOwner) {
             addItems(it)
