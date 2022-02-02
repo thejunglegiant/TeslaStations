@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.maps.android.clustering.Cluster
 import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
@@ -14,6 +15,19 @@ import com.thejunglegiant.teslastations.R
 class StationsRender<T : ClusterItem>(
     private val context: Context, map: GoogleMap, clusterManager: ClusterManager<T>
 ) : DefaultClusterRenderer<T>(context, map, clusterManager) {
+
+    interface Callback<T: ClusterItem> {
+
+        fun onClusterClicked(cluster: Cluster<T>): Boolean
+
+        fun onClusterItemClicked(clusterItem: ClusterItem): Boolean
+    }
+
+    private var callback: Callback<T>? = null
+
+    fun setCallback(callback: Callback<T>) {
+        this.callback = callback
+    }
 
     private val iconStyles by lazy {
         SparseIntArray().apply {

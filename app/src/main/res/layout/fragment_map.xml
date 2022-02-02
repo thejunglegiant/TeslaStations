@@ -11,4 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include android:id="@+id/bottomSheetInfo" layout="@layout/bottom_sheet_dialog_layout" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
