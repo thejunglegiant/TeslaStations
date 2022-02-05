@@ -11,6 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <include layout="@layout/layout_map_default"
+        android:id="@+id/map_default" />
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

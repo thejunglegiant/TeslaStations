@@ -1,38 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_sheet_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:background="@color/teal_200"
+    android:paddingEnd="@dimen/spacing_2"
+    android:paddingBottom="@dimen/spacing_2"
     app:behavior_hideable="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textSize="36sp"
+    <View
+        android:id="@+id/drag_n_drop"
+        android:layout_width="54dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="@dimen/spacing_1"
+        android:background="@drawable/shape_drag_n_drop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/supportText"
+        android:id="@+id/station_title_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Supporting text"
-        android:textSize="36sp"
+        android:layout_marginStart="@dimen/spacing_2"
+        android:layout_marginTop="@dimen/spacing_2"
+        android:fontFamily="@font/nunito_regular"
+        android:text="@string/station_hint"
+        android:textColor="@color/gull_gray"
+        android:textSize="@dimen/text.size.small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText" />
+        app:layout_constraintTop_toBottomOf="@+id/drag_n_drop" />
 
-    <Button
-        android:id="@+id/bottomsheet_button"
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_semibold"
+        android:maxLines="1"
+        android:textColor="@color/gunMetal"
+        android:textSize="@dimen/text.size.large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/station_title_hint"
+        app:layout_constraintTop_toBottomOf="@id/station_title_hint"
+        tools:text="Ace Hotel Palm Springs" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_regular"
+        android:maxLines="1"
+        android:textColor="@color/gunMetal"
+        android:textSize="@dimen/text.size.large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/station_title_hint"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="United States, Palm Springs" />
+
+    <TextView
+        android:id="@+id/description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Action"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="@id/titleText"
-        app:layout_constraintTop_toBottomOf="@id/supportText" />
-</LinearLayout>
+        android:layout_marginTop="@dimen/spacing_2"
+        android:fontFamily="@font/nunito_regular"
+        android:text="@string/station_description"
+        android:textColor="@color/gull_gray"
+        android:textSize="@dimen/text.size.small"
+        app:layout_constraintStart_toStartOf="@id/station_title_hint"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_regular"
+        android:textColor="@color/gunMetal"
+        android:textSize="@dimen/text.size.medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/station_title_hint"
+        app:layout_constraintTop_toBottomOf="@id/description_title"
+        tools:text="Charging\n2 Tesla Connectors, up to 13kW.\nAvailable for patrons only. Please see valet." />
+
+    <LinearLayout
+        android:id="@+id/description_phone_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/station_title_hint"
+        app:layout_constraintTop_toBottomOf="@id/description_text">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@string/station_description_phone"
+            android:textColor="@color/gull_gray"
+            android:textSize="@dimen/text.size.medium" />
+
+        <TextView
+            android:id="@+id/description_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_1"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/gunMetal"
+            android:textSize="@dimen/text.size.medium"
+            tools:text="(760) 325-9900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/description_hours_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_0_5"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/station_title_hint"
+        app:layout_constraintTop_toBottomOf="@id/description_phone_section">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@string/station_description_hours"
+            android:textColor="@color/gull_gray"
+            android:textSize="@dimen/text.size.medium" />
+
+        <TextView
+            android:id="@+id/description_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_1"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/gunMetal"
+            android:textSize="@dimen/text.size.medium"
+            tools:text="24/7" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,10 @@ data class StationEntity(
     val longitude: Double,
     val id: String,
     val stationTitle: String,
+    val state: String,
+    val region: String,
+    val description: String,
+    val contacts: List<ContactEntity>
 ) : ClusterItem {
     override fun getPosition(): LatLng = LatLng(latitude, longitude)
 

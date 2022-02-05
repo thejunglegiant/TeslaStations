@@ -5,8 +5,23 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_opacity_20">#44FFFFFF</color>
+    <color name="white_opacity_50">#77FFFFFF</color>
+    <color name="white_opacity_70">#99FFFFFF</color>
+    <color name="athens_gray">#EBEBEF</color>
+    <color name="dusty_gray">#979797</color>
+    <color name="link_water_light">#FBFCFE</color>
+    <color name="link_water">#EAEEF9</color>
+    <color name="alto">#DADADA</color>
+    <color name="gull_gray">#707A86</color>
+    <color name="boulder">#757575</color>
+    <color name="silver">#CCCCCC</color>
+    <color name="gunMetal">#222234</color>
+    <color name="mine_shaft">#212121</color>
 
     <color name="cluster_item_up_to_20">#266CC0</color>
     <color name="cluster_item_up_to_50">#3886C2</color>

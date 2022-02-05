@@ -8,7 +8,7 @@ import com.thejunglegiant.teslastations.data.model.StationDTO
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toStationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
-import com.thejunglegiant.teslastations.utils.getJsonDataFromAsset
+import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
 
 class StationsRepository(
     private val context: Context
