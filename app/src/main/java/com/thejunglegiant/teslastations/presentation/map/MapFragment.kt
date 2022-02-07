@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
@@ -23,15 +24,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.maps.android.PolyUtil
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
+import com.thejunglegiant.teslastations.extensions.delayedAction
 import com.thejunglegiant.teslastations.extensions.dp
 import com.thejunglegiant.teslastations.extensions.showSnackBar
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
+import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
+import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import com.thejunglegiant.teslastations.utils.LocationUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -94,6 +97,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         setupMap()
         hideBottomDialog()
         setListeners()
+        initViewModel()
     }
 
     private fun setupMap() {
@@ -116,9 +120,11 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         }
         infoDialog.btnStationDirection.setOnClickListener {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                viewModel.getRoute(
-                    LatLng(location.latitude, location.longitude),
-                    LatLng(station.latitude, station.longitude)
+                viewModel.obtainEvent(
+                    MapEvent.ItemDirectionClicked(
+                        from = LatLng(location.latitude, location.longitude),
+                        to = LatLng(station.latitude, station.longitude)
+                    )
                 )
             }
         }
@@ -152,10 +158,65 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
             }
         }
         binding.mapDefault.btnMapLayer.setOnClickListener {
-            checkMapReadyThen {
-                map.mapType = when (map.mapType) {
-                    GoogleMap.MAP_TYPE_SATELLITE -> GoogleMap.MAP_TYPE_NORMAL
-                    else -> GoogleMap.MAP_TYPE_SATELLITE
+            viewModel.obtainEvent(MapEvent.MapModeClicked)
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel.mapViewState.observe(viewLifecycleOwner) {
+            binding.loading.root.isVisible = false
+            when (it) {
+                is MapViewState.Direction -> {
+                    hideBottomDialog()
+                    polyline?.remove()
+                    polyline = map.addPolyline(
+                        PolylineOptions()
+                            .addAll(it.points)
+                            .width(5f.dp)
+                            .color(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.blue
+                                )
+                            )
+                    )
+                }
+                is MapViewState.Display -> {
+                    polyline?.remove()
+                    hideBottomDialog()
+
+                    if (it.data.isNotEmpty()) setItems(it.data)
+
+                    map.mapType = if (it.settings.defaultMapLayer) {
+                        GoogleMap.MAP_TYPE_NORMAL
+                    } else {
+                        GoogleMap.MAP_TYPE_SATELLITE
+                    }
+                }
+                is MapViewState.Error -> {
+                    when {
+                        it.msgRes != null -> {
+                            binding.root.showSnackBar(it.msgRes)
+                        }
+                        it.msg != null -> {
+                            binding.root.showSnackBar(it.msg)
+                        }
+                    }
+                }
+                is MapViewState.ItemDetails -> {
+                    polyline?.remove()
+                    openInfoDialog(it.item)
+                }
+                MapViewState.Loading -> {
+                    hideBottomDialog()
+                    binding.loading.root.isVisible = true
+                }
+                MapViewState.NoItems -> {
+                    polyline?.remove()
+                    hideBottomDialog()
+                    binding.root.showSnackBar(R.string.error_no_items_found, R.string.try_again) {
+                        viewModel.obtainEvent(MapEvent.ReloadScreen)
+                    }
                 }
             }
         }
@@ -204,8 +265,8 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
 
         // Setup clusterization
         clusterManager = ClusterManager<StationEntity>(context, map).apply {
-            setOnClusterItemClickListener {
-                openInfoDialog(it)
+            setOnClusterItemClickListener { station ->
+                viewModel.obtainEvent(MapEvent.ItemClicked(station))
                 return@setOnClusterItemClickListener true
             }
             algorithm = NonHierarchicalViewBasedAlgorithm(binding.map.width, binding.map.height)
@@ -213,29 +274,13 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
             map.setOnCameraIdleListener(this)
         }
 
-        // Load data
-        viewModel.stationsList.observe(viewLifecycleOwner) {
-            addItems(it)
-        }
-
-        viewModel.route.observe(viewLifecycleOwner) {
-            hideBottomDialog()
-            polyline?.remove()
-            polyline = map.addPolyline(
-                PolylineOptions()
-                    .addAll(PolyUtil.decode(it))
-                    .width(5f.dp)
-                    .color(
-                        ContextCompat.getColor(
-                            requireContext(),
-                            R.color.blue
-                        )
-                    )
-            )
+        context?.delayedAction(100) {
+            viewModel.obtainEvent(MapEvent.EnterScreen)
         }
     }
 
-    private fun addItems(list: List<StationEntity>) {
+    private fun setItems(list: List<StationEntity>) {
+        clusterManager.clearItems()
         clusterManager.addItems(list)
     }
 

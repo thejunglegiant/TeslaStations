@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
@@ -40,6 +34,9 @@
     <color name="orioles_orange">#FF4214</color>
     <color name="feta">#EAFBE8</color>
     <color name="chateau_green">#42B054</color>
+
+    <color name="loaderColorBackground">#80000000</color>
+    <color name="colorAccent">@color/blue</color>
 
     <color name="cluster_item_up_to_20">#266CC0</color>
     <color name="cluster_item_up_to_50">#3886C2</color>

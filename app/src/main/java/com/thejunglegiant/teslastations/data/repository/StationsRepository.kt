@@ -32,7 +32,7 @@ class StationsRepository(
         return stations.map { it.toStationEntity() }
     }
 
-    override suspend fun getDirection(from: String, to: String): String {
+    override suspend fun getDirection(from: String, to: String): String? {
         val request = Request.Builder()
             .url("${DIRECTIONS_BASE_URL}origin=$from&destination=$to&key=${BuildConfig.MAPS_API_KEY}")
             .method("GET", null)
@@ -41,12 +41,12 @@ class StationsRepository(
         val obj = gson.fromJson(response.body!!.string(), JsonObject::class.java)
         return obj
             .get(ROUTES_ARRAY).asJsonArray
-            .first().asJsonObject
-            .get(POLYLINE_OBJECT).asJsonObject
-            .get(POLYLINE_STRING).asString
+            .firstOrNull()?.asJsonObject
+            ?.get(POLYLINE_OBJECT)?.asJsonObject
+            ?.get(POLYLINE_STRING)?.asString
     }
 
-    override suspend fun getDirection(from: LatLng, to: LatLng): String {
+    override suspend fun getDirection(from: LatLng, to: LatLng): String? {
         val request = Request.Builder()
             .url("${DIRECTIONS_BASE_URL}origin=${from.latitude},${from.longitude}&destination=${to.latitude},${to.longitude}&key=${BuildConfig.MAPS_API_KEY}")
             .method("GET", null)
@@ -55,9 +55,9 @@ class StationsRepository(
         val obj = gson.fromJson(response.body!!.string(), JsonObject::class.java)
         return obj
             .get(ROUTES_ARRAY).asJsonArray
-            .first().asJsonObject
-            .get(POLYLINE_OBJECT).asJsonObject
-            .get(POLYLINE_STRING).asString
+            .firstOrNull()?.asJsonObject
+            ?.get(POLYLINE_OBJECT)?.asJsonObject
+            ?.get(POLYLINE_STRING)?.asString
     }
 
     companion object {

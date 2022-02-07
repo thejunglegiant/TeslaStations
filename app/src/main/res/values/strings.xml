@@ -9,4 +9,6 @@
     <string name="try_again">Try Again</string>
     <string name="why_location_permission_needed">By denying this permission you won\'t be able to see your current location!</string>
     <string name="station_direction">Direction</string>
+    <string name="error_no_direction">There is no route available right now</string>
+    <string name="error_no_items_found">No stations were found!</string>
 </resources>
