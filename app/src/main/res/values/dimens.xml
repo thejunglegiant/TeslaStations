@@ -37,4 +37,8 @@
     <!-- region custom widget size-->
     <dimen name="widget_height">48dp</dimen>
     <!-- endregion -->
+
+    <!-- region Corner radius-->
+    <dimen name="default_card_corner_radius">8dp</dimen>
+    <!-- endregion -->
 </resources>

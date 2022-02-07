@@ -20,12 +20,16 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Polyline
+import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.maps.android.PolyUtil
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
+import com.thejunglegiant.teslastations.extensions.dp
 import com.thejunglegiant.teslastations.extensions.showSnackBar
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.utils.LocationUtil
@@ -67,6 +71,9 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
             }
         }
 
+    // Current route polyline
+    var polyline: Polyline? = null
+
     override fun onResume() {
         super.onResume()
         StatusBarMode.Translucent.onFragmentResumed(this)
@@ -85,7 +92,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
 
         setupMap()
-        setupBottomDialog()
+        hideBottomDialog()
         setListeners()
     }
 
@@ -94,7 +101,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    private fun setupBottomDialog() {
+    private fun hideBottomDialog() {
         // set initial state to STATE_HIDDEN
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
     }
@@ -106,6 +113,14 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         infoDialog.descriptionPhone.text = station.contacts.first().number
         infoDialog.descriptionHours.text = station.hours.ifEmpty {
             getString(R.string.station_description_hours_placeholder)
+        }
+        infoDialog.btnStationDirection.setOnClickListener {
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                viewModel.getRoute(
+                    LatLng(location.latitude, location.longitude),
+                    LatLng(station.latitude, station.longitude)
+                )
+            }
         }
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
@@ -201,6 +216,22 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         // Load data
         viewModel.stationsList.observe(viewLifecycleOwner) {
             addItems(it)
+        }
+
+        viewModel.route.observe(viewLifecycleOwner) {
+            hideBottomDialog()
+            polyline?.remove()
+            polyline = map.addPolyline(
+                PolylineOptions()
+                    .addAll(PolyUtil.decode(it))
+                    .width(5f.dp)
+                    .color(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.blue
+                        )
+                    )
+            )
         }
     }
 

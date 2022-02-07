@@ -22,6 +22,24 @@
     <color name="silver">#CCCCCC</color>
     <color name="gunMetal">#222234</color>
     <color name="mine_shaft">#212121</color>
+    <color name="deep_koamaru">#2C3F6C</color>
+    <color name="blue_ribbon_opacity_50">#771554F6</color>
+    <color name="corn_flower_blue">#698BFF</color>
+    <color name="blue">#2C62CB</color>
+    <color name="hawkes_blue">#D5E0F5</color>
+    <color name="blue_opacity_50">#772C62CB</color>
+    <color name="green">#42B054</color>
+    <color name="moss_green">#A0D7A9</color>
+    <color name="green_opacity_50">#7742B054</color>
+    <color name="blue_ribbon">#1554F6</color>
+    <color name="denim">#0C38CF</color>
+    <color name="vermilion">#FF4214</color>
+    <color name="san_juan">#2C3F6C</color>
+    <color name="yankeesBlue">#1E2436</color>
+    <color name="wisp_pink">#FCE9EA</color>
+    <color name="orioles_orange">#FF4214</color>
+    <color name="feta">#EAFBE8</color>
+    <color name="chateau_green">#42B054</color>
 
     <color name="cluster_item_up_to_20">#266CC0</color>
     <color name="cluster_item_up_to_50">#3886C2</color>

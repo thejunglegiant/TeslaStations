@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 val appModule = module {
 
-    single<IStationsRepository> { StationsRepository(androidContext()) }
+    single<IStationsRepository> { StationsRepository(androidContext(), get(), get()) }
 
     viewModel { MapViewModel(get()) }
 }

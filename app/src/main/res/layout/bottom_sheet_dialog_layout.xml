@@ -142,4 +142,15 @@
             android:textSize="@dimen/text.size.medium"
             tools:text="24/7" />
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_station_direction"
+        style="@style/Widget.MaterialComponents.Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_1"
+        android:text="@string/station_direction"
+        app:layout_constraintEnd_toEndOf="@+id/description_hours_section"
+        app:layout_constraintStart_toStartOf="@+id/description_hours_section"
+        app:layout_constraintTop_toBottomOf="@+id/description_hours_section" />
 </androidx.constraintlayout.widget.ConstraintLayout>
