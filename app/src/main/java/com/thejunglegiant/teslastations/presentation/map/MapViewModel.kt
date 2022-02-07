@@ -133,7 +133,12 @@ class MapViewModel(
             if (route == null) {
                 _mapViewState.postValue(MapViewState.Error(msgRes = R.string.error_no_direction))
             } else {
-                _mapViewState.postValue(MapViewState.Direction(PolyUtil.decode(route)))
+                _mapViewState.postValue(
+                    MapViewState.Direction(
+                        bounds = route.first,
+                        points = PolyUtil.decode(route.second)
+                    )
+                )
             }
         }
     }

@@ -21,6 +21,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -119,10 +120,10 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
             getString(R.string.station_description_hours_placeholder)
         }
         infoDialog.btnStationDirection.setOnClickListener {
-            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+            fetchUserLocation(shouldMoveMap = false) { location ->
                 viewModel.obtainEvent(
                     MapEvent.ItemDirectionClicked(
-                        from = LatLng(location.latitude, location.longitude),
+                        from = location,
                         to = LatLng(station.latitude, station.longitude)
                     )
                 )
@@ -180,6 +181,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
                                 )
                             )
                     )
+                    moveMap(it.bounds)
                 }
                 is MapViewState.Display -> {
                     polyline?.remove()
@@ -230,7 +232,10 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
     }
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION])
-    private fun fetchUserLocation() {
+    private fun fetchUserLocation(
+        shouldMoveMap: Boolean = true,
+        doWithLocation: (location: LatLng) -> Unit = {}
+    ) {
         stopLocationUpdates()
 
         val locationCallback: LocationCallback by lazy {
@@ -241,10 +246,12 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
 
                     locationResult.lastLocation.let { location ->
                         val latLng = LatLng(location.latitude, location.longitude)
+                        doWithLocation.invoke(latLng)
+
                         checkMapReadyThen {
                             map.isMyLocationEnabled = true
                             map.uiSettings.isMyLocationButtonEnabled = false
-                            moveMap(latLng)
+                            if (shouldMoveMap) moveMap(latLng)
                         }
                     }
                 }
@@ -293,6 +300,19 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
             latLng,
             zoom
         )
+        if (animate)
+            map.animateCamera(cu, 500, null)
+        else
+            map.moveCamera(cu)
+    }
+
+    private fun moveMap(
+        bounds: LatLngBounds,
+        padding: Int = 50,
+        animate: Boolean = true
+    ) {
+        val cu = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+
         if (animate)
             map.animateCamera(cu, 500, null)
         else
