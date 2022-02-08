@@ -2,15 +2,12 @@ package com.thejunglegiant.teslastations.data.repository
 
 import android.content.Context
 import android.util.Log
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.thejunglegiant.teslastations.BuildConfig
-import com.thejunglegiant.teslastations.data.database.AppDatabase
 import com.thejunglegiant.teslastations.data.database.dao.StationsDao
 import com.thejunglegiant.teslastations.data.model.StationDTO
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
@@ -19,10 +16,6 @@ import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
 import com.thejunglegiant.teslastations.extensions.loge
 import com.thejunglegiant.teslastations.utils.DB_NAME
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
@@ -33,19 +26,6 @@ class StationsRepository(
     private val stationsDao: StationsDao,
 ) : IStationsRepository {
 
-    init {
-        runBlocking(Dispatchers.IO) {
-            launch {
-                val db = context.getDatabasePath(DB_NAME)
-                if (!db.exists()) {
-                    val data = prepopulateStationsData()
-                    stationsDao.insertAll(data)
-                    loge(TAG, "${data.size} prepopulated data were written into database!")
-                }
-            }
-        }
-    }
-
     private fun prepopulateStationsData(): List<StationEntity> {
         val jsonFileString = getJsonDataFromAsset(context, "stations_no_limit.json")
         val gson = Gson()
@@ -54,6 +34,21 @@ class StationsRepository(
         val stations: List<StationDTO> = gson.fromJson(jsonFileString, listPersonType)
         Log.d(TAG, "${stations.size} stations were found!")
         return stations.map { it.toStationEntity() }
+    }
+
+    override suspend fun initDb(): Boolean {
+        return try {
+            val db = context.getDatabasePath(DB_NAME)
+            if (!db.exists()) {
+                val data = prepopulateStationsData()
+                stationsDao.insertAll(data)
+                loge(TAG, "${data.size} prepopulated data were written into database!")
+            }
+
+            false
+        } catch (e: Exception) {
+            false
+        }
     }
 
     override suspend fun fetchStations(): List<StationEntity> {

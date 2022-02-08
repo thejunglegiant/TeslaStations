@@ -11,4 +11,5 @@
     <string name="station_direction">Direction</string>
     <string name="error_no_direction">There is no route available right now</string>
     <string name="error_no_items_found">No stations were found!</string>
+    <string name="error_something_went_wrong">Something went wrong</string>
 </resources>

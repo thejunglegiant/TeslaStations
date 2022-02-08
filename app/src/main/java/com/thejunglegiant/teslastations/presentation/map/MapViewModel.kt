@@ -23,11 +23,11 @@ class MapViewModel(
     private val repository: IStationsRepository
 ) : ViewModel(), EventHandler<MapEvent> {
 
-    private val _mapViewState = MutableLiveData<MapViewState>(MapViewState.Loading)
-    val mapViewState: LiveData<MapViewState> = _mapViewState
+    private val _viewState = MutableLiveData<MapViewState>(MapViewState.Loading)
+    val viewState: LiveData<MapViewState> = _viewState
 
     override fun obtainEvent(event: MapEvent) {
-        when (val currentState = _mapViewState.value) {
+        when (val currentState = _viewState.value) {
             is MapViewState.Direction -> reduce(event, currentState)
             is MapViewState.Display -> reduce(event, currentState)
             is MapViewState.Error -> reduce(event, currentState)
@@ -49,7 +49,7 @@ class MapViewModel(
         when (event) {
             MapEvent.EnterScreen -> fetchData()
             MapEvent.MapModeClicked -> changeMapMode()
-            MapEvent.ItemDirectionClicked -> _mapViewState.postValue(MapViewState.Loading)
+            MapEvent.ItemDirectionClicked -> _viewState.postValue(MapViewState.Loading)
             is MapEvent.ItemClicked -> getItem(event.item)
         }
     }
@@ -85,20 +85,20 @@ class MapViewModel(
     }
 
     private fun getItem(station: StationEntity) {
-        _mapViewState.postValue(MapViewState.Loading)
+        _viewState.postValue(MapViewState.Loading)
 
         viewModelScope.launch {
             // request delay simulation
             delay(Random.nextLong(100, 1000))
 
-            _mapViewState.postValue(
+            _viewState.postValue(
                 MapViewState.ItemDetails(station)
             )
         }
     }
 
     private fun changeMapMode() {
-        _mapViewState.postValue(
+        _viewState.postValue(
             MapViewState.Display(
                 data = emptyList(), settings = MapSettingsItem(false)
             )
@@ -106,13 +106,13 @@ class MapViewModel(
     }
 
     private fun fetchData(needReload: Boolean = false) {
-        if (needReload) _mapViewState.postValue(MapViewState.Loading)
+        if (needReload) _viewState.postValue(MapViewState.Loading)
 
         viewModelScope.launch {
             val data = repository.fetchStations()
 
             if (data.isNotEmpty()) {
-                _mapViewState.postValue(
+                _viewState.postValue(
                     MapViewState.Display(
                         data = data,
                         // TODO add DataStore
@@ -120,21 +120,21 @@ class MapViewModel(
                     )
                 )
             } else {
-                _mapViewState.postValue(MapViewState.NoItems)
+                _viewState.postValue(MapViewState.NoItems)
             }
         }
     }
 
     private fun getRoute(from: LatLng, to: LatLng) {
-        _mapViewState.postValue(MapViewState.Loading)
+        _viewState.postValue(MapViewState.Loading)
 
         viewModelScope.launch(Dispatchers.IO) {
             val route = repository.getDirection(from, to)
 
             if (route == null) {
-                _mapViewState.postValue(MapViewState.Error(msgRes = R.string.error_no_direction))
+                _viewState.postValue(MapViewState.Error(msgRes = R.string.error_no_direction))
             } else {
-                _mapViewState.postValue(
+                _viewState.postValue(
                     MapViewState.Direction(
                         bounds = route.first,
                         points = PolyUtil.decode(route.second)

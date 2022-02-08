@@ -5,14 +5,11 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Looper
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
@@ -32,8 +29,8 @@ import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.extensions.dp
 import com.thejunglegiant.teslastations.extensions.gone
-import com.thejunglegiant.teslastations.extensions.loge
 import com.thejunglegiant.teslastations.extensions.showSnackBar
+import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
@@ -41,13 +38,10 @@ import com.thejunglegiant.teslastations.utils.LocationUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @SuppressLint("MissingPermission")
-class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback,
-    GoogleMap.OnMapLoadedCallback {
+class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::inflate),
+    OnMapReadyCallback, GoogleMap.OnMapLoadedCallback {
 
     private val viewModel: MapViewModel by viewModel()
-
-    // General layout
-    private lateinit var binding: FragmentMapBinding
 
     // Stations' details dialog
     private val infoDialog by lazy {
@@ -85,15 +79,6 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback,
     override fun onResume() {
         super.onResume()
         StatusBarMode.Translucent.onFragmentResumed(this)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentMapBinding.inflate(inflater)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -150,7 +135,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback,
     }
 
     private fun initViewModel() {
-        viewModel.mapViewState.observe(viewLifecycleOwner) {
+        viewModel.viewState.observe(viewLifecycleOwner) {
             binding.loading.root.isVisible = false
             when (it) {
                 is MapViewState.Direction -> {
@@ -163,7 +148,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback,
                             .color(
                                 ContextCompat.getColor(
                                     requireContext(),
-                                    R.color.blue
+                                    R.color.thunderbird
                                 )
                             )
                     )
