@@ -8,7 +8,6 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:paddingEnd="@dimen/spacing_2"
-    android:paddingBottom="@dimen/spacing_2"
     app:behavior_hideable="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
@@ -150,6 +149,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_1"
         android:text="@string/station_direction"
+        android:layout_marginBottom="@dimen/spacing_2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/description_hours_section"
         app:layout_constraintStart_toStartOf="@+id/description_hours_section"
         app:layout_constraintTop_toBottomOf="@+id/description_hours_section" />

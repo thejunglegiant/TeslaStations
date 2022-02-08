@@ -49,8 +49,8 @@ class MapViewModel(
         when (event) {
             MapEvent.EnterScreen -> fetchData()
             MapEvent.MapModeClicked -> changeMapMode()
+            MapEvent.ItemDirectionClicked -> _mapViewState.postValue(MapViewState.Loading)
             is MapEvent.ItemClicked -> getItem(event.item)
-            is MapEvent.ItemDirectionClicked -> getRoute(event.from, event.to)
         }
     }
 
@@ -73,6 +73,7 @@ class MapViewModel(
     private fun reduce(event: MapEvent, currentViewState: MapViewState.Loading) {
         when (event) {
             MapEvent.EnterScreen -> fetchData(needReload = true)
+            is MapEvent.ItemDirectionFound -> getRoute(event.from, event.to)
         }
     }
 

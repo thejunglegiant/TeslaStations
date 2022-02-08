@@ -30,8 +30,9 @@ import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
-import com.thejunglegiant.teslastations.extensions.delayedAction
 import com.thejunglegiant.teslastations.extensions.dp
+import com.thejunglegiant.teslastations.extensions.gone
+import com.thejunglegiant.teslastations.extensions.loge
 import com.thejunglegiant.teslastations.extensions.showSnackBar
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
@@ -40,7 +41,8 @@ import com.thejunglegiant.teslastations.utils.LocationUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @SuppressLint("MissingPermission")
-class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
+class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback,
+    GoogleMap.OnMapLoadedCallback {
 
     private val viewModel: MapViewModel by viewModel()
 
@@ -64,12 +66,14 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
     private val fusedLocationClient by lazy {
         LocationServices.getFusedLocationProviderClient(requireActivity())
     }
+    private var permissionGrantedCallback: (() -> Unit)? = null
     private val requestPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                fetchUserLocation()
+                permissionGrantedCallback?.invoke()
+                permissionGrantedCallback = null
             } else {
                 binding.root.showSnackBar(R.string.why_location_permission_needed)
             }
@@ -115,18 +119,22 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
         infoDialog.title.text = station.stationTitle
         infoDialog.location.text = "${station.country}, ${station.city}"
         infoDialog.descriptionText.text = station.description
-        infoDialog.descriptionPhone.text = station.contacts.first().number
+        station.contact?.number?.let { infoDialog.descriptionPhone.text = it }
+            ?: infoDialog.descriptionPhoneSection.gone()
         infoDialog.descriptionHours.text = station.hours.ifEmpty {
             getString(R.string.station_description_hours_placeholder)
         }
         infoDialog.btnStationDirection.setOnClickListener {
-            fetchUserLocation(shouldMoveMap = false) { location ->
-                viewModel.obtainEvent(
-                    MapEvent.ItemDirectionClicked(
-                        from = location,
-                        to = LatLng(station.latitude, station.longitude)
+            checkLocationPermission {
+                viewModel.obtainEvent(MapEvent.ItemDirectionClicked)
+                fetchUserLocation(shouldMoveMap = false) { location ->
+                    viewModel.obtainEvent(
+                        MapEvent.ItemDirectionFound(
+                            from = location,
+                            to = LatLng(station.latitude, station.longitude)
+                        )
                     )
-                )
+                }
             }
         }
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
@@ -134,29 +142,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
 
     private fun setListeners() {
         binding.mapDefault.btnCurrentLocation.setOnClickListener {
-            when {
-                ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED -> {
-                    fetchUserLocation()
-                }
-                shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
-                    binding.root.showSnackBar(
-                        R.string.location_permission_required,
-                        R.string.try_again
-                    ) {
-                        requestPermissionLauncher.launch(
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                        )
-                    }
-                }
-                else -> {
-                    requestPermissionLauncher.launch(
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    )
-                }
-            }
+            checkLocationPermission { fetchUserLocation() }
         }
         binding.mapDefault.btnMapLayer.setOnClickListener {
             viewModel.obtainEvent(MapEvent.MapModeClicked)
@@ -187,7 +173,15 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
                     polyline?.remove()
                     hideBottomDialog()
 
-                    if (it.data.isNotEmpty()) setItems(it.data)
+                    if (it.data.isNotEmpty()) {
+                        setItems(it.data)
+
+                        // Move map to the europe region by default
+                        moveMap(
+                            LatLngBounds(LatLng(35.0, -30.0), LatLng(70.0, 50.0)),
+                            animate = false
+                        )
+                    }
 
                     map.mapType = if (it.settings.defaultMapLayer) {
                         GoogleMap.MAP_TYPE_NORMAL
@@ -220,6 +214,36 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
                         viewModel.obtainEvent(MapEvent.ReloadScreen)
                     }
                 }
+            }
+        }
+    }
+
+    private fun checkLocationPermission(
+        doWithPermission: () -> Unit
+    ) {
+        when {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                doWithPermission.invoke()
+            }
+            shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
+                binding.root.showSnackBar(
+                    R.string.location_permission_required,
+                    R.string.try_again
+                ) {
+                    permissionGrantedCallback = doWithPermission
+                    requestPermissionLauncher.launch(
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    )
+                }
+            }
+            else -> {
+                permissionGrantedCallback = doWithPermission
+                requestPermissionLauncher.launch(
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
             }
         }
     }
@@ -269,6 +293,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         // Setup map
         map = googleMap
+        map.setOnMapLoadedCallback(this)
 
         // Setup clusterization
         clusterManager = ClusterManager<StationEntity>(context, map).apply {
@@ -280,10 +305,10 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
             renderer = StationsRender(binding.map.context, map, this)
             map.setOnCameraIdleListener(this)
         }
+    }
 
-        context?.delayedAction(100) {
-            viewModel.obtainEvent(MapEvent.EnterScreen)
-        }
+    override fun onMapLoaded() {
+        viewModel.obtainEvent(MapEvent.EnterScreen)
     }
 
     private fun setItems(list: List<StationEntity>) {
@@ -328,6 +353,7 @@ class MapFragment : Fragment(R.layout.fragment_map), OnMapReadyCallback {
     }
 
     companion object {
+        val TAG: String = MapFragment::class.java.simpleName
         private const val DEFAULT_MAX_MAP_ZOOM_MULTIPLIER = 0.75f
     }
 }

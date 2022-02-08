@@ -7,18 +7,18 @@ import com.thejunglegiant.teslastations.domain.entity.ContactEntity
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 
 fun StationDTO.toStationEntity(): StationEntity = StationEntity(
+    id = id,
     address = address,
     city = city,
     country = country,
     latitude = latitude.toDouble(),
     longitude = longitude.toDouble(),
     hours = hours,
-    id = id,
     stationTitle = title,
     state = state?: "",
     region = region,
     description = Html.fromHtml(description).toString().trim(),
-    contacts = contacts.map { it.toContactEntity() }
+    contact = contacts.firstOrNull()?.toContactEntity()
 )
 
 fun ContactDTO.toContactEntity(): ContactEntity = ContactEntity(
