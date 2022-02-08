@@ -32,7 +32,7 @@ class MapViewModel(
             is MapViewState.Display -> reduce(event, currentState)
             is MapViewState.Error -> reduce(event, currentState)
             is MapViewState.Loading -> reduce(event, currentState)
-            is MapViewState.NoItems -> reduce(event, currentState)
+            is MapViewState.ItemDeleted -> reduce(event, currentState)
             is MapViewState.ItemDetails -> reduce(event, currentState)
         }
     }
@@ -51,6 +51,7 @@ class MapViewModel(
             MapEvent.MapModeClicked -> changeMapMode()
             MapEvent.ItemDirectionClicked -> _viewState.postValue(MapViewState.Loading)
             is MapEvent.ItemClicked -> getItem(event.item)
+            is MapEvent.ItemDeleteClicked -> deleteItem(event.item)
         }
     }
 
@@ -77,10 +78,35 @@ class MapViewModel(
         }
     }
 
-    private fun reduce(event: MapEvent, currentViewState: MapViewState.NoItems) {
+    private fun reduce(event: MapEvent, currentViewState: MapViewState.ItemDeleted) {
         when (event) {
             MapEvent.MapModeClicked -> changeMapMode()
             MapEvent.ReloadScreen -> fetchData(needReload = true)
+            is MapEvent.ItemDeleteClicked -> undoDeleteItem(event.item)
+        }
+    }
+
+    private fun undoDeleteItem(item: StationEntity) {
+        _viewState.postValue(MapViewState.Loading)
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.showStation(item)
+
+            _viewState.postValue(
+                MapViewState.ItemDeleted(item = result)
+            )
+        }
+    }
+
+    private fun deleteItem(item: StationEntity) {
+        _viewState.postValue(MapViewState.Loading)
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.hideStation(item)
+
+            _viewState.postValue(
+                MapViewState.ItemDeleted(item = result)
+            )
         }
     }
 
@@ -120,7 +146,9 @@ class MapViewModel(
                     )
                 )
             } else {
-                _viewState.postValue(MapViewState.NoItems)
+                _viewState.postValue(
+                    MapViewState.Error(msgRes = R.string.error_no_items_found)
+                )
             }
         }
     }

@@ -39,20 +39,33 @@ class StationsRepository(
     override suspend fun initDb(): Boolean {
         return try {
             val db = context.getDatabasePath(DB_NAME)
-            if (!db.exists()) {
+            if (!db.exists() || stationsDao.getAllCount() < 1) {
                 val data = prepopulateStationsData()
                 stationsDao.insertAll(data)
                 loge(TAG, "${data.size} prepopulated data were written into database!")
             }
 
-            false
+            true
         } catch (e: Exception) {
+            loge(TAG, e.message ?: "something wrong")
             false
         }
     }
 
     override suspend fun fetchStations(): List<StationEntity> {
         return stationsDao.getAll()
+    }
+
+    override suspend fun hideStation(station: StationEntity): StationEntity {
+        val hiddenStation = station.copy(status = StationEntity.Status.HIDDEN)
+        stationsDao.updateStation(hiddenStation)
+        return hiddenStation
+    }
+
+    override suspend fun showStation(station: StationEntity): StationEntity {
+        val visibleStation = station.copy(status = StationEntity.Status.VISIBLE)
+        stationsDao.updateStation(visibleStation)
+        return visibleStation
     }
 
     override suspend fun getDirection(from: LatLng, to: LatLng): Pair<LatLngBounds, String>? {

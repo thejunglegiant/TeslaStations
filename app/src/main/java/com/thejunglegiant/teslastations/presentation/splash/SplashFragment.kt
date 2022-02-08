@@ -26,13 +26,13 @@ class SplashFragment : BaseBindingFragment<FragmentSplashBinding>(FragmentSplash
                 SplashViewState.Error -> {
                     toastSh(R.string.error_something_went_wrong)
                 }
-                SplashViewState.Success -> {}
+                SplashViewState.Success -> {
+                    findNavController().navigate(
+                        SplashFragmentDirections
+                            .actionSplashFragmentToMapFragment()
+                    )
+                }
             }
-
-            findNavController().navigate(
-                SplashFragmentDirections
-                    .actionSplashFragmentToMapFragment()
-            )
         }
     }
 }

@@ -29,7 +29,7 @@
         <item name="android:textSize">@dimen/text.size.medium</item>
         <item name="backgroundTint">@color/thunderbird</item>
         <item name="android:letterSpacing">0.01</item>
-        <item name="android:background">@drawable/shape_blue_button_state</item>
+        <item name="android:background">@drawable/shape_primary_button_state</item>
         <item name="android:fontFamily">@font/nunito_bold</item>
         <item name="android:includeFontPadding">false</item>
     </style>

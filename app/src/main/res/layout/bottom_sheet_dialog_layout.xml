@@ -38,11 +38,12 @@
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_2"
         android:fontFamily="@font/nunito_semibold"
         android:maxLines="1"
         android:textColor="@color/gunMetal"
         android:textSize="@dimen/text.size.large"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_delete_station"
         app:layout_constraintStart_toStartOf="@id/station_title_hint"
         app:layout_constraintTop_toBottomOf="@id/station_title_hint"
         tools:text="Ace Hotel Palm Springs" />
@@ -55,10 +56,20 @@
         android:maxLines="1"
         android:textColor="@color/gunMetal"
         android:textSize="@dimen/text.size.large"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@id/station_title_hint"
         app:layout_constraintTop_toBottomOf="@id/title"
         tools:text="United States, Palm Springs" />
+
+    <ImageButton
+        android:id="@+id/btn_delete_station"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toTopOf="@+id/description_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/station_title_hint" />
 
     <TextView
         android:id="@+id/description_title"
@@ -148,8 +159,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_1"
-        android:text="@string/station_direction"
         android:layout_marginBottom="@dimen/spacing_2"
+        android:text="@string/station_direction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/description_hours_section"
         app:layout_constraintStart_toStartOf="@+id/description_hours_section"

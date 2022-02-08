@@ -12,4 +12,7 @@
     <string name="error_no_direction">There is no route available right now</string>
     <string name="error_no_items_found">No stations were found!</string>
     <string name="error_something_went_wrong">Something went wrong</string>
+    <string name="error_item_delete">Item cannot be deleted</string>
+    <string name="undo">Undo</string>
+    <string name="station_deleted">The station was deleted</string>
 </resources>

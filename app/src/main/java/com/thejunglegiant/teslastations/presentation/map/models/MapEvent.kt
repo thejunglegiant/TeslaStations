@@ -7,7 +7,8 @@ sealed class MapEvent {
     object EnterScreen : MapEvent()
     object ReloadScreen : MapEvent()
     object MapModeClicked : MapEvent()
-    data class ItemClicked(val item: StationEntity) : MapEvent()
     object ItemDirectionClicked : MapEvent()
+    data class ItemClicked(val item: StationEntity) : MapEvent()
+    data class ItemDeleteClicked(val item: StationEntity) : MapEvent()
     data class ItemDirectionFound(val from: LatLng, val to: LatLng) : MapEvent()
 }

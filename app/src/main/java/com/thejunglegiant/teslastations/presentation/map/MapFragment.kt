@@ -37,6 +37,7 @@ import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import com.thejunglegiant.teslastations.utils.LocationUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 @SuppressLint("MissingPermission")
 class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::inflate),
     OnMapReadyCallback, GoogleMap.OnMapLoadedCallback {
@@ -101,6 +102,9 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     }
 
     private fun openInfoDialog(station: StationEntity) {
+        checkMapReadyThen {
+            moveMap(LatLng(station.latitude, station.longitude))
+        }
         infoDialog.title.text = station.stationTitle
         infoDialog.location.text = "${station.country}, ${station.city}"
         infoDialog.descriptionText.text = station.description
@@ -108,6 +112,9 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
             ?: infoDialog.descriptionPhoneSection.gone()
         infoDialog.descriptionHours.text = station.hours.ifEmpty {
             getString(R.string.station_description_hours_placeholder)
+        }
+        infoDialog.btnDeleteStation.setOnClickListener {
+            viewModel.obtainEvent(MapEvent.ItemDeleteClicked(station))
         }
         infoDialog.btnStationDirection.setOnClickListener {
             checkLocationPermission {
@@ -158,20 +165,18 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                     polyline?.remove()
                     hideBottomDialog()
 
-                    if (it.data.isNotEmpty()) {
-                        setItems(it.data)
+                    it.data
+                        .filter { item -> item.status != StationEntity.Status.HIDDEN }
+                        .also { visibleList ->
+                            setItems(visibleList)
+                        }
 
-                        // Move map to the europe region by default
-                        moveMap(
-                            LatLngBounds(LatLng(35.0, -30.0), LatLng(70.0, 50.0)),
-                            animate = false
-                        )
-                    }
-
-                    map.mapType = if (it.settings.defaultMapLayer) {
-                        GoogleMap.MAP_TYPE_NORMAL
-                    } else {
-                        GoogleMap.MAP_TYPE_SATELLITE
+                    it.settings?.let { settings ->
+                        map.mapType = if (settings.defaultMapLayer) {
+                            GoogleMap.MAP_TYPE_NORMAL
+                        } else {
+                            GoogleMap.MAP_TYPE_SATELLITE
+                        }
                     }
                 }
                 is MapViewState.Error -> {
@@ -188,16 +193,27 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                     polyline?.remove()
                     openInfoDialog(it.item)
                 }
+                is MapViewState.ItemDeleted -> {
+                    when (it.item.status) {
+                        StationEntity.Status.VISIBLE -> {
+                            addItem(it.item)
+                            openInfoDialog(it.item)
+                        }
+                        StationEntity.Status.HIDDEN -> {
+                            polyline?.remove()
+                            hideBottomDialog()
+
+                            removeItem(it.item.copy(status = StationEntity.Status.VISIBLE))
+                            binding.root.showSnackBar(R.string.station_deleted, R.string.undo) {
+                                viewModel.obtainEvent(MapEvent.ItemDeleteClicked(it.item))
+                            }
+                        }
+                    }
+
+                }
                 MapViewState.Loading -> {
                     hideBottomDialog()
                     binding.loading.root.isVisible = true
-                }
-                MapViewState.NoItems -> {
-                    polyline?.remove()
-                    hideBottomDialog()
-                    binding.root.showSnackBar(R.string.error_no_items_found, R.string.try_again) {
-                        viewModel.obtainEvent(MapEvent.ReloadScreen)
-                    }
                 }
             }
         }
@@ -294,11 +310,28 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
 
     override fun onMapLoaded() {
         viewModel.obtainEvent(MapEvent.EnterScreen)
+
+        // Move map to the europe region by default
+        moveMap(
+            LatLngBounds(LatLng(35.0, -30.0), LatLng(70.0, 50.0)),
+            animate = false
+        )
     }
 
     private fun setItems(list: List<StationEntity>) {
         clusterManager.clearItems()
         clusterManager.addItems(list)
+        clusterManager.cluster()
+    }
+
+    private fun addItem(item: StationEntity) {
+        clusterManager.addItem(item)
+        clusterManager.cluster()
+    }
+
+    private fun removeItem(item: StationEntity) {
+        clusterManager.removeItem(item)
+        clusterManager.cluster()
     }
 
     private fun moveMap(
@@ -339,6 +372,6 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
 
     companion object {
         val TAG: String = MapFragment::class.java.simpleName
-        private const val DEFAULT_MAX_MAP_ZOOM_MULTIPLIER = 0.75f
+        private const val DEFAULT_MAX_MAP_ZOOM_MULTIPLIER = .5f
     }
 }

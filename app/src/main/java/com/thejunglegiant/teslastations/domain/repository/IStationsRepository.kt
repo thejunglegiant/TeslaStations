@@ -9,5 +9,9 @@ interface IStationsRepository {
 
     suspend fun fetchStations(): List<StationEntity>
 
+    suspend fun hideStation(station: StationEntity): StationEntity
+
+    suspend fun showStation(station: StationEntity): StationEntity
+
     suspend fun getDirection(from: LatLng, to: LatLng): Pair<LatLngBounds, String>?
 }
