@@ -15,4 +15,5 @@
     <string name="error_item_delete">Item cannot be deleted</string>
     <string name="undo">Undo</string>
     <string name="station_deleted">The station was deleted</string>
+    <string name="title_tesla_stations_list">Tesla Stations List</string>
 </resources>

@@ -2,14 +2,17 @@ package com.thejunglegiant.teslastations.presentation.map
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Looper
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresPermission
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
@@ -22,18 +25,18 @@ import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.snackbar.Snackbar
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
-import com.thejunglegiant.teslastations.extensions.dp
-import com.thejunglegiant.teslastations.extensions.gone
-import com.thejunglegiant.teslastations.extensions.showSnackBar
+import com.thejunglegiant.teslastations.extensions.*
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
+import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import com.thejunglegiant.teslastations.utils.LocationUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,12 +48,7 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     private val viewModel: MapViewModel by viewModel()
 
     // Stations' details dialog
-    private val infoDialog by lazy {
-        binding.bottomSheetInfo
-    }
-    private val bottomSheetBehavior by lazy {
-        BottomSheetBehavior.from(infoDialog.bottomSheetLayout)
-    }
+    private var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>? = null
 
     // Google Map
     private lateinit var map: GoogleMap
@@ -75,7 +73,7 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         }
 
     // Current route polyline
-    var polyline: Polyline? = null
+    private var polyline: Polyline? = null
 
     override fun onResume() {
         super.onResume()
@@ -98,25 +96,26 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
 
     private fun hideBottomDialog() {
         // set initial state to STATE_HIDDEN
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.infoDialog.bottomSheetLayout)
+        bottomSheetBehavior?.state = BottomSheetBehavior.STATE_HIDDEN
     }
 
     private fun openInfoDialog(station: StationEntity) {
         checkMapReadyThen {
             moveMap(LatLng(station.latitude, station.longitude))
         }
-        infoDialog.title.text = station.stationTitle
-        infoDialog.location.text = "${station.country}, ${station.city}"
-        infoDialog.descriptionText.text = station.description
-        station.contact?.number?.let { infoDialog.descriptionPhone.text = it }
-            ?: infoDialog.descriptionPhoneSection.gone()
-        infoDialog.descriptionHours.text = station.hours.ifEmpty {
+        binding.infoDialog.title.text = station.stationTitle
+        binding.infoDialog.location.text = "${station.country}, ${station.city}"
+        binding.infoDialog.descriptionText.text = station.description
+        station.contact?.number?.let { binding.infoDialog.descriptionPhone.text = it }
+            ?: binding.infoDialog.descriptionPhoneSection.gone()
+        binding.infoDialog.descriptionHours.text = station.hours.ifEmpty {
             getString(R.string.station_description_hours_placeholder)
         }
-        infoDialog.btnDeleteStation.setOnClickListener {
+        binding.infoDialog.btnDeleteStation.setOnClickListener {
             viewModel.obtainEvent(MapEvent.ItemDeleteClicked(station))
         }
-        infoDialog.btnStationDirection.setOnClickListener {
+        binding.infoDialog.btnStationDirection.setOnClickListener {
             checkLocationPermission {
                 viewModel.obtainEvent(MapEvent.ItemDirectionClicked)
                 fetchUserLocation(shouldMoveMap = false) { location ->
@@ -129,10 +128,16 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                 }
             }
         }
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
     private fun setListeners() {
+        binding.mapDefault.btnList.setOnClickListener {
+            findNavController().navigate(
+                MapFragmentDirections
+                    .actionMapFragmentToListStationsFragment()
+            )
+        }
         binding.mapDefault.btnCurrentLocation.setOnClickListener {
             checkLocationPermission { fetchUserLocation() }
         }
@@ -143,6 +148,16 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
 
     private fun initViewModel() {
         viewModel.viewState.observe(viewLifecycleOwner) {
+            loge(
+                TAG, when (it) {
+                    is MapViewState.Direction -> "Direction"
+                    is MapViewState.Display -> "Display"
+                    is MapViewState.Error -> "Error"
+                    is MapViewState.ItemDeleted -> "ItemDeleted"
+                    is MapViewState.ItemDetails -> "ItemDetails"
+                    MapViewState.Loading -> "Loading"
+                }
+            )
             binding.loading.root.isVisible = false
             when (it) {
                 is MapViewState.Direction -> {
@@ -204,7 +219,11 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                             hideBottomDialog()
 
                             removeItem(it.item.copy(status = StationEntity.Status.VISIBLE))
-                            binding.root.showSnackBar(R.string.station_deleted, R.string.undo) {
+                            binding.root.showSnackBar(
+                                R.string.station_deleted,
+                                R.string.undo,
+                                Snackbar.LENGTH_LONG
+                            ) {
                                 viewModel.obtainEvent(MapEvent.ItemDeleteClicked(it.item))
                             }
                         }
@@ -311,11 +330,9 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     override fun onMapLoaded() {
         viewModel.obtainEvent(MapEvent.EnterScreen)
 
-        // Move map to the europe region by default
-        moveMap(
-            LatLngBounds(LatLng(35.0, -30.0), LatLng(70.0, 50.0)),
-            animate = false
-        )
+        getArgsLiveData<StationEntity>(ARG_STATION_LOCATION)?.observe(viewLifecycleOwner) { result ->
+            viewModel.obtainEvent(MapEvent.ItemClicked(result))
+        }
     }
 
     private fun setItems(list: List<StationEntity>) {

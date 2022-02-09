@@ -35,7 +35,10 @@
     <!-- endregion -->
 
     <!-- region custom widget size-->
-    <dimen name="widget_height">48dp</dimen>
+    <dimen name="widget_height_24">24dp</dimen>
+    <dimen name="widget_height_40">40dp</dimen>
+    <dimen name="widget_height_48">48dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
     <!-- endregion -->
 
     <!-- region Corner radius-->

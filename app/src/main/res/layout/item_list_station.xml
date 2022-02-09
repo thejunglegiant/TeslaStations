@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="@dimen/spacing_2">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_2"
+        android:fontFamily="@font/nunito_semibold"
+        android:maxLines="1"
+        android:textColor="@color/gunMetal"
+        android:textSize="@dimen/text.size.large"
+        app:layout_constraintEnd_toStartOf="@+id/navigate_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ace Hotel Palm Springs" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_regular"
+        android:maxLines="1"
+        android:textColor="@color/gunMetal"
+        android:textSize="@dimen/text.size.large"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="United States, Palm Springs" />
+
+    <LinearLayout
+        android:id="@+id/station_hours_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_2"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/location"
+        app:layout_constraintTop_toBottomOf="@+id/location">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@string/station_description_hours"
+            android:textColor="@color/gull_gray"
+            android:textSize="@dimen/text.size.medium" />
+
+        <TextView
+            android:id="@+id/station_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_1"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/gunMetal"
+            android:textSize="@dimen/text.size.medium"
+            tools:text="24/7" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/navigate_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/thunderbird" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

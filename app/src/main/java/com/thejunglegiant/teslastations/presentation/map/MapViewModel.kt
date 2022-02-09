@@ -11,6 +11,7 @@ import com.thejunglegiant.teslastations.domain.entity.MapSettingsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
+import com.thejunglegiant.teslastations.presentation.core.EventLiveData
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import kotlinx.coroutines.Dispatchers
@@ -23,8 +24,12 @@ class MapViewModel(
     private val repository: IStationsRepository
 ) : ViewModel(), EventHandler<MapEvent> {
 
-    private val _viewState = MutableLiveData<MapViewState>(MapViewState.Loading)
+    private val _viewState = EventLiveData<MapViewState>()
     val viewState: LiveData<MapViewState> = _viewState
+
+    init {
+        _viewState.value = MapViewState.Loading
+    }
 
     override fun obtainEvent(event: MapEvent) {
         when (val currentState = _viewState.value) {
@@ -73,7 +78,7 @@ class MapViewModel(
 
     private fun reduce(event: MapEvent, currentViewState: MapViewState.Loading) {
         when (event) {
-            MapEvent.EnterScreen -> fetchData(needReload = true)
+            MapEvent.EnterScreen -> fetchData()
             is MapEvent.ItemDirectionFound -> getRoute(event.from, event.to)
         }
     }

@@ -26,8 +26,8 @@
         android:layout_height="match_parent">
 
         <include
-            android:id="@+id/bottomSheetInfo"
-            layout="@layout/bottom_sheet_dialog_layout" />
+            android:id="@+id/infoDialog"
+            layout="@layout/dialog_station_details" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

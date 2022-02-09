@@ -23,5 +23,19 @@
         android:id="@+id/mapFragment"
         android:name="com.thejunglegiant.teslastations.presentation.map.MapFragment"
         android:label="MapFragment"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_mapFragment_to_listStationsFragment"
+            app:destination="@id/listStationsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listStationsFragment"
+        android:name="com.thejunglegiant.teslastations.presentation.list.ListStationsFragment"
+        android:label="ListStationsFragment"
+        tools:layout="@layout/fragment_stations_list" />
 </navigation>

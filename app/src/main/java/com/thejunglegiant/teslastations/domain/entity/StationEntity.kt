@@ -6,6 +6,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterItem
+import java.io.Serializable
 
 @Entity(tableName = "station")
 data class StationEntity(
@@ -23,7 +24,7 @@ data class StationEntity(
     val description: String,
     val status: Status = Status.VISIBLE,
     @Embedded val contact: ContactEntity?
-) : ClusterItem {
+) : Serializable, ClusterItem {
 
     enum class Status { VISIBLE, HIDDEN }
 
