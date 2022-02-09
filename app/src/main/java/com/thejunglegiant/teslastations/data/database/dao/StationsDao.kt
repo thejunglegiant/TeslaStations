@@ -15,6 +15,9 @@ interface StationsDao {
     @Query("SELECT * FROM station")
     suspend fun getAll(): List<StationEntity>
 
+    @Query("SELECT * FROM station LIMIT :limit OFFSET :offset")
+    suspend fun getStationsOffset(limit: Int, offset: Int): List<StationEntity>
+
     @Insert
     suspend fun insertAll(stations: List<StationEntity>)
 

@@ -15,6 +15,7 @@ import com.thejunglegiant.teslastations.domain.mapper.toStationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
 import com.thejunglegiant.teslastations.extensions.loge
+import com.thejunglegiant.teslastations.extensions.simResponseDelay
 import com.thejunglegiant.teslastations.utils.DB_NAME
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -54,6 +55,11 @@ class StationsRepository(
 
     override suspend fun fetchStations(): List<StationEntity> {
         return stationsDao.getAll()
+    }
+
+    override suspend fun getStations(limit: Int, offset: Int): List<StationEntity> {
+        simResponseDelay()
+        return stationsDao.getStationsOffset(limit = limit, offset = offset)
     }
 
     override suspend fun hideStation(station: StationEntity): StationEntity {

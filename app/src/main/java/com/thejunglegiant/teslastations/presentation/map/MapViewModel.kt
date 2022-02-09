@@ -10,6 +10,7 @@ import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.domain.entity.MapSettingsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
+import com.thejunglegiant.teslastations.extensions.simResponseDelay
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.core.EventLiveData
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
@@ -119,8 +120,7 @@ class MapViewModel(
         _viewState.postValue(MapViewState.Loading)
 
         viewModelScope.launch {
-            // request delay simulation
-            delay(Random.nextLong(100, 1000))
+            simResponseDelay()
 
             _viewState.postValue(
                 MapViewState.ItemDetails(station)

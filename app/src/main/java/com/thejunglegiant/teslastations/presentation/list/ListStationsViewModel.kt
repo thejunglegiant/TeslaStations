@@ -4,18 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thejunglegiant.teslastations.R
-import com.thejunglegiant.teslastations.domain.entity.MapSettingsItem
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
 import com.thejunglegiant.teslastations.presentation.list.models.ListViewState
-import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import kotlinx.coroutines.launch
 
 class ListStationsViewModel(
     private val repository: IStationsRepository
 ) : ViewModel(), EventHandler<ListEvent> {
+
+    private var page = FIRST_PAGE
 
     private val _viewState = MutableLiveData<ListViewState>(ListViewState.Loading)
     val viewState: LiveData<ListViewState> = _viewState
@@ -30,7 +29,7 @@ class ListStationsViewModel(
 
     private fun reduce(event: ListEvent, currentViewState: ListViewState.Display) {
         when (event) {
-
+            ListEvent.LoadMoreStations -> getStations()
         }
     }
 
@@ -42,27 +41,30 @@ class ListStationsViewModel(
 
     private fun reduce(event: ListEvent, currentViewState: ListViewState.Loading) {
         when (event) {
-            ListEvent.EnterScreen -> fetchData()
+            ListEvent.EnterScreen -> getStations(isFirstPage = true)
         }
     }
 
-    private fun fetchData(needReload: Boolean = false) {
-        if (needReload) _viewState.postValue(ListViewState.Loading)
+    private fun getStations(isFirstPage: Boolean = false) {
+        page++
+        _viewState.postValue(ListViewState.Loading)
 
         viewModelScope.launch {
-            val data = repository.fetchStations()
+            val data = repository.getStations(
+                limit = PAGE_LIMIT,
+                offset = if (isFirstPage) 0 else page * PAGE_LIMIT
+            )
 
-            if (data.isNotEmpty()) {
-                _viewState.postValue(
-                    ListViewState.Display(
-                        data = data
-                    )
+            _viewState.postValue(
+                ListViewState.Display(
+                    data = data
                 )
-            } else {
-                _viewState.postValue(
-                    ListViewState.Error(msgRes = R.string.error_no_items_found)
-                )
-            }
+            )
         }
+    }
+
+    companion object {
+        const val PAGE_LIMIT = 20
+        private const val FIRST_PAGE = 0
     }
 }

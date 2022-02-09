@@ -26,6 +26,7 @@ class ListStationsFragment :
     private val viewModel: ListStationsViewModel by viewModel()
 
     private val adapter = StationsListAdapter()
+    private val paginationListener = PaginationListener()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -44,16 +45,24 @@ class ListStationsFragment :
         viewModel.viewState.observe(viewLifecycleOwner) {
             when (it) {
                 is ListViewState.Display -> {
-                    adapter.setData(it.data)
+                    paginationListener.isLoading = false
+                    paginationListener.isLastPage =
+                        it.data.isEmpty() || it.data.size < ListStationsViewModel.PAGE_LIMIT
+
+                    adapter.addData(it.data)
                 }
                 is ListViewState.Error -> {
-
+                    paginationListener.isLoading = false
                 }
                 is ListViewState.Loading -> {
-
+                    paginationListener.isLoading = true
                 }
             }
         }
+    }
+
+    private fun setStationsLoading(isLoading: Boolean) {
+        paginationListener.isLoading = isLoading
     }
 
     private fun setListeners() {
@@ -83,5 +92,13 @@ class ListStationsFragment :
         binding.listStations.addItemDecoration(divider)
         binding.listStations.layoutManager = LinearLayoutManager(context)
         binding.listStations.adapter = adapter
+        paginationListener.setOnPaginateCallback {
+            viewModel.obtainEvent(ListEvent.LoadMoreStations)
+        }
+        binding.listStations.addOnScrollListener(paginationListener)
+    }
+
+    companion object {
+        val TAG: String = ListStationsFragment::class.java.simpleName
     }
 }

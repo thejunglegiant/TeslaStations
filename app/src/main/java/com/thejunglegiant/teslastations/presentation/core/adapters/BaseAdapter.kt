@@ -80,5 +80,5 @@ abstract class BaseAdapter<P> : RecyclerView.Adapter<BaseViewHolder<P>>() {
         }
     }
 
-    override fun getItemCount(): Int = mFilteredDataList.count()
+    override fun getItemCount(): Int = mFilteredDataList.size
 }
