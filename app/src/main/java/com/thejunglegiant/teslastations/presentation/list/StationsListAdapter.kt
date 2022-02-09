@@ -33,7 +33,7 @@ class StationsListAdapter : BaseAdapter<StationEntity>() {
     class StationViewHolder(private val binding: ItemListStationBinding) : BaseViewHolder<StationEntity>(binding.root) {
 
         override fun bind(model: StationEntity) {
-            binding.title.text = position.toString() + " - " + model.title
+            binding.title.text = model.title
             binding.location.text = "${model.country}, ${model.city}"
             binding.stationHours.text = model.hours.ifEmpty {
                 binding.root.context.getString(R.string.station_description_hours_placeholder)
