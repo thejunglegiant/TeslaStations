@@ -13,6 +13,6 @@ data class StationDTO(
     @SerializedName("title") val title: String,
     @SerializedName("region") val region: String,
     @SerializedName("province_state") val state: String?,
-    @SerializedName("sales_phone") val contacts: List<ContactDTO>,
+    @SerializedName("contact_number") val contactNumber: String?,
     @SerializedName("chargers") val description: String,
 )

@@ -4,6 +4,7 @@
     <string name="station_description">Description</string>
     <string name="station_description_phone">Phone:</string>
     <string name="station_description_hours">Hours:</string>
+    <string name="station_description_number_placeholder">–</string>
     <string name="station_description_hours_placeholder">24/7</string>
     <string name="location_permission_required">Permission needed to show your exact location</string>
     <string name="try_again">Try Again</string>

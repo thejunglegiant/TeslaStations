@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
@@ -49,9 +51,10 @@ class ListStationsViewModel(
         _viewState.postValue(ListViewState.Loading)
 
         viewModelScope.launch {
-            val data = repository.getStations(
+            val data = repository.getStationsByBounds(
                 limit = PAGE_LIMIT,
-                offset = if (isFirstPage) 0 else ++page * PAGE_LIMIT
+                offset = if (isFirstPage) 0 else ++page * PAGE_LIMIT,
+                bounds = LatLngBounds(LatLng(33.822057, -27.467580), LatLng(71.450610, 43.723826))
             )
 
             _viewState.postValue(

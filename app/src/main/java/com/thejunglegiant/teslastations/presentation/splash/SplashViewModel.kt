@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
+import com.thejunglegiant.teslastations.domain.repository.IPopulateRepository
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.splash.models.SplashEvent
 import com.thejunglegiant.teslastations.presentation.splash.models.SplashViewState
@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SplashViewModel(
-    private val repository: IStationsRepository
+    private val repository: IPopulateRepository
 ) : ViewModel(), EventHandler<SplashEvent> {
 
     private val _viewState = MutableLiveData<SplashViewState>(SplashViewState.Loading)

@@ -1,57 +1,22 @@
 package com.thejunglegiant.teslastations.data.repository
 
-import android.content.Context
-import android.util.Log
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import com.google.gson.reflect.TypeToken
 import com.thejunglegiant.teslastations.BuildConfig
 import com.thejunglegiant.teslastations.data.database.dao.StationsDao
-import com.thejunglegiant.teslastations.data.model.StationDTO
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
-import com.thejunglegiant.teslastations.domain.mapper.toStationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
-import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
-import com.thejunglegiant.teslastations.extensions.loge
 import com.thejunglegiant.teslastations.extensions.simResponseDelay
-import com.thejunglegiant.teslastations.utils.DB_NAME
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
 class StationsRepository(
-    private val context: Context,
     private val httpClient: OkHttpClient,
     private val gson: Gson,
     private val stationsDao: StationsDao,
 ) : IStationsRepository {
-
-    private fun prepopulateStationsData(): List<StationEntity> {
-        val jsonFileString = getJsonDataFromAsset(context, "stations_no_limit.json")
-        val gson = Gson()
-        val listPersonType = object : TypeToken<List<StationDTO>>() {}.type
-
-        val stations: List<StationDTO> = gson.fromJson(jsonFileString, listPersonType)
-        Log.d(TAG, "${stations.size} stations were found!")
-        return stations.map { it.toStationEntity() }
-    }
-
-    override suspend fun initDb(): Boolean {
-        return try {
-            val db = context.getDatabasePath(DB_NAME)
-            if (!db.exists() || stationsDao.getAllCount() < 1) {
-                val data = prepopulateStationsData()
-                stationsDao.insertAll(data)
-                loge(TAG, "${data.size} prepopulated data were written into database!")
-            }
-
-            true
-        } catch (e: Exception) {
-            loge(TAG, e.message ?: "something wrong")
-            false
-        }
-    }
 
     override suspend fun fetchStations(): List<StationEntity> {
         return stationsDao.getAll()
@@ -60,6 +25,22 @@ class StationsRepository(
     override suspend fun getStations(limit: Int, offset: Int): List<StationEntity> {
         simResponseDelay()
         return stationsDao.getStationsOffset(limit = limit, offset = offset)
+    }
+
+    override suspend fun getStationsByBounds(
+        limit: Int,
+        offset: Int,
+        bounds: LatLngBounds
+    ): List<StationEntity> {
+        simResponseDelay()
+        return stationsDao.getStationsOffsetByBounds(
+            limit = limit,
+            offset = offset,
+            fromLat = bounds.southwest.latitude,
+            toLat = bounds.northeast.latitude,
+            fromLng = bounds.southwest.longitude,
+            toLng = bounds.northeast.longitude
+        )
     }
 
     override suspend fun hideStation(station: StationEntity): StationEntity {
@@ -119,7 +100,8 @@ class StationsRepository(
 
     companion object {
         val TAG: String = StationsRepository::class.java.simpleName
-        private const val DIRECTIONS_BASE_URL = "https://maps.googleapis.com/maps/api/directions/json?"
+        private const val DIRECTIONS_BASE_URL =
+            "https://maps.googleapis.com/maps/api/directions/json?"
         private const val ROUTES_ARRAY = "routes"
         private const val ROUTE_BOUNDS = "bounds"
         private const val BOUNDS_NORTHEAST = "northeast"

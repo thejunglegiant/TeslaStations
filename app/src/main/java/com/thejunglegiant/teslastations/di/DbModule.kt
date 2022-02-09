@@ -15,4 +15,6 @@ val dbModule = module {
     }
 
     single { get<AppDatabase>().stationsDao() }
+
+    single { get<AppDatabase>().regionsDao() }
 }

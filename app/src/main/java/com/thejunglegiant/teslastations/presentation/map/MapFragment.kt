@@ -107,8 +107,9 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         binding.infoDialog.title.text = station.stationTitle
         binding.infoDialog.location.text = "${station.country}, ${station.city}"
         binding.infoDialog.descriptionText.text = station.description
-        station.contact?.number?.let { binding.infoDialog.descriptionPhone.text = it }
-            ?: binding.infoDialog.descriptionPhoneSection.gone()
+        binding.infoDialog.descriptionPhone.text = station.contactNumber.ifEmpty {
+            getString(R.string.station_description_number_placeholder)
+        }
         binding.infoDialog.descriptionHours.text = station.hours.ifEmpty {
             getString(R.string.station_description_hours_placeholder)
         }
@@ -389,6 +390,6 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
 
     companion object {
         val TAG: String = MapFragment::class.java.simpleName
-        private const val DEFAULT_MAX_MAP_ZOOM_MULTIPLIER = .5f
+        private const val DEFAULT_MAX_MAP_ZOOM_MULTIPLIER = .75f
     }
 }

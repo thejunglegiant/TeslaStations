@@ -1,14 +1,11 @@
 package com.thejunglegiant.teslastations.domain.entity
 
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterItem
 import java.io.Serializable
 
-@Entity(tableName = "station")
+@Entity(tableName = "stations")
 data class StationEntity(
     @PrimaryKey
     val id: Long,
@@ -22,8 +19,8 @@ data class StationEntity(
     val state: String,
     val region: String,
     val description: String,
+    @ColumnInfo (name = "contact_number") val contactNumber: String,
     val status: Status = Status.VISIBLE,
-    @Embedded val contact: ContactEntity?
 ) : Serializable, ClusterItem {
 
     enum class Status { VISIBLE, HIDDEN }
