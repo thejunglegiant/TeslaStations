@@ -1,6 +1,7 @@
 package com.thejunglegiant.teslastations.presentation.list
 
 import android.content.Context
+import android.graphics.Rect
 import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentStationsListBinding
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
@@ -39,7 +41,6 @@ class ListStationsFragment :
         setupList()
         setListeners()
 
-        // TODO add pagination, now freezing ui
         viewModel.obtainEvent(ListEvent.EnterScreen)
 
         viewModel.viewState.observe(viewLifecycleOwner) {
@@ -78,17 +79,31 @@ class ListStationsFragment :
     }
 
     private fun setupList() {
-        val divider = DividerItemDecoration(
+        val divider = object : DividerItemDecoration(
             context,
-            DividerItemDecoration.VERTICAL
-        )
-        divider.setDrawable(
-            ShapeDrawable()
-                .apply {
-                    intrinsicHeight = 1
-                    paint.color = ContextCompat.getColor(requireContext(), R.color.gull_gray)
+            VERTICAL
+        ) {
+            init {
+                ContextCompat.getDrawable(requireContext(), R.drawable.divider)?.let { drawable ->
+                    setDrawable(drawable)
                 }
-        )
+            }
+
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
+                val position = parent.getChildAdapterPosition(view)
+
+                if (position == state.itemCount - 1 || position == state.itemCount - 2) {
+                    outRect.setEmpty()
+                } else {
+                    super.getItemOffsets(outRect, view, parent, state);
+                }
+            }
+        }
         binding.listStations.addItemDecoration(divider)
         binding.listStations.layoutManager = LinearLayoutManager(context)
         binding.listStations.adapter = adapter

@@ -46,13 +46,12 @@ class ListStationsViewModel(
     }
 
     private fun getStations(isFirstPage: Boolean = false) {
-        page++
         _viewState.postValue(ListViewState.Loading)
 
         viewModelScope.launch {
             val data = repository.getStations(
                 limit = PAGE_LIMIT,
-                offset = if (isFirstPage) 0 else page * PAGE_LIMIT
+                offset = if (isFirstPage) 0 else ++page * PAGE_LIMIT
             )
 
             _viewState.postValue(

@@ -11,7 +11,7 @@ import java.io.Serializable
 @Entity(tableName = "station")
 data class StationEntity(
     @PrimaryKey
-    val id: String,
+    val id: Long,
     val address: String,
     val city: String,
     val country: String,
