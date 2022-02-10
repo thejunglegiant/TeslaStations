@@ -17,4 +17,7 @@
     <string name="undo">Undo</string>
     <string name="station_deleted">The station was deleted</string>
     <string name="title_tesla_stations_list">Tesla Stations List</string>
+    <string name="filter_choose_continent">Choose continent:</string>
+    <string name="filter_choose_country">Choose country:</string>
+    <string name="filter">Filter</string>
 </resources>

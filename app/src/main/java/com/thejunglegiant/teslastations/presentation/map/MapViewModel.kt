@@ -139,7 +139,7 @@ class MapViewModel(
     private fun fetchData(needReload: Boolean = false) {
         if (needReload) _viewState.postValue(MapViewState.Loading)
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val data = repository.fetchStations()
 
             if (data.isNotEmpty()) {

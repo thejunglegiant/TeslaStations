@@ -62,19 +62,21 @@ class ListStationsFragment :
         }
     }
 
-    private fun setStationsLoading(isLoading: Boolean) {
-        paginationListener.isLoading = isLoading
-    }
-
     private fun setListeners() {
+        binding.appBar.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
         adapter.attachCallback(object : BaseAdapterCallback<StationEntity> {
             override fun onItemClick(model: StationEntity, view: View) {
                 setArgsLiveData(ARG_STATION_LOCATION, model)
                 findNavController().popBackStack()
             }
         })
-        binding.appBar.btnBack.setOnClickListener {
-            findNavController().popBackStack()
+        binding.fabFilter.setOnClickListener {
+            findNavController().navigate(
+                ListStationsFragmentDirections
+                    .actionListStationsFragmentToRegionFilterBottomDialog()
+            )
         }
     }
 

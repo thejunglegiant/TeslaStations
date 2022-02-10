@@ -17,6 +17,7 @@ import com.thejunglegiant.teslastations.domain.mapper.toCountryEntity
 import com.thejunglegiant.teslastations.domain.mapper.toStationEntity
 import com.thejunglegiant.teslastations.domain.repository.IPopulateRepository
 import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
+import com.thejunglegiant.teslastations.extensions.logd
 import com.thejunglegiant.teslastations.extensions.loge
 import com.thejunglegiant.teslastations.utils.DB_NAME
 
@@ -33,7 +34,7 @@ class PopulateRepository(
         val type = object : TypeToken<List<StationDTO>>() {}.type
 
         val stations: List<StationDTO> = gson.fromJson(jsonFileString, type)
-        Log.d(TAG, "${stations.size} stations were found!")
+        logd(TAG, "${stations.size} stations were found!")
         return stations.map { it.toStationEntity() }
     }
 
@@ -43,7 +44,7 @@ class PopulateRepository(
         val type = object : TypeToken<List<CountryDTO>>() {}.type
 
         val countries: List<CountryDTO> = gson.fromJson(jsonFileString, type)
-        Log.d(TAG, "${countries.size} countries were found!")
+        logd(TAG, "${countries.size} countries were found!")
         return countries
     }
 
@@ -53,7 +54,7 @@ class PopulateRepository(
         val type = object : TypeToken<List<ContinentDTO>>() {}.type
 
         val continents: List<ContinentDTO> = gson.fromJson(jsonFileString, type)
-        Log.d(TAG, "${continents.size} stations were found!")
+        logd(TAG, "${continents.size} stations were found!")
         return continents.map { it.toContinentEntity() }
     }
 
@@ -79,7 +80,8 @@ class PopulateRepository(
 
                 val stations = prepopulatedStationsData()
                 stationsDao.insertAll(stations)
-                loge(
+
+                logd(
                     StationsRepository.TAG,
                     "Prepopulated data were written into database!"
                 )

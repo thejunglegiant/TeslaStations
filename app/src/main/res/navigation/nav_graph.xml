@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/regionFilterBottomDialog">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -37,5 +37,15 @@
         android:id="@+id/listStationsFragment"
         android:name="com.thejunglegiant.teslastations.presentation.list.ListStationsFragment"
         android:label="ListStationsFragment"
-        tools:layout="@layout/fragment_stations_list" />
+        tools:layout="@layout/fragment_stations_list">
+        <action
+            android:id="@+id/action_listStationsFragment_to_regionFilterBottomDialog"
+            app:destination="@id/regionFilterBottomDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/regionFilterBottomDialog"
+        android:name="com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog"
+        android:label="RegionFilterBottomDialog"
+        tools:layout="@layout/dialog_filter_stations_list" />
 </navigation>

@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
+import java.io.Serializable
 
 @Entity(tableName = "countries")
 data class CountryEntity(
@@ -16,7 +17,7 @@ data class CountryEntity(
     @ColumnInfo(name = "lat_max") val maxLat: Double,
     @ColumnInfo(name = "lon_min") val minLng: Double,
     @ColumnInfo(name = "lon_max") val maxLng: Double,
-) {
+) : Serializable {
     fun getBounds(): LatLngBounds =
         LatLngBounds(
             LatLng(minLat, minLng),

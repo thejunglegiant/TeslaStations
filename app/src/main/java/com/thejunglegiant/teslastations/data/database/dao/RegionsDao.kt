@@ -9,13 +9,13 @@ import com.thejunglegiant.teslastations.domain.entity.CountryEntity
 @Dao
 interface RegionsDao {
 
-    @Query("SELECT * FROM continents")
+    @Query("SELECT * FROM continents ORDER BY continent_name")
     suspend fun getAllContinents(): List<ContinentEntity>
 
-    @Query("SELECT * FROM countries")
+    @Query("SELECT * FROM countries ORDER BY country_name")
     suspend fun getAllCountries(): List<CountryEntity>
 
-    @Query("SELECT * FROM countries WHERE continent_id = :continentId")
+    @Query("SELECT * FROM countries WHERE continent_id = :continentId ORDER BY country_name")
     suspend fun getCountriesByContinent(continentId: Int): List<CountryEntity>
 
     @Insert

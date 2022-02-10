@@ -19,6 +19,8 @@
     <dimen name="spacing_8">64dp</dimen>
     <dimen name="spacing_9">72dp</dimen>
     <dimen name="spacing_10">80dp</dimen>
+    <dimen name="spacing_11">88dp</dimen>
+    <dimen name="spacing_12">96dp</dimen>
     <dimen name="spacing_18">144dp</dimen>
     <!-- endregion -->
 
@@ -43,5 +45,6 @@
 
     <!-- region Corner radius-->
     <dimen name="default_card_corner_radius">8dp</dimen>
+    <dimen name="default_chip_corner_radius">12dp</dimen>
     <!-- endregion -->
 </resources>
