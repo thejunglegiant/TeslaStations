@@ -1,7 +1,9 @@
 package com.thejunglegiant.teslastations.domain.mapper
 
+import com.google.android.gms.maps.model.LatLngBounds
 import com.thejunglegiant.teslastations.data.model.ContinentDTO
 import com.thejunglegiant.teslastations.data.model.CountryDTO
+import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.CountryEntity
 
@@ -23,3 +25,5 @@ fun ContinentDTO.toContinentEntity(): ContinentEntity = ContinentEntity(
     minLng = minLng,
     maxLng = maxLng
 )
+
+fun BoundsItem.toLatLngBounds(): LatLngBounds = LatLngBounds(southwest, northeast)

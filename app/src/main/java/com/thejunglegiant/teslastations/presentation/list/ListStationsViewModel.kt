@@ -17,6 +17,7 @@ class ListStationsViewModel(
 ) : ViewModel(), EventHandler<ListEvent> {
 
     private var page = FIRST_PAGE
+    private var filterBounds: LatLngBounds? = null
 
     private val _viewState = MutableLiveData<ListViewState>(ListViewState.Loading)
     val viewState: LiveData<ListViewState> = _viewState
@@ -24,6 +25,7 @@ class ListStationsViewModel(
     override fun obtainEvent(event: ListEvent) {
         when (val currentViewState = _viewState.value) {
             is ListViewState.Display -> reduce(event, currentViewState)
+            is ListViewState.DisplayMore -> reduce(event, currentViewState)
             is ListViewState.Error -> reduce(event, currentViewState)
             is ListViewState.Loading -> reduce(event, currentViewState)
         }
@@ -32,12 +34,20 @@ class ListStationsViewModel(
     private fun reduce(event: ListEvent, currentViewState: ListViewState.Display) {
         when (event) {
             ListEvent.LoadMoreStations -> getStations()
+            is ListEvent.FilterList -> getStations(isFirstPage = true, bounds = event.bounds)
+        }
+    }
+
+    private fun reduce(event: ListEvent, currentViewState: ListViewState.DisplayMore) {
+        when (event) {
+            ListEvent.LoadMoreStations -> getStations()
+            is ListEvent.FilterList -> getStations(isFirstPage = true, bounds = event.bounds)
         }
     }
 
     private fun reduce(event: ListEvent, currentViewState: ListViewState.Error) {
         when (event) {
-
+            is ListEvent.FilterList -> getStations(isFirstPage = true, bounds = event.bounds)
         }
     }
 
@@ -47,20 +57,33 @@ class ListStationsViewModel(
         }
     }
 
-    private fun getStations(isFirstPage: Boolean = false) {
+    private fun getStations(isFirstPage: Boolean = false, bounds: LatLngBounds? = null) {
         _viewState.postValue(ListViewState.Loading)
 
+        val offset = if (isFirstPage) {
+            page = FIRST_PAGE
+            if (bounds != null) filterBounds = bounds
+            0
+        } else {
+            ++page * PAGE_LIMIT
+        }
         viewModelScope.launch {
-            val data = repository.getStationsByBounds(
+            val data = repository.getStations(
                 limit = PAGE_LIMIT,
-                offset = if (isFirstPage) 0 else ++page * PAGE_LIMIT,
-                bounds = LatLngBounds(LatLng(33.822057, -27.467580), LatLng(71.450610, 43.723826))
+                offset = offset,
+                bounds = filterBounds
             )
 
             _viewState.postValue(
-                ListViewState.Display(
-                    data = data
-                )
+                if (page == FIRST_PAGE) {
+                    ListViewState.Display(
+                        data = data
+                    )
+                } else {
+                    ListViewState.DisplayMore(
+                        data = data
+                    )
+                }
             )
         }
     }

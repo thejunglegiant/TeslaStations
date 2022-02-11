@@ -10,4 +10,7 @@ sealed class ListViewState {
     data class Display(
         val data: List<StationEntity>
     ) : ListViewState()
+    data class DisplayMore(
+        val data: List<StationEntity>
+    ) : ListViewState()
 }

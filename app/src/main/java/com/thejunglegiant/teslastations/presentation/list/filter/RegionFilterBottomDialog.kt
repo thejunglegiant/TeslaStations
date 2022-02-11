@@ -2,10 +2,17 @@ package com.thejunglegiant.teslastations.presentation.list.filter
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
+import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.DialogFilterStationsListBinding
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
-import com.thejunglegiant.teslastations.extensions.*
+import com.thejunglegiant.teslastations.domain.entity.CountryEntity
+import com.thejunglegiant.teslastations.extensions.hide
+import com.thejunglegiant.teslastations.extensions.show
+import com.thejunglegiant.teslastations.extensions.showSnackBar
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingBottomDialog
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterEvent
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterViewState
@@ -42,13 +49,6 @@ class RegionFilterBottomDialog :
                             val chip = Chip(context)
                             chip.tag = country
                             chip.text = country.name
-                            chip.setOnCheckedChangeListener { _, isChecked ->
-                                if (isChecked) {
-//                                    setArgsLiveData(ARG_FILTER_COUNTRY, country)
-//                                    findNavController().popBackStack()
-//                                    viewModel.obtainEvent(FilterEvent.CountryClicked(country.iso))
-                                }
-                            }
                             binding.listCountries.addView(chip)
                         }
                     }
@@ -71,7 +71,38 @@ class RegionFilterBottomDialog :
                 viewModel.obtainEvent(FilterEvent.ContinentClicked(continent.id))
             }
         }
+        binding.fabFilter.setOnClickListener {
+            val continent = binding.listContinents
+                .findViewById<Chip>(binding.listContinents.checkedChipId)?.tag as ContinentEntity?
+            val country = binding.listCountries
+                .findViewById<Chip>(binding.listCountries.checkedChipId)?.tag as CountryEntity?
+
+            when {
+                country != null -> {
+                    setFragmentResult(
+                        REQUEST_KEY_FILTER_RESULT,
+                        bundleOf(KEY_BOUNDS to country.getBounds())
+                    )
+                    findNavController().popBackStack()
+                }
+                continent != null -> {
+                    setFragmentResult(
+                        REQUEST_KEY_FILTER_RESULT,
+                        bundleOf(KEY_BOUNDS to continent.getBounds())
+                    )
+                    findNavController().popBackStack()
+                }
+                else -> {
+                    binding.root.showSnackBar(R.string.choose_continent_or_country)
+                }
+            }
+        }
 
         viewModel.obtainEvent(FilterEvent.EnterScreen)
+    }
+
+    companion object {
+        const val REQUEST_KEY_FILTER_RESULT = "FILTER_RESULT"
+        const val KEY_BOUNDS = "KEY_BOUNDS"
     }
 }

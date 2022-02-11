@@ -334,6 +334,8 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         getArgsLiveData<StationEntity>(ARG_STATION_LOCATION)?.observe(viewLifecycleOwner) { result ->
             viewModel.obtainEvent(MapEvent.ItemClicked(result))
         }
+
+        removeArgsLiveData<StationEntity>(ARG_STATION_LOCATION)
     }
 
     private fun setItems(list: List<StationEntity>) {

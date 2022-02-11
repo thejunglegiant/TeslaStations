@@ -7,9 +7,7 @@ import com.thejunglegiant.teslastations.domain.entity.StationEntity
 interface IStationsRepository {
     suspend fun fetchStations(): List<StationEntity>
 
-    suspend fun getStations(limit: Int, offset: Int): List<StationEntity>
-
-    suspend fun getStationsByBounds(limit: Int, offset: Int, bounds: LatLngBounds): List<StationEntity>
+    suspend fun getStations(limit: Int, offset: Int, bounds: LatLngBounds?): List<StationEntity>
 
     suspend fun hideStation(station: StationEntity): StationEntity
 

@@ -22,25 +22,18 @@ class StationsRepository(
         return stationsDao.getAll()
     }
 
-    override suspend fun getStations(limit: Int, offset: Int): List<StationEntity> {
+    override suspend fun getStations(limit: Int, offset: Int, bounds: LatLngBounds?): List<StationEntity> {
         simResponseDelay()
-        return stationsDao.getStationsOffset(limit = limit, offset = offset)
-    }
-
-    override suspend fun getStationsByBounds(
-        limit: Int,
-        offset: Int,
-        bounds: LatLngBounds
-    ): List<StationEntity> {
-        simResponseDelay()
-        return stationsDao.getStationsOffsetByBounds(
-            limit = limit,
-            offset = offset,
-            fromLat = bounds.southwest.latitude,
-            toLat = bounds.northeast.latitude,
-            fromLng = bounds.southwest.longitude,
-            toLng = bounds.northeast.longitude
-        )
+        return bounds?.let {
+            stationsDao.getStationsOffsetByBounds(
+                limit = limit,
+                offset = offset,
+                fromLat = bounds.southwest.latitude,
+                toLat = bounds.northeast.latitude,
+                fromLng = bounds.southwest.longitude,
+                toLng = bounds.northeast.longitude
+            )
+        } ?: stationsDao.getStationsOffset(limit = limit, offset = offset)
     }
 
     override suspend fun hideStation(station: StationEntity): StationEntity {

@@ -14,6 +14,7 @@ import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toContinentEntity
 import com.thejunglegiant.teslastations.domain.mapper.toCountryEntity
+import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
 import com.thejunglegiant.teslastations.domain.mapper.toStationEntity
 import com.thejunglegiant.teslastations.domain.repository.IPopulateRepository
 import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
@@ -69,7 +70,9 @@ class PopulateRepository(
                     .map { item ->
                         var continentId = 0
                         for (continent in continents) {
-                            if (continent.getBounds().contains(LatLng(item.minLat, item.minLng))) {
+                            if (continent.getBounds().toLatLngBounds()
+                                    .contains(LatLng(item.minLat, item.minLng))
+                            ) {
                                 continentId = continent.id
                                 break
                             }

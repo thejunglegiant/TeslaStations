@@ -2,23 +2,28 @@ package com.thejunglegiant.teslastations.presentation.list
 
 import android.content.Context
 import android.graphics.Rect
-import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.maps.model.LatLngBounds
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentStationsListBinding
+import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
-import com.thejunglegiant.teslastations.extensions.setArgsLiveData
+import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
+import com.thejunglegiant.teslastations.extensions.*
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.core.adapters.BaseAdapterCallback
+import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
 import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
 import com.thejunglegiant.teslastations.presentation.list.models.ListViewState
+import com.thejunglegiant.teslastations.utils.ARG_FILTER_BOUNDS
 import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -44,8 +49,17 @@ class ListStationsFragment :
         viewModel.obtainEvent(ListEvent.EnterScreen)
 
         viewModel.viewState.observe(viewLifecycleOwner) {
+            loge(TAG, "$it")
+            logd(TAG, "===========")
             when (it) {
                 is ListViewState.Display -> {
+                    paginationListener.isLoading = false
+                    paginationListener.isLastPage =
+                        it.data.isEmpty() || it.data.size < ListStationsViewModel.PAGE_LIMIT
+
+                    adapter.setData(it.data)
+                }
+                is ListViewState.DisplayMore -> {
                     paginationListener.isLoading = false
                     paginationListener.isLastPage =
                         it.data.isEmpty() || it.data.size < ListStationsViewModel.PAGE_LIMIT
@@ -73,6 +87,16 @@ class ListStationsFragment :
             }
         })
         binding.fabFilter.setOnClickListener {
+            setFragmentResultListener(RegionFilterBottomDialog.REQUEST_KEY_FILTER_RESULT) { _, bundle ->
+                val bounds =
+                    bundle.getSerializable(RegionFilterBottomDialog.KEY_BOUNDS) as BoundsItem?
+
+                bounds?.let {
+                    loge(TAG, "$it")
+                    viewModel.obtainEvent(ListEvent.FilterList(it.toLatLngBounds()))
+                }
+            }
+
             findNavController().navigate(
                 ListStationsFragmentDirections
                     .actionListStationsFragmentToRegionFilterBottomDialog()
@@ -81,10 +105,7 @@ class ListStationsFragment :
     }
 
     private fun setupList() {
-        val divider = object : DividerItemDecoration(
-            context,
-            VERTICAL
-        ) {
+        val divider = object : DividerItemDecoration(context, VERTICAL) {
             init {
                 ContextCompat.getDrawable(requireContext(), R.drawable.divider)?.let { drawable ->
                     setDrawable(drawable)
