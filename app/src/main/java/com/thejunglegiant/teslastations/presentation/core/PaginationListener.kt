@@ -1,8 +1,9 @@
-package com.thejunglegiant.teslastations.presentation.list
+package com.thejunglegiant.teslastations.presentation.core
 
 import android.widget.AbsListView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.thejunglegiant.teslastations.presentation.list.ListStationsViewModel
 
 class PaginationListener : RecyclerView.OnScrollListener() {
     var isLoading = false

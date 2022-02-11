@@ -346,10 +346,10 @@
     {
         "iso": "CHN",
         "country_name": "China",
-        "lat_min": 25.0671341,
-        "lat_max": 25.9161824,
-        "lon_min": -99.4612273,
-        "lon_max": -98.421576
+        "lat_min": 8.8383436,
+        "lat_max": 53.5608154,
+        "lon_min": 73.4997347,
+        "lon_max": 134.7754563
     },
     {
         "iso": "CIV",

@@ -2,7 +2,6 @@ package com.thejunglegiant.teslastations.presentation.map
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Looper
@@ -12,6 +11,7 @@ import androidx.annotation.RequiresPermission
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
@@ -30,10 +30,14 @@ import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
+import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
+import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
 import com.thejunglegiant.teslastations.extensions.*
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
+import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
+import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
@@ -144,6 +148,21 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         }
         binding.mapDefault.btnMapLayer.setOnClickListener {
             viewModel.obtainEvent(MapEvent.MapModeClicked)
+        }
+        binding.mapDefault.btnFilter.setOnClickListener {
+            setFragmentResultListener(RegionFilterBottomDialog.REQUEST_KEY_FILTER_RESULT) { _, bundle ->
+                val bounds =
+                    bundle.getSerializable(RegionFilterBottomDialog.KEY_BOUNDS) as BoundsItem?
+
+                bounds?.let {
+                    moveMap(it.toLatLngBounds())
+                }
+            }
+
+            findNavController().navigate(
+                MapFragmentDirections
+                    .actionMapFragmentToRegionFilterBottomDialog()
+            )
         }
     }
 

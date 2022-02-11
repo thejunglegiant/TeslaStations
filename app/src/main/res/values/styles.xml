@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
     </style>
@@ -33,6 +34,15 @@
         <item name="android:layout_width">@dimen/widget_height_48</item>
         <item name="android:layout_height">@dimen/widget_height_48</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="AppMiniFab">
+        <item name="fabSize">mini</item>
+        <item name="rippleColor">@color/transparent</item>
+        <item name="borderWidth">0dp</item>
+        <item name="maxImageSize">22dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:foreground">?android:attr/actionBarItemBackground</item>
     </style>
 
     <style name="Widget.MaterialComponents.Button.Primary" parent="Widget.MaterialComponents.Button">

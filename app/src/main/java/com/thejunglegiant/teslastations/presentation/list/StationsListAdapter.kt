@@ -11,6 +11,8 @@ import com.thejunglegiant.teslastations.presentation.core.adapters.BaseAdapter
 import com.thejunglegiant.teslastations.presentation.core.adapters.BaseViewHolder
 
 class StationsListAdapter : BaseAdapter<StationEntity>() {
+    var isLastPage: Boolean = false
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -46,11 +48,11 @@ class StationsListAdapter : BaseAdapter<StationEntity>() {
     }
 
     override fun getItemCount(): Int {
-        return super.getItemCount() + 1
+        return super.getItemCount() + if (isLastPage) 0 else 1
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position == itemCount - 1) {
+        return if (position == itemCount - 1 && !isLastPage) {
             LOADING_VIEW_TYPE
         } else {
             STATION_VIEW_TYPE

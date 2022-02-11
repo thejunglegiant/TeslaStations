@@ -21,4 +21,6 @@
     <string name="filter_choose_country">Choose country:</string>
     <string name="filter">Filter</string>
     <string name="choose_continent_or_country">Choose continent or country at first</string>
+    <string name="no_items_placeholder_small">Nothing found.</string>
+    <string name="no_items_placeholder_big">Try another filter!</string>
 </resources>

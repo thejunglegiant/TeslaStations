@@ -8,35 +8,35 @@
     "lon_max": 0.0
   },
   {
-      "id": 1,
-      "continent_name": "North America",
-      "lat_min": 4.857541,
-      "lat_max": 72.431141,
-      "lon_min": -173.628922,
-      "lon_max": -49.000016
+    "id": 1,
+    "continent_name": "North America",
+    "lat_min": 4.857541,
+    "lat_max": 72.431141,
+    "lon_min": -173.628922,
+    "lon_max": -49.000016
   },
   {
-      "id": 2,
-      "continent_name": "Europe",
-      "lat_min": 26.880572,
-      "lat_max": 71.749076,
-      "lon_min": -26.499509,
-      "lon_max": 42.318850
+    "id": 2,
+    "continent_name": "Europe",
+    "lat_min": 26.880572,
+    "lat_max": 71.749076,
+    "lon_min": -26.499509,
+    "lon_max": 42.318850
   },
   {
-      "id": 3,
-      "continent_name": "Asia",
-      "lat_min": 9.859407,
-      "lat_max": 54.913802,
-      "lon_min": 67.190559,
-      "lon_max": 149.456184
+    "id": 3,
+    "continent_name": "Asia",
+    "lat_min": 9.859407,
+    "lat_max": 54.913802,
+    "lon_min": 67.190559,
+    "lon_max": 149.456184
   },
   {
-      "id": 4,
-      "continent_name": "Australia",
-      "lat_min": -50.847573,
-      "lat_max": 8.059230,
-      "lon_min": 102.128906,
-      "lon_max": 191.601563
+    "id": 4,
+    "continent_name": "Australia",
+    "lat_min": -55.3228175,
+    "lat_max": -9.0882278,
+    "lon_min": 72.2460938,
+    "lon_max": 168.2249543
   }
 ]

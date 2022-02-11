@@ -25,6 +25,33 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_list_station" />
 
+    <LinearLayout
+        android:id="@+id/no_items_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@string/no_items_placeholder_small"
+            android:textColor="@color/gull_gray"
+            android:textSize="@dimen/text.size.medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/no_items_placeholder_big"
+            android:textColor="@color/thunderbird"
+            android:textSize="@dimen/text.size.x_large" />
+    </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_filter"
         android:layout_width="wrap_content"

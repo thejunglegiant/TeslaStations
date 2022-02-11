@@ -18,31 +18,40 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_current_location"
+        style="@style/AppMiniFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_18"
         android:layout_marginEnd="@dimen/spacing_1_5"
         android:backgroundTint="@color/white"
-        android:scaleType="centerInside"
         android:src="@drawable/ic_gps"
-        app:borderWidth="0dp"
-        app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_map_layer"
+        style="@style/AppMiniFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_1_5"
         android:layout_marginEnd="@dimen/spacing_1_5"
         android:backgroundTint="@color/white"
-        android:scaleType="centerInside"
         android:src="@drawable/ic_map_layer"
-        app:borderWidth="0dp"
-        app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_current_location"
+        app:maxImageSize="22dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_filter"
+        style="@style/AppMiniFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_1_5"
+        android:layout_marginEnd="@dimen/spacing_1_5"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_map_layer"
         app:maxImageSize="22dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

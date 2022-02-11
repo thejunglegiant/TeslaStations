@@ -31,6 +31,9 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_mapFragment_to_regionFilterBottomDialog"
+            app:destination="@id/regionFilterBottomDialog" />
     </fragment>
 
     <fragment

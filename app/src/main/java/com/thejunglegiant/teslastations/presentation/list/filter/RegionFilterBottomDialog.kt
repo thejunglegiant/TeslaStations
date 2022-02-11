@@ -1,10 +1,12 @@
 package com.thejunglegiant.teslastations.presentation.list.filter
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.DialogFilterStationsListBinding
@@ -12,7 +14,7 @@ import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.CountryEntity
 import com.thejunglegiant.teslastations.extensions.hide
 import com.thejunglegiant.teslastations.extensions.show
-import com.thejunglegiant.teslastations.extensions.showSnackBar
+import com.thejunglegiant.teslastations.extensions.toastSh
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingBottomDialog
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterEvent
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterViewState
@@ -22,6 +24,17 @@ class RegionFilterBottomDialog :
     BaseBindingBottomDialog<DialogFilterStationsListBinding>(DialogFilterStationsListBinding::inflate) {
 
     private val viewModel: RegionFilterViewModel by viewModel()
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState)
+
+        dialog.setOnShowListener {
+            bottomSheetBehavior.skipCollapsed = true
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        }
+
+        return dialog
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -71,6 +84,9 @@ class RegionFilterBottomDialog :
                 viewModel.obtainEvent(FilterEvent.ContinentClicked(continent.id))
             }
         }
+        binding.listCountries.setOnCheckedChangeListener { _, checkedId ->
+            if (checkedId != -1) binding.fabFilter.performClick()
+        }
         binding.fabFilter.setOnClickListener {
             val continent = binding.listContinents
                 .findViewById<Chip>(binding.listContinents.checkedChipId)?.tag as ContinentEntity?
@@ -93,7 +109,7 @@ class RegionFilterBottomDialog :
                     findNavController().popBackStack()
                 }
                 else -> {
-                    binding.root.showSnackBar(R.string.choose_continent_or_country)
+                    toastSh(R.string.choose_continent_or_country)
                 }
             }
         }
