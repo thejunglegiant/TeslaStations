@@ -12,6 +12,7 @@ import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.DialogFilterStationsListBinding
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.CountryEntity
+import com.thejunglegiant.teslastations.extensions.flowCollectLatest
 import com.thejunglegiant.teslastations.extensions.hide
 import com.thejunglegiant.teslastations.extensions.show
 import com.thejunglegiant.teslastations.extensions.toastSh
@@ -39,7 +40,7 @@ class RegionFilterBottomDialog :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.viewState.observe(viewLifecycleOwner) {
+        flowCollectLatest(viewModel.viewState) {
             binding.loadingView.hide()
 
             when (it) {

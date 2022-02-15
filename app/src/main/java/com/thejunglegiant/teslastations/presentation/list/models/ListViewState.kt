@@ -1,7 +1,6 @@
 package com.thejunglegiant.teslastations.presentation.list.models
 
 import androidx.annotation.StringRes
-import com.thejunglegiant.teslastations.domain.entity.MapSettingsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 
 sealed class ListViewState {

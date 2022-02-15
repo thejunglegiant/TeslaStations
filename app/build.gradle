@@ -49,13 +49,11 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
 
-    // LiveData, ViewModel
-    def lifecycleVersion = "2.2.0"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    // ViewModel
+    def lifecycleVersion = "2.4.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-    kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
 
     // Room
     def roomVersion = "2.4.1"
@@ -64,7 +62,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // Navigation
-    def navigationVersion = "2.4.0"
+    def navigationVersion = "2.4.1"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
@@ -85,6 +83,9 @@ dependencies {
 
 
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+
+    // DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
 
     // Tests
     testImplementation 'junit:junit:4.13.2'

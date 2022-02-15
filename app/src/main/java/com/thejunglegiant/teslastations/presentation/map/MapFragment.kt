@@ -11,7 +11,10 @@ import androidx.annotation.RequiresPermission
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
 import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
@@ -37,11 +40,12 @@ import com.thejunglegiant.teslastations.extensions.*
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
-import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import com.thejunglegiant.teslastations.utils.LocationUtil
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -147,7 +151,12 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
             checkLocationPermission { fetchUserLocation() }
         }
         binding.mapDefault.btnMapLayer.setOnClickListener {
-            viewModel.obtainEvent(MapEvent.MapModeClicked)
+            lifecycleScope.launch {
+                context?.dataStore?.edit { prefs ->
+                    val value = prefs[mapModeDefaultKey] ?: false
+                    prefs[mapModeDefaultKey] = !value
+                }
+            }
         }
         binding.mapDefault.btnFilter.setOnClickListener {
             setFragmentResultListener(RegionFilterBottomDialog.REQUEST_KEY_FILTER_RESULT) { _, bundle ->
@@ -167,17 +176,7 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     }
 
     private fun initViewModel() {
-        viewModel.viewState.observe(viewLifecycleOwner) {
-            loge(
-                TAG, when (it) {
-                    is MapViewState.Direction -> "Direction"
-                    is MapViewState.Display -> "Display"
-                    is MapViewState.Error -> "Error"
-                    is MapViewState.ItemDeleted -> "ItemDeleted"
-                    is MapViewState.ItemDetails -> "ItemDetails"
-                    MapViewState.Loading -> "Loading"
-                }
-            )
+        flowCollectLatest(viewModel.viewState) {
             binding.loading.root.isVisible = false
             when (it) {
                 is MapViewState.Direction -> {
@@ -205,14 +204,6 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                         .also { visibleList ->
                             setItems(visibleList)
                         }
-
-                    it.settings?.let { settings ->
-                        map.mapType = if (settings.defaultMapLayer) {
-                            GoogleMap.MAP_TYPE_NORMAL
-                        } else {
-                            GoogleMap.MAP_TYPE_SATELLITE
-                        }
-                    }
                 }
                 is MapViewState.Error -> {
                     when {
@@ -355,6 +346,17 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         }
 
         removeArgsLiveData<StationEntity>(ARG_STATION_LOCATION)
+
+        context?.dataStore?.data?.let {
+            flowCollect(it) { prefs ->
+                map.mapType =
+                    if (prefs[mapModeDefaultKey] == null || prefs[mapModeDefaultKey] == true) {
+                        GoogleMap.MAP_TYPE_NORMAL
+                    } else {
+                        GoogleMap.MAP_TYPE_SATELLITE
+                    }
+            }
+        }
     }
 
     private fun setItems(list: List<StationEntity>) {

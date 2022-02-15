@@ -1,7 +1,5 @@
 package com.thejunglegiant.teslastations.presentation.list.filter
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
@@ -9,14 +7,16 @@ import com.thejunglegiant.teslastations.domain.repository.IRegionFilterRepositor
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterEvent
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterViewState
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class RegionFilterViewModel(
     private val repository: IRegionFilterRepository
 ) : ViewModel(), EventHandler<FilterEvent> {
 
-    private val _viewState = MutableLiveData<FilterViewState>(FilterViewState.Loading)
-    val viewState: LiveData<FilterViewState> = _viewState
+    private val _viewState = MutableStateFlow<FilterViewState>(FilterViewState.Loading)
+    val viewState = _viewState.asStateFlow()
 
     override fun obtainEvent(event: FilterEvent) {
         when (val currentViewState = _viewState.value) {
@@ -53,12 +53,11 @@ class RegionFilterViewModel(
             val continents = repository.fetchContinents()
             val countries = repository.fetchCountries()
 
-            _viewState.postValue(
+            _viewState.value =
                 FilterViewState.Display(
                     continents = continents,
                     countries = countries
                 )
-            )
         }
     }
 
@@ -67,12 +66,11 @@ class RegionFilterViewModel(
             val data = continentId?.let { repository.fetchCountriesByContinent(continentId) }
                 ?: repository.fetchCountries()
 
-            _viewState.postValue(
+            _viewState.value =
                 FilterViewState.Display(
                     continents = continentsData,
                     countries = data
                 )
-            )
         }
     }
 }

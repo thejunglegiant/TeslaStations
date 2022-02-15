@@ -14,6 +14,7 @@ import com.thejunglegiant.teslastations.databinding.FragmentStationsListBinding
 import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
+import com.thejunglegiant.teslastations.extensions.flowCollectLatest
 import com.thejunglegiant.teslastations.extensions.hide
 import com.thejunglegiant.teslastations.extensions.setArgsLiveData
 import com.thejunglegiant.teslastations.extensions.show
@@ -48,7 +49,7 @@ class ListStationsFragment :
 
         viewModel.obtainEvent(ListEvent.EnterScreen)
 
-        viewModel.viewState.observe(viewLifecycleOwner) {
+        flowCollectLatest(viewModel.viewState) {
             when (it) {
                 is ListViewState.Display -> {
                     paginationListener.isLoading = false

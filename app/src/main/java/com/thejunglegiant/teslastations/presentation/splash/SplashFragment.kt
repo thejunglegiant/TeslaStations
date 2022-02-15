@@ -6,7 +6,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentSplashBinding
-import com.thejunglegiant.teslastations.extensions.showSnackBar
+import com.thejunglegiant.teslastations.extensions.flowCollectLatest
 import com.thejunglegiant.teslastations.extensions.toastSh
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
@@ -28,8 +28,8 @@ class SplashFragment : BaseBindingFragment<FragmentSplashBinding>(FragmentSplash
 
         viewModel.obtainEvent(SplashEvent.EnterScreen)
 
-        viewModel.viewState.observe(viewLifecycleOwner) { state ->
-            when (state) {
+        flowCollectLatest(viewModel.viewState) {
+            when (it) {
                 SplashViewState.Error -> {
                     toastSh(R.string.error_something_went_wrong)
                 }

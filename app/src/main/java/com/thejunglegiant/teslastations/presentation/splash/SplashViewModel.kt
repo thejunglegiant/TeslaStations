@@ -1,7 +1,5 @@
 package com.thejunglegiant.teslastations.presentation.splash
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.thejunglegiant.teslastations.domain.repository.IPopulateRepository
@@ -9,14 +7,16 @@ import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.splash.models.SplashEvent
 import com.thejunglegiant.teslastations.presentation.splash.models.SplashViewState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SplashViewModel(
     private val repository: IPopulateRepository
 ) : ViewModel(), EventHandler<SplashEvent> {
 
-    private val _viewState = MutableLiveData<SplashViewState>(SplashViewState.Loading)
-    val viewState: LiveData<SplashViewState> = _viewState
+    private val _viewState = MutableStateFlow<SplashViewState>(SplashViewState.Loading)
+    val viewState = _viewState.asStateFlow()
 
     override fun obtainEvent(event: SplashEvent) {
         when (val currentViewState = _viewState.value) {
@@ -45,16 +45,15 @@ class SplashViewModel(
     }
 
     private fun writeStationsIfNeeded(needReload: Boolean = false) {
-        if (needReload) _viewState.postValue(SplashViewState.Loading)
+        if (needReload) _viewState.value = SplashViewState.Loading
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.initDb()
-            _viewState.postValue(
+            _viewState.value =
                 if (result) {
                     SplashViewState.Success
                 } else {
                     SplashViewState.Error
                 }
-            )
         }
     }
 }

@@ -6,7 +6,6 @@ import com.thejunglegiant.teslastations.domain.entity.StationEntity
 sealed class MapEvent {
     object EnterScreen : MapEvent()
     object ReloadScreen : MapEvent()
-    object MapModeClicked : MapEvent()
     object ItemDirectionClicked : MapEvent()
     data class ItemClicked(val item: StationEntity) : MapEvent()
     data class ItemDeleteClicked(val item: StationEntity) : MapEvent()
