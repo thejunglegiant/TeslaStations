@@ -1,9 +1,6 @@
 package com.thejunglegiant.teslastations.data.database.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.google.android.gms.maps.model.LatLngBounds
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 
@@ -22,7 +19,7 @@ interface StationsDao {
     @Query("SELECT * FROM stations WHERE latitude BETWEEN :fromLat AND :toLat AND longitude BETWEEN :fromLng AND :toLng LIMIT :limit OFFSET :offset")
     suspend fun getStationsOffsetByBounds(limit: Int, offset: Int, fromLat: Double, toLat: Double, fromLng: Double, toLng: Double): List<StationEntity>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(stations: List<StationEntity>)
 
     @Update

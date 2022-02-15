@@ -21,6 +21,10 @@ import com.thejunglegiant.teslastations.extensions.getJsonDataFromAsset
 import com.thejunglegiant.teslastations.extensions.logd
 import com.thejunglegiant.teslastations.extensions.loge
 import com.thejunglegiant.teslastations.utils.DB_NAME
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
+import kotlin.system.measureTimeMillis
 
 class PopulateRepository(
     private val context: Context,
@@ -62,37 +66,44 @@ class PopulateRepository(
     override suspend fun initDb(): Boolean {
         return try {
             val db = context.getDatabasePath(DB_NAME)
-            if (!db.exists()) {
-                val continents = prepopulatedContinentsData()
-                regionsDao.insertAllContinents(continents)
+            if (!db.exists() || stationsDao.getAllCount() < 1) {
+                coroutineScope {
+                    val time = measureTimeMillis {
+                        awaitAll(
+                            async {
+                                val continents = prepopulatedContinentsData()
+                                regionsDao.insertAllContinents(continents)
 
-                val countries = prepopulatedCountriesData()
-                    .map { item ->
-                        var continentId = 0
-                        for (continent in continents) {
-                            if (continent.getBounds().toLatLngBounds()
-                                    .contains(LatLng(item.minLat, item.minLng))
-                            ) {
-                                continentId = continent.id
-                                break
+                                val countries = prepopulatedCountriesData()
+                                    .map { item ->
+                                        var continentId = 0
+                                        for (continent in continents) {
+                                            if (continent.getBounds().toLatLngBounds()
+                                                    .contains(LatLng(item.minLat, item.minLng))
+                                            ) {
+                                                continentId = continent.id
+                                                break
+                                            }
+                                        }
+                                        item.toCountryEntity(continentId)
+                                    }
+                                regionsDao.insertAllCountries(countries)
+                            },
+                            async {
+                                val stations = prepopulatedStationsData()
+                                stationsDao.insertAll(stations)
                             }
-                        }
-                        item.toCountryEntity(continentId)
+                        )
                     }
-                regionsDao.insertAllCountries(countries)
 
-                val stations = prepopulatedStationsData()
-                stationsDao.insertAll(stations)
+                    logd(TAG, "Prepopulated data were written into database in ${time / 1000} sec")
+                }
 
-                logd(
-                    StationsRepository.TAG,
-                    "Prepopulated data were written into database!"
-                )
             }
 
             true
         } catch (e: Exception) {
-            loge(StationsRepository.TAG, e.message ?: "something wrong")
+            loge(TAG, e.message ?: "something wrong")
             false
         }
     }

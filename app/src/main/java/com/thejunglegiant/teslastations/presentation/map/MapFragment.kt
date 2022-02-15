@@ -44,8 +44,10 @@ import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import com.thejunglegiant.teslastations.utils.LocationUtil
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -339,13 +341,15 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     }
 
     override fun onMapLoaded() {
-        viewModel.obtainEvent(MapEvent.EnterScreen)
-
+        var hasResult = false
         getArgsLiveData<StationEntity>(ARG_STATION_LOCATION)?.observe(viewLifecycleOwner) { result ->
+            hasResult = true
             viewModel.obtainEvent(MapEvent.ItemClicked(result))
         }
 
         removeArgsLiveData<StationEntity>(ARG_STATION_LOCATION)
+
+        if (!hasResult) viewModel.obtainEvent(MapEvent.EnterScreen)
 
         context?.dataStore?.data?.let {
             flowCollect(it) { prefs ->
@@ -360,9 +364,14 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     }
 
     private fun setItems(list: List<StationEntity>) {
-        clusterManager.clearItems()
-        clusterManager.addItems(list)
-        clusterManager.cluster()
+        lifecycleScope.launch(Dispatchers.Default) {
+            clusterManager.clearItems()
+            clusterManager.addItems(list)
+
+            withContext(Dispatchers.Main) {
+                clusterManager.cluster()
+            }
+        }
     }
 
     private fun addItem(item: StationEntity) {
