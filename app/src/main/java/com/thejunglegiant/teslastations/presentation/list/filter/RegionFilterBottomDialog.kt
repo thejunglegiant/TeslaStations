@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -13,16 +14,17 @@ import com.thejunglegiant.teslastations.databinding.DialogFilterStationsListBind
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.CountryEntity
 import com.thejunglegiant.teslastations.extensions.flowCollectLatest
-import com.thejunglegiant.teslastations.extensions.hide
-import com.thejunglegiant.teslastations.extensions.show
+import com.thejunglegiant.teslastations.extensions.showSnackBar
 import com.thejunglegiant.teslastations.extensions.toastSh
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingBottomDialog
+import com.thejunglegiant.teslastations.presentation.core.ViewStateHandler
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterEvent
 import com.thejunglegiant.teslastations.presentation.list.filter.models.FilterViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegionFilterBottomDialog :
-    BaseBindingBottomDialog<DialogFilterStationsListBinding>(DialogFilterStationsListBinding::inflate) {
+    BaseBindingBottomDialog<DialogFilterStationsListBinding>(DialogFilterStationsListBinding::inflate),
+    ViewStateHandler<FilterViewState> {
 
     private val viewModel: RegionFilterViewModel by viewModel()
 
@@ -40,43 +42,55 @@ class RegionFilterBottomDialog :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        flowCollectLatest(viewModel.viewState) {
-            binding.loadingView.hide()
+        setListeners()
 
-            when (it) {
-                is FilterViewState.Display -> {
-                    binding.fabFilter.show()
-                    if (binding.listContinents.childCount != it.continents.size) {
-                        binding.listContinents.removeAllViews()
-                        it.continents.forEach { continent ->
-                            val chip = Chip(context)
-                            chip.tag = continent
-                            chip.text = continent.name
-                            binding.listContinents.addView(chip)
-                        }
-                    }
+        flowCollectLatest(viewModel.viewState, ::render)
+        viewModel.obtainEvent(FilterEvent.EnterScreen)
+    }
 
-                    if (binding.listCountries.childCount != it.countries.size) {
-                        binding.listCountries.removeAllViews()
+    override fun render(state: FilterViewState) {
+        binding.loadingView.isVisible = state == FilterViewState.Loading
+        binding.fabFilter.isVisible = state is FilterViewState.Display
 
-                        it.countries.forEach { country ->
-                            val chip = Chip(context)
-                            chip.tag = country
-                            chip.text = country.name
-                            binding.listCountries.addView(chip)
-                        }
+        when (state) {
+            is FilterViewState.Display -> {
+                binding.fabFilter.show()
+                if (binding.listContinents.childCount != state.continents.size) {
+                    binding.listContinents.removeAllViews()
+                    state.continents.forEach { continent ->
+                        val chip = Chip(context)
+                        chip.tag = continent
+                        chip.text = continent.name
+                        binding.listContinents.addView(chip)
                     }
                 }
-                is FilterViewState.Error -> {
-                    binding.fabFilter.show()
-                }
-                FilterViewState.Loading -> {
-                    binding.fabFilter.hide()
-                    binding.loadingView.show()
+
+                if (binding.listCountries.childCount != state.countries.size) {
+                    binding.listCountries.removeAllViews()
+
+                    state.countries.forEach { country ->
+                        val chip = Chip(context)
+                        chip.tag = country
+                        chip.text = country.name
+                        binding.listCountries.addView(chip)
+                    }
                 }
             }
+            is FilterViewState.Error -> {
+                when {
+                    state.msgRes != null -> {
+                        binding.root.showSnackBar(state.msgRes)
+                    }
+                    state.msg != null -> {
+                        binding.root.showSnackBar(state.msg)
+                    }
+                }
+            }
+            FilterViewState.Loading -> {}
         }
+    }
 
+    private fun setListeners() {
         binding.listContinents.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId == -1) {
                 viewModel.obtainEvent(FilterEvent.ContinentDisabled)
@@ -114,8 +128,6 @@ class RegionFilterBottomDialog :
                 }
             }
         }
-
-        viewModel.obtainEvent(FilterEvent.EnterScreen)
     }
 
     companion object {

@@ -14,13 +14,11 @@ import com.thejunglegiant.teslastations.databinding.FragmentStationsListBinding
 import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
-import com.thejunglegiant.teslastations.extensions.flowCollectLatest
-import com.thejunglegiant.teslastations.extensions.hide
-import com.thejunglegiant.teslastations.extensions.setArgsLiveData
-import com.thejunglegiant.teslastations.extensions.show
+import com.thejunglegiant.teslastations.extensions.*
 import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
 import com.thejunglegiant.teslastations.presentation.core.PaginationListener
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
+import com.thejunglegiant.teslastations.presentation.core.ViewStateHandler
 import com.thejunglegiant.teslastations.presentation.core.adapters.BaseAdapterCallback
 import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
 import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
@@ -29,7 +27,8 @@ import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListStationsFragment :
-    BaseBindingFragment<FragmentStationsListBinding>(FragmentStationsListBinding::inflate) {
+    BaseBindingFragment<FragmentStationsListBinding>(FragmentStationsListBinding::inflate),
+    ViewStateHandler<ListViewState> {
 
     private val viewModel: ListStationsViewModel by viewModel()
 
@@ -47,43 +46,47 @@ class ListStationsFragment :
         setupList()
         setListeners()
 
+        flowCollectLatest(viewModel.viewState, ::render)
         viewModel.obtainEvent(ListEvent.EnterScreen)
+    }
 
-        flowCollectLatest(viewModel.viewState) {
-            when (it) {
-                is ListViewState.Display -> {
-                    paginationListener.isLoading = false
+    override fun render(state: ListViewState) {
+        paginationListener.isLoading = state == ListViewState.Loading
 
-                    val isLastPage =
-                        it.data.isEmpty() || it.data.size < ListStationsViewModel.PAGE_LIMIT
-                    paginationListener.isLastPage = isLastPage
-                    adapter.isLastPage = isLastPage
+        when (state) {
+            is ListViewState.Display -> {
+                val isLastPage =
+                    state.data.isEmpty() || state.data.size < ListStationsViewModel.PAGE_LIMIT
+                paginationListener.isLastPage = isLastPage
+                adapter.isLastPage = isLastPage
 
-                    if (it.data.isEmpty()) {
-                        binding.noItemsPlaceholder.show()
-                    } else {
-                        binding.noItemsPlaceholder.hide()
+                if (state.data.isEmpty()) {
+                    binding.noItemsPlaceholder.show()
+                } else {
+                    binding.noItemsPlaceholder.hide()
+                }
+
+                adapter.setData(state.data)
+            }
+            is ListViewState.DisplayMore -> {
+                val isLastPage =
+                    state.data.isEmpty() || state.data.size < ListStationsViewModel.PAGE_LIMIT
+                paginationListener.isLastPage = isLastPage
+                adapter.isLastPage = isLastPage
+
+                adapter.addData(state.data)
+            }
+            is ListViewState.Error -> {
+                when {
+                    state.msgRes != null -> {
+                        binding.root.showSnackBar(state.msgRes)
                     }
-
-                    adapter.setData(it.data)
-                }
-                is ListViewState.DisplayMore -> {
-                    paginationListener.isLoading = false
-
-                    val isLastPage =
-                        it.data.isEmpty() || it.data.size < ListStationsViewModel.PAGE_LIMIT
-                    paginationListener.isLastPage = isLastPage
-                    adapter.isLastPage = isLastPage
-
-                    adapter.addData(it.data)
-                }
-                is ListViewState.Error -> {
-                    paginationListener.isLoading = false
-                }
-                ListViewState.Loading -> {
-                    paginationListener.isLoading = true
+                    state.msg != null -> {
+                        binding.root.showSnackBar(state.msg)
+                    }
                 }
             }
+            ListViewState.Loading -> {}
         }
     }
 

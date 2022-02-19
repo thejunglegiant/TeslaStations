@@ -66,9 +66,9 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
 
         setupMap()
         setListeners()
-        initViewModel()
-
         hideBottomDialog()
+
+        flowCollectLatest(viewModel.viewState, ::render)
     }
 
     private fun setupMap() {
@@ -112,10 +112,6 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         binding.mapDefault.btnCloseDirection.setOnClickListener {
             viewModel.obtainEvent(MapEvent.ItemDirectionCloseClicked)
         }
-    }
-
-    private fun initViewModel() {
-        flowCollectLatest(viewModel.viewState, ::render)
     }
 
     override fun render(state: MapViewState) {
@@ -177,6 +173,7 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
                 if (state.addToMap) addItem(state.item)
                 openInfoDialog(state.item)
             }
+            MapViewState.Loading -> {}
         }
     }
 
