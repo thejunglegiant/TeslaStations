@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.PolyUtil
 import com.thejunglegiant.teslastations.R
+import com.thejunglegiant.teslastations.domain.entity.DirectionItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.extensions.simResponseDelay
@@ -60,7 +61,7 @@ class MapViewModel(
 
     private fun reduce(event: MapEvent, currentViewState: MapViewState.Direction) {
         when (event) {
-            MapEvent.EnterScreen -> fetchData(needReload = true)
+            MapEvent.ItemDirectionCloseClicked -> fetchData(needReload = false)
             is MapEvent.ItemClicked -> getItem(event.item)
         }
     }
@@ -130,10 +131,7 @@ class MapViewModel(
             if (route == null) {
                 _viewState.value = MapViewState.Error(msgRes = R.string.error_no_direction)
             } else {
-                _viewState.value = MapViewState.Direction(
-                    bounds = route.first,
-                    points = PolyUtil.decode(route.second)
-                )
+                _viewState.value = MapViewState.Direction(route)
             }
         }
     }

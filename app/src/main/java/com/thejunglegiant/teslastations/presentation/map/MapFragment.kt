@@ -1,24 +1,15 @@
 package com.thejunglegiant.teslastations.presentation.map
 
-import android.Manifest
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Looper
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresPermission
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationResult
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -37,23 +28,21 @@ import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
 import com.thejunglegiant.teslastations.extensions.*
-import com.thejunglegiant.teslastations.presentation.core.BaseBindingFragment
+import com.thejunglegiant.teslastations.presentation.core.BaseLocationFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
+import com.thejunglegiant.teslastations.presentation.core.ViewStateHandler
 import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
-import com.thejunglegiant.teslastations.utils.LocationUtil
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 @SuppressLint("MissingPermission")
-class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::inflate),
-    OnMapReadyCallback, GoogleMap.OnMapLoadedCallback {
+class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding::inflate),
+    ViewStateHandler<MapViewState>, OnMapReadyCallback, GoogleMap.OnMapLoadedCallback {
 
     private val viewModel: MapViewModel by viewModel()
 
@@ -63,24 +52,6 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
     // Google Map
     private lateinit var map: GoogleMap
     private lateinit var clusterManager: ClusterManager<StationEntity>
-
-    // User location
-    private var locationCallbacks: MutableList<LocationCallback> = mutableListOf()
-    private val fusedLocationClient by lazy {
-        LocationServices.getFusedLocationProviderClient(requireActivity())
-    }
-    private var permissionGrantedCallback: (() -> Unit)? = null
-    private val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                permissionGrantedCallback?.invoke()
-                permissionGrantedCallback = null
-            } else {
-                binding.root.showSnackBar(R.string.why_location_permission_needed)
-            }
-        }
 
     // Current route polyline
     private var polyline: Polyline? = null
@@ -94,14 +65,119 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         super.onViewCreated(view, savedInstanceState)
 
         setupMap()
-        hideBottomDialog()
         setListeners()
         initViewModel()
+
+        hideBottomDialog()
     }
 
     private fun setupMap() {
         val mapFragment = binding.map.getFragment<SupportMapFragment>()
         mapFragment.getMapAsync(this)
+    }
+
+    private fun setListeners() {
+        binding.mapDefault.btnList.setOnClickListener {
+            findNavController().navigate(
+                MapFragmentDirections
+                    .actionMapFragmentToListStationsFragment()
+            )
+        }
+        binding.mapDefault.btnCurrentLocation.setOnClickListener {
+            checkLocationPermission { fetchUserLocation() }
+        }
+        binding.mapDefault.btnMapLayer.setOnClickListener {
+            lifecycleScope.launch {
+                context?.dataStore?.edit { prefs ->
+                    val value = prefs[mapModeDefaultKey] ?: false
+                    prefs[mapModeDefaultKey] = !value
+                }
+            }
+        }
+        binding.mapDefault.btnFilter.setOnClickListener {
+            setFragmentResultListener(RegionFilterBottomDialog.REQUEST_KEY_FILTER_RESULT) { _, bundle ->
+                val bounds =
+                    bundle.getSerializable(RegionFilterBottomDialog.KEY_BOUNDS) as BoundsItem?
+
+                bounds?.let {
+                    moveMap(it.toLatLngBounds())
+                }
+            }
+
+            findNavController().navigate(
+                MapFragmentDirections
+                    .actionMapFragmentToRegionFilterBottomDialog()
+            )
+        }
+        binding.mapDefault.btnCloseDirection.setOnClickListener {
+            viewModel.obtainEvent(MapEvent.ItemDirectionCloseClicked)
+        }
+    }
+
+    private fun initViewModel() {
+        flowCollectLatest(viewModel.viewState, ::render)
+    }
+
+    override fun render(state: MapViewState) {
+        binding.loading.root.isVisible = state == MapViewState.Loading
+        if (state !is MapViewState.Direction) binding.mapDefault.directionInfo.hide()
+        if (state !is MapViewState.Error) {
+            polyline?.remove()
+            hideBottomDialog()
+        }
+
+        when (state) {
+            is MapViewState.Direction -> {
+                binding.mapDefault.startingPoint.text = state.direction.start
+                binding.mapDefault.endingPoint.text = state.direction.destination
+                binding.mapDefault.directionInfo.show()
+
+                polyline = map.addPolyline(
+                    PolylineOptions()
+                        .addAll(state.direction.points)
+                        .width(5f.dp)
+                        .color(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.thunderbird
+                            )
+                        )
+                )
+                moveMap(state.direction.bounds)
+            }
+            is MapViewState.Display -> {
+                state.deletedItem?.let { station ->
+                    removeItem(station)
+                    binding.root.showSnackBar(
+                        R.string.station_deleted,
+                        R.string.undo,
+                        Snackbar.LENGTH_LONG
+                    ) {
+                        viewModel.obtainEvent(MapEvent.UndoItemDeleteClicked(station))
+                    }
+                }
+
+                state.data
+                    .filter { item -> item.status != StationEntity.Status.HIDDEN }
+                    .also { visibleList ->
+                        setItems(visibleList)
+                    }
+            }
+            is MapViewState.Error -> {
+                when {
+                    state.msgRes != null -> {
+                        binding.root.showSnackBar(state.msgRes)
+                    }
+                    state.msg != null -> {
+                        binding.root.showSnackBar(state.msg)
+                    }
+                }
+            }
+            is MapViewState.ItemDetails -> {
+                if (state.addToMap) addItem(state.item)
+                openInfoDialog(state.item)
+            }
+        }
     }
 
     private fun hideBottomDialog() {
@@ -142,178 +218,6 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
         bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
-    private fun setListeners() {
-        binding.mapDefault.btnList.setOnClickListener {
-            findNavController().navigate(
-                MapFragmentDirections
-                    .actionMapFragmentToListStationsFragment()
-            )
-        }
-        binding.mapDefault.btnCurrentLocation.setOnClickListener {
-            checkLocationPermission { fetchUserLocation() }
-        }
-        binding.mapDefault.btnMapLayer.setOnClickListener {
-            lifecycleScope.launch {
-                context?.dataStore?.edit { prefs ->
-                    val value = prefs[mapModeDefaultKey] ?: false
-                    prefs[mapModeDefaultKey] = !value
-                }
-            }
-        }
-        binding.mapDefault.btnFilter.setOnClickListener {
-            setFragmentResultListener(RegionFilterBottomDialog.REQUEST_KEY_FILTER_RESULT) { _, bundle ->
-                val bounds =
-                    bundle.getSerializable(RegionFilterBottomDialog.KEY_BOUNDS) as BoundsItem?
-
-                bounds?.let {
-                    moveMap(it.toLatLngBounds())
-                }
-            }
-
-            findNavController().navigate(
-                MapFragmentDirections
-                    .actionMapFragmentToRegionFilterBottomDialog()
-            )
-        }
-    }
-
-    private fun initViewModel() {
-        flowCollectLatest(viewModel.viewState) {
-            binding.loading.root.isVisible = false
-            when (it) {
-                is MapViewState.Direction -> {
-                    hideBottomDialog()
-                    polyline?.remove()
-                    polyline = map.addPolyline(
-                        PolylineOptions()
-                            .addAll(it.points)
-                            .width(5f.dp)
-                            .color(
-                                ContextCompat.getColor(
-                                    requireContext(),
-                                    R.color.thunderbird
-                                )
-                            )
-                    )
-                    moveMap(it.bounds)
-                }
-                is MapViewState.Display -> {
-                    polyline?.remove()
-                    hideBottomDialog()
-
-                    it.deletedItem?.let { station ->
-                        removeItem(station)
-                        binding.root.showSnackBar(
-                            R.string.station_deleted,
-                            R.string.undo,
-                            Snackbar.LENGTH_LONG
-                        ) {
-                            viewModel.obtainEvent(MapEvent.UndoItemDeleteClicked(station))
-                        }
-                    }
-
-                    it.data
-                        .filter { item -> item.status != StationEntity.Status.HIDDEN }
-                        .also { visibleList ->
-                            setItems(visibleList)
-                        }
-                }
-                is MapViewState.Error -> {
-                    when {
-                        it.msgRes != null -> {
-                            binding.root.showSnackBar(it.msgRes)
-                        }
-                        it.msg != null -> {
-                            binding.root.showSnackBar(it.msg)
-                        }
-                    }
-                }
-                is MapViewState.ItemDetails -> {
-                    polyline?.remove()
-
-                    if (it.addToMap) addItem(it.item)
-                    openInfoDialog(it.item)
-                }
-                MapViewState.Loading -> {
-                    hideBottomDialog()
-                    binding.loading.root.isVisible = true
-                }
-            }
-        }
-    }
-
-    private fun checkLocationPermission(
-        doWithPermission: () -> Unit
-    ) {
-        when {
-            ContextCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED -> {
-                doWithPermission.invoke()
-            }
-            shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
-                binding.root.showSnackBar(
-                    R.string.location_permission_required,
-                    R.string.try_again
-                ) {
-                    permissionGrantedCallback = doWithPermission
-                    requestPermissionLauncher.launch(
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    )
-                }
-            }
-            else -> {
-                permissionGrantedCallback = doWithPermission
-                requestPermissionLauncher.launch(
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                )
-            }
-        }
-    }
-
-    private fun stopLocationUpdates() {
-        locationCallbacks.forEach {
-            fusedLocationClient.removeLocationUpdates(it)
-        }
-        locationCallbacks.clear()
-    }
-
-    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION])
-    private fun fetchUserLocation(
-        shouldMoveMap: Boolean = true,
-        doWithLocation: (location: LatLng) -> Unit = {}
-    ) {
-        stopLocationUpdates()
-
-        val locationCallback: LocationCallback by lazy {
-            object : LocationCallback() {
-                override fun onLocationResult(locationResult: LocationResult) {
-                    super.onLocationResult(locationResult)
-                    stopLocationUpdates()
-
-                    locationResult.lastLocation.let { location ->
-                        val latLng = LatLng(location.latitude, location.longitude)
-                        doWithLocation.invoke(latLng)
-
-                        checkMapReadyThen {
-                            map.isMyLocationEnabled = true
-                            map.uiSettings.isMyLocationButtonEnabled = false
-                            if (shouldMoveMap) moveMap(latLng)
-                        }
-                    }
-                }
-            }
-        }
-        locationCallbacks.add(locationCallback)
-
-        fusedLocationClient.requestLocationUpdates(
-            LocationUtil.createLocationRequest(),
-            locationCallback,
-            Looper.getMainLooper()
-        )
-    }
-
     override fun onMapReady(googleMap: GoogleMap) {
         // Setup map
         map = googleMap
@@ -328,6 +232,14 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
             algorithm = NonHierarchicalViewBasedAlgorithm(binding.map.width, binding.map.height)
             renderer = StationsRender(binding.map.context, map, this)
             map.setOnCameraIdleListener(this)
+        }
+    }
+
+    override fun onLocationReady(location: LatLng) {
+        checkMapReadyThen {
+            map.isMyLocationEnabled = true
+            map.uiSettings.isMyLocationButtonEnabled = false
+            moveMap(location)
         }
     }
 

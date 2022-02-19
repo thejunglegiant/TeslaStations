@@ -32,6 +32,7 @@
 
     <color name="loaderColorBackground">#80000000</color>
     <color name="rippleColor">#262C3F6C</color>
+    <color name="dividerColor">#55707A86</color>
     <color name="colorAccent">@color/thunderbird</color>
 
     <color name="cluster_item_up_to_20">#266CC0</color>

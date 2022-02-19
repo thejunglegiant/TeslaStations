@@ -1,21 +1,26 @@
 package com.thejunglegiant.teslastations.data.repository
 
+import android.location.Geocoder
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.google.maps.android.PolyUtil
 import com.thejunglegiant.teslastations.BuildConfig
 import com.thejunglegiant.teslastations.data.database.dao.StationsDao
+import com.thejunglegiant.teslastations.domain.entity.DirectionItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.extensions.simResponseDelay
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.io.IOException
 
 class StationsRepository(
     private val httpClient: OkHttpClient,
     private val gson: Gson,
     private val stationsDao: StationsDao,
+    private val geocoder: Geocoder,
 ) : IStationsRepository {
 
     override suspend fun fetchStations(): List<StationEntity> {
@@ -48,7 +53,7 @@ class StationsRepository(
         return visibleStation
     }
 
-    override suspend fun getDirection(from: LatLng, to: LatLng): Pair<LatLngBounds, String>? {
+    override suspend fun getDirection(from: LatLng, to: LatLng): DirectionItem? {
         val request = Request.Builder()
             .url(
                 "${DIRECTIONS_BASE_URL}origin=${from.latitude},${from.longitude}" +
@@ -86,7 +91,18 @@ class StationsRepository(
                 .get(POLYLINE_OBJECT).asJsonObject
                 .get(POLYLINE_STRING).asString
 
-            Pair(bounds, polylineString)
+
+            try {
+                geocoder.getFromLocation(to.latitude, to.longitude, 1)?.firstOrNull()?.let {
+                    DirectionItem(
+                        destination = it.getAddressLine(0),
+                        bounds = bounds,
+                        points = PolyUtil.decode(polylineString)
+                    )
+                }
+            } catch (e: IOException) {
+                null
+            }
         }
 
     }
