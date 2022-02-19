@@ -201,6 +201,17 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                     polyline?.remove()
                     hideBottomDialog()
 
+                    it.deletedItem?.let { station ->
+                        removeItem(station)
+                        binding.root.showSnackBar(
+                            R.string.station_deleted,
+                            R.string.undo,
+                            Snackbar.LENGTH_LONG
+                        ) {
+                            viewModel.obtainEvent(MapEvent.UndoItemDeleteClicked(station))
+                        }
+                    }
+
                     it.data
                         .filter { item -> item.status != StationEntity.Status.HIDDEN }
                         .also { visibleList ->
@@ -219,29 +230,9 @@ class MapFragment : BaseBindingFragment<FragmentMapBinding>(FragmentMapBinding::
                 }
                 is MapViewState.ItemDetails -> {
                     polyline?.remove()
+
+                    if (it.addToMap) addItem(it.item)
                     openInfoDialog(it.item)
-                }
-                is MapViewState.ItemDeleted -> {
-                    when (it.item.status) {
-                        StationEntity.Status.VISIBLE -> {
-                            addItem(it.item)
-                            openInfoDialog(it.item)
-                        }
-                        StationEntity.Status.HIDDEN -> {
-                            polyline?.remove()
-                            hideBottomDialog()
-
-                            removeItem(it.item.copy(status = StationEntity.Status.VISIBLE))
-                            binding.root.showSnackBar(
-                                R.string.station_deleted,
-                                R.string.undo,
-                                Snackbar.LENGTH_LONG
-                            ) {
-                                viewModel.obtainEvent(MapEvent.ItemDeleteClicked(it.item))
-                            }
-                        }
-                    }
-
                 }
                 MapViewState.Loading -> {
                     hideBottomDialog()

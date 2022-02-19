@@ -12,10 +12,11 @@ import com.thejunglegiant.teslastations.presentation.core.EventHandler
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-
 
 class MapViewModel(
     private val repository: IStationsRepository
@@ -23,6 +24,8 @@ class MapViewModel(
 
     private val _viewState = MutableStateFlow<MapViewState>(MapViewState.Loading)
     val viewState = _viewState.asStateFlow()
+
+    private var job: Job? = null
 
     init {
         _viewState.value = MapViewState.Loading
@@ -34,7 +37,6 @@ class MapViewModel(
             is MapViewState.Display -> reduce(event, currentState)
             is MapViewState.Error -> reduce(event, currentState)
             is MapViewState.Loading -> reduce(event, currentState)
-            is MapViewState.ItemDeleted -> reduce(event, currentState)
             is MapViewState.ItemDetails -> reduce(event, currentState)
         }
     }
@@ -43,6 +45,7 @@ class MapViewModel(
         when (event) {
             MapEvent.EnterScreen -> fetchData()
             is MapEvent.ItemClicked -> getItem(event.item)
+            is MapEvent.UndoItemDeleteClicked -> undoDeleteItem(event.item)
         }
     }
 
@@ -76,30 +79,21 @@ class MapViewModel(
         }
     }
 
-    private fun reduce(event: MapEvent, currentViewState: MapViewState.ItemDeleted) {
-        when (event) {
-            MapEvent.ReloadScreen -> fetchData(needReload = true)
-            is MapEvent.ItemDeleteClicked -> undoDeleteItem(event.item)
-        }
-    }
-
     private fun undoDeleteItem(item: StationEntity) {
-        _viewState.value = MapViewState.Loading
-
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.showStation(item)
-
-            _viewState.value = MapViewState.ItemDeleted(item = result)
-        }
+        job?.cancel()
+        _viewState.value = MapViewState.ItemDetails(item = item, addToMap = true)
     }
 
     private fun deleteItem(item: StationEntity) {
         _viewState.value = MapViewState.Loading
 
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.hideStation(item)
+        job = Job().also { job ->
+            viewModelScope.launch(Dispatchers.IO + job) {
+                _viewState.value = MapViewState.Display(data = emptyList(), deletedItem = item)
 
-            _viewState.value = MapViewState.ItemDeleted(item = result)
+                delay(4000)
+                repository.hideStation(item)
+            }
         }
     }
 
