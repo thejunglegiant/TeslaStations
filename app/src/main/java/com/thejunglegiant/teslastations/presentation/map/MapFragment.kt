@@ -31,10 +31,10 @@ import com.thejunglegiant.teslastations.extensions.*
 import com.thejunglegiant.teslastations.presentation.core.BaseLocationFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.core.ViewStateHandler
+import com.thejunglegiant.teslastations.presentation.list.ListStationsFragment
 import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
-import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -242,12 +242,15 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
 
     override fun onMapLoaded() {
         var hasResult = false
-        getArgsLiveData<StationEntity>(ARG_STATION_LOCATION)?.observe(viewLifecycleOwner) { result ->
+        setFragmentResultListener(ListStationsFragment.REQUEST_KEY_STATION_RESULT) { _, bundle ->
             hasResult = true
-            viewModel.obtainEvent(MapEvent.ItemClicked(result))
-        }
+            val station =
+                bundle.getSerializable(ListStationsFragment.KEY_STATION) as StationEntity?
 
-        removeArgsLiveData<StationEntity>(ARG_STATION_LOCATION)
+            station?.let {
+                viewModel.obtainEvent(MapEvent.ItemClicked(station))
+            }
+        }
 
         if (!hasResult) viewModel.obtainEvent(MapEvent.EnterScreen)
 

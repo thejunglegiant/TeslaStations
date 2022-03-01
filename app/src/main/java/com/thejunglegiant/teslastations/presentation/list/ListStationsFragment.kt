@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -23,7 +25,6 @@ import com.thejunglegiant.teslastations.presentation.core.adapters.BaseAdapterCa
 import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
 import com.thejunglegiant.teslastations.presentation.list.models.ListEvent
 import com.thejunglegiant.teslastations.presentation.list.models.ListViewState
-import com.thejunglegiant.teslastations.utils.ARG_STATION_LOCATION
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListStationsFragment :
@@ -96,7 +97,11 @@ class ListStationsFragment :
         }
         adapter.attachCallback(object : BaseAdapterCallback<StationEntity> {
             override fun onItemClick(model: StationEntity, view: View) {
-                setArgsLiveData(ARG_STATION_LOCATION, model)
+                setFragmentResult(
+                    REQUEST_KEY_STATION_RESULT,
+                    bundleOf(KEY_STATION to model)
+                )
+
                 findNavController().popBackStack()
             }
         })
@@ -137,5 +142,7 @@ class ListStationsFragment :
 
     companion object {
         val TAG: String = ListStationsFragment::class.java.simpleName
+        const val REQUEST_KEY_STATION_RESULT = "REQUEST_KEY_STATION_RESULT"
+        const val KEY_STATION = "KEY_STATION"
     }
 }
