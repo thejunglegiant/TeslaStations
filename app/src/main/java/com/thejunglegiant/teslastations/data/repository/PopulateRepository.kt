@@ -6,9 +6,9 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thejunglegiant.teslastations.data.database.dao.RegionsDao
 import com.thejunglegiant.teslastations.data.database.dao.StationsDao
+import com.thejunglegiant.teslastations.data.remote.Api
 import com.thejunglegiant.teslastations.data.remote.model.ContinentDTO
 import com.thejunglegiant.teslastations.data.remote.model.CountryDTO
-import com.thejunglegiant.teslastations.data.remote.Api
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toContinentEntity
@@ -109,7 +109,6 @@ class PopulateRepository(
     }
 
     companion object {
-        private const val STATIONS_FILE = "stations.json"
         private const val COUNTRIES_FILE = "countries.json"
         private const val CONTINENTS_FILE = "continents.json"
     }

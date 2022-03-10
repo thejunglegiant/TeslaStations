@@ -28,10 +28,6 @@ class MapViewModel(
 
     private var job: Job? = null
 
-    init {
-        _viewState.value = MapViewState.Loading
-    }
-
     override fun obtainEvent(event: MapEvent) {
         when (val currentState = _viewState.value) {
             is MapViewState.Direction -> reduce(event, currentState)
