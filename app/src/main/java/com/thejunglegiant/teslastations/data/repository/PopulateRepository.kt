@@ -1,15 +1,14 @@
 package com.thejunglegiant.teslastations.data.repository
 
 import android.content.Context
-import android.util.Log
 import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thejunglegiant.teslastations.data.database.dao.RegionsDao
 import com.thejunglegiant.teslastations.data.database.dao.StationsDao
-import com.thejunglegiant.teslastations.data.model.ContinentDTO
-import com.thejunglegiant.teslastations.data.model.CountryDTO
-import com.thejunglegiant.teslastations.data.model.StationDTO
+import com.thejunglegiant.teslastations.data.remote.model.ContinentDTO
+import com.thejunglegiant.teslastations.data.remote.model.CountryDTO
+import com.thejunglegiant.teslastations.data.remote.Api
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toContinentEntity
@@ -31,35 +30,36 @@ class PopulateRepository(
     private val gson: Gson,
     private val stationsDao: StationsDao,
     private val regionsDao: RegionsDao,
+    private val api: Api,
 ) : IPopulateRepository {
 
-    private fun prepopulatedStationsData(): List<StationEntity> {
-        val jsonFileString = getJsonDataFromAsset(context, STATIONS_FILE)
-        val gson = Gson()
-        val type = object : TypeToken<List<StationDTO>>() {}.type
-
-        val stations: List<StationDTO> = gson.fromJson(jsonFileString, type)
-        logd(TAG, "${stations.size} stations were found!")
-        return stations.map { it.toStationEntity() }
+    private suspend fun prepopulatedTeslaData(): List<StationEntity> {
+        val response = api.getLocations("destination_charger")
+        return if (response.isSuccessful) {
+            val stations = response.body()!!.map { it.toStationEntity() }
+            logd("${stations.size} countries were found!")
+            stations
+        } else {
+            loge(response.message())
+            listOf()
+        }
     }
 
     private fun prepopulatedCountriesData(): List<CountryDTO> {
         val jsonFileString = getJsonDataFromAsset(context, COUNTRIES_FILE)
-        val gson = Gson()
         val type = object : TypeToken<List<CountryDTO>>() {}.type
 
         val countries: List<CountryDTO> = gson.fromJson(jsonFileString, type)
-        logd(TAG, "${countries.size} countries were found!")
+        logd("${countries.size} countries were found!")
         return countries
     }
 
     private fun prepopulatedContinentsData(): List<ContinentEntity> {
         val jsonFileString = getJsonDataFromAsset(context, CONTINENTS_FILE)
-        val gson = Gson()
         val type = object : TypeToken<List<ContinentDTO>>() {}.type
 
         val continents: List<ContinentDTO> = gson.fromJson(jsonFileString, type)
-        logd(TAG, "${continents.size} stations were found!")
+        logd("${continents.size} stations were found!")
         return continents.map { it.toContinentEntity() }
     }
 
@@ -90,27 +90,25 @@ class PopulateRepository(
                                 regionsDao.insertAllCountries(countries)
                             },
                             async {
-                                val stations = prepopulatedStationsData()
-                                stationsDao.insertAll(stations)
+                                val data = prepopulatedTeslaData()
+                                loge(data.size.toString())
+                                stationsDao.insertAll(data)
                             }
                         )
                     }
 
-                    logd(TAG, "Prepopulated data were written into database in ${time / 1000} sec")
+                    logd("Prepopulated data were written into database in ${time / 1000} sec")
                 }
-
             }
 
             true
         } catch (e: Exception) {
-            loge(TAG, e.message ?: "something wrong")
+            loge(e.message ?: "something wrong")
             false
         }
     }
 
     companion object {
-        val TAG: String = PopulateRepository::class.java.simpleName
-
         private const val STATIONS_FILE = "stations.json"
         private const val COUNTRIES_FILE = "countries.json"
         private const val CONTINENTS_FILE = "continents.json"

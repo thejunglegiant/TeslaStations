@@ -9,6 +9,17 @@ plugins {
 android {
     compileSdk 31
 
+    def trueValue = "true"
+    def falseValue = "false"
+
+    def ENABLE_LOGS = "ENABLE_LOGS"
+    def HOST = "HOST"
+
+    def Boolean = "Boolean"
+    def String = "String"
+
+    def BASE_URL = '"https://www.tesla.com/"'
+
     defaultConfig {
         applicationId "com.thejunglegiant.teslastations"
         minSdk 21
@@ -21,17 +32,31 @@ android {
 
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField Boolean, ENABLE_LOGS, falseValue
+            buildConfigField String, HOST, BASE_URL
+        }
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            versionNameSuffix ".debug"
+            buildConfigField Boolean, ENABLE_LOGS, trueValue
+            buildConfigField String, HOST, BASE_URL
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         viewBinding = true
     }
@@ -47,7 +72,12 @@ dependencies {
 
     // Gson
     implementation 'com.google.code.gson:gson:2.8.8'
-    implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    //retrofit
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
 
     // ViewModel
     def lifecycleVersion = "2.4.1"
@@ -56,7 +86,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
 
     // Room
-    def roomVersion = "2.4.1"
+    def roomVersion = "2.4.2"
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
@@ -78,9 +108,9 @@ dependencies {
 
     // Maps
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.maps.android:android-maps-utils:2.3.0'
     implementation 'com.google.maps.android:maps-utils-ktx:3.3.0'
-
 
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
 

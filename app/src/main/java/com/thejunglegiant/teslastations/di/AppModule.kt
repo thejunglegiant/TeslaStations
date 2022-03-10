@@ -18,7 +18,7 @@ val appModule = module {
 
     single<IStationsRepository> { StationsRepository(get(), get(), get(), get()) }
 
-    single<IPopulateRepository> { PopulateRepository(androidContext(), get(), get(), get()) }
+    single<IPopulateRepository> { PopulateRepository(androidContext(), get(), get(), get(), get()) }
 
     single<IRegionFilterRepository> { RegionFilterRepository(get()) }
 

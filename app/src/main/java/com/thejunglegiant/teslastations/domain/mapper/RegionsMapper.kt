@@ -1,8 +1,8 @@
 package com.thejunglegiant.teslastations.domain.mapper
 
 import com.google.android.gms.maps.model.LatLngBounds
-import com.thejunglegiant.teslastations.data.model.ContinentDTO
-import com.thejunglegiant.teslastations.data.model.CountryDTO
+import com.thejunglegiant.teslastations.data.remote.model.ContinentDTO
+import com.thejunglegiant.teslastations.data.remote.model.CountryDTO
 import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.ContinentEntity
 import com.thejunglegiant.teslastations.domain.entity.CountryEntity
