@@ -33,6 +33,7 @@ import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.core.ViewStateHandler
 import com.thejunglegiant.teslastations.presentation.list.ListStationsFragment
 import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBottomDialog
+import com.thejunglegiant.teslastations.presentation.map.models.MapAction
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import kotlinx.coroutines.Dispatchers
@@ -70,6 +71,7 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         initOnBackPressed()
 
         flowCollectLatest(viewModel.viewState, ::render)
+        flowCollect(viewModel.action, ::handleAction)
     }
 
     private fun initOnBackPressed() {
@@ -172,17 +174,6 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
                 moveMap(state.direction.bounds)
             }
             is MapViewState.Display -> {
-                state.deletedItem?.let { station ->
-                    removeItem(station)
-                    binding.root.showSnackBar(
-                        R.string.station_deleted,
-                        R.string.undo,
-                        Snackbar.LENGTH_LONG
-                    ) {
-                        viewModel.obtainEvent(MapEvent.UndoItemDeleteClicked(station))
-                    }
-                }
-
                 state.data
                     .filter { item -> item.status != StationEntity.Status.HIDDEN }
                     .also { visibleList ->
@@ -203,7 +194,23 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
                 selectItem(state.item)
                 openInfoDialog(state.item)
             }
-            MapViewState.Loading -> {}
+            MapViewState.Loading -> Unit
+            MapViewState.Idle -> Unit
+        }
+    }
+
+    private fun handleAction(action: MapAction) {
+        when (action) {
+            is MapAction.ItemDeleted -> {
+                removeItem(action.item)
+                binding.root.showSnackBar(
+                    R.string.station_deleted,
+                    R.string.undo,
+                    Snackbar.LENGTH_LONG
+                ) {
+                    viewModel.obtainEvent(MapEvent.UndoItemDeleteClicked(action.item))
+                }
+            }
         }
     }
 
@@ -236,7 +243,7 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
                 }
             }
         }
-        bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.collapse()
     }
 
     private fun setItems(list: List<StationEntity>) {

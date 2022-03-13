@@ -62,10 +62,10 @@ class MyClusterManager(
     fun removeItems(items: List<MapClusterItem>) {
         items.forEach {
             if (mapItems.containsKey(it.clusterItemId)) {
+                clusterManager.removeItem(mapItems[it.clusterItemId])
                 mapItems.remove(it.clusterItemId)
             }
         }
-        clusterManager.addItems(mapItems.values.toList())
     }
 
     fun setSelected(item: MapClusterItem) {

@@ -10,12 +10,15 @@ import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.repository.IStationsRepository
 import com.thejunglegiant.teslastations.extensions.simResponseDelay
 import com.thejunglegiant.teslastations.presentation.core.EventHandler
+import com.thejunglegiant.teslastations.presentation.map.models.MapAction
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
@@ -23,8 +26,13 @@ class MapViewModel(
     private val repository: IStationsRepository
 ) : ViewModel(), EventHandler<MapEvent> {
 
+    private val stationsList = mutableListOf<StationEntity>()
+
     private val _viewState = MutableStateFlow<MapViewState>(MapViewState.Loading)
     val viewState = _viewState.asStateFlow()
+
+    private val _action = MutableSharedFlow<MapAction>()
+    val action = _action.asSharedFlow()
 
     private var job: Job? = null
 
@@ -86,7 +94,10 @@ class MapViewModel(
 
         job = Job().also { job ->
             viewModelScope.launch(Dispatchers.IO + job) {
-                _viewState.value = MapViewState.Display(data = emptyList(), deletedItem = item)
+                stationsList.remove(item)
+                _viewState.value = MapViewState.Display(stationsList)
+                _action.emit(MapAction.ItemDeleted(item))
+                fetchData()
 
                 delay(4000)
                 repository.hideStation(item)
@@ -111,6 +122,8 @@ class MapViewModel(
             val data = repository.fetchStations()
 
             if (data.isNotEmpty()) {
+                stationsList.clear()
+                stationsList.addAll(data)
                 _viewState.value = MapViewState.Display(data = data)
             } else {
                 _viewState.value = MapViewState.Error(msgRes = R.string.error_no_items_found)
