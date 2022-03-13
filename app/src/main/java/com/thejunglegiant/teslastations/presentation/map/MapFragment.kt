@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.datastore.preferences.core.edit
@@ -15,10 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.gms.maps.model.Polyline
-import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.maps.model.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 import com.thejunglegiant.teslastations.R
@@ -36,9 +32,7 @@ import com.thejunglegiant.teslastations.presentation.list.filter.RegionFilterBot
 import com.thejunglegiant.teslastations.presentation.map.models.MapAction
 import com.thejunglegiant.teslastations.presentation.map.models.MapEvent
 import com.thejunglegiant.teslastations.presentation.map.models.MapViewState
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @SuppressLint("MissingPermission")
@@ -163,11 +157,11 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
     }
 
     override fun render(state: MapViewState) {
-        loge(state::class.java.name)
         binding.loading.root.isVisible = state == MapViewState.Loading
         if (state !is MapViewState.Direction) binding.mapDefault.directionInfo.hide()
         if (state !is MapViewState.Error && state !is MapViewState.ItemDetails) {
             polyline?.remove()
+            bottomSheetBehavior.hide()
         }
 
         when (state) {
@@ -264,14 +258,8 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
     }
 
     private fun setItems(list: List<StationEntity>) {
-        lifecycleScope.launch(Dispatchers.Default) {
-            clusterManager?.clearItems()
-            clusterManager?.addItems(list.map { Pair(it, false) })
-
-            withContext(Dispatchers.Main) {
-                clusterManager?.cluster()
-            }
-        }
+        clusterManager?.addItems(list.map { Pair(it, false) })
+        clusterManager?.cluster()
     }
 
     private fun selectItem(item: StationEntity) {
@@ -284,11 +272,6 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         clusterManager?.cluster()
     }
 
-    private fun clearSelected() {
-        clusterManager?.clearSelected()
-        clusterManager?.cluster()
-    }
-
     override fun onMapReady(googleMap: GoogleMap) {
         // Setup map
         map = googleMap
@@ -298,7 +281,11 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         if (clusterManager == null) {
             clusterManager =
                 MyClusterManager(binding.map.context, map, binding.map.width, binding.map.height) {
-                    viewModel.obtainEvent(MapEvent.ItemClicked(it.mapClusterItem as StationEntity))
+                    if (it.isSelected) {
+                        viewModel.obtainEvent(MapEvent.ItemDetailsClosed)
+                    } else {
+                        viewModel.obtainEvent(MapEvent.ItemClicked(it.mapClusterItem as StationEntity))
+                    }
                     return@MyClusterManager true
                 }
         }
