@@ -52,7 +52,8 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
 
     // Google Map
     private lateinit var map: GoogleMap
-    private lateinit var clusterManager: MyClusterManager
+    private var clusterManager: MyClusterManager? = null
+    private var hasResult = false
 
     // Current route polyline
     private var polyline: Polyline? = null
@@ -69,9 +70,23 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         setListeners()
         initBottomDialog()
         initOnBackPressed()
+        initFragmentResultListeners()
 
         flowCollectLatest(viewModel.viewState, ::render)
         flowCollect(viewModel.action, ::handleAction)
+    }
+
+    private fun initFragmentResultListeners() {
+        setFragmentResultListener(ListStationsFragment.REQUEST_KEY_STATION_RESULT) { _, bundle ->
+            hasResult = bundle.getBoolean(ListStationsFragment.KEY_EMPTY)
+            val station =
+                bundle.getSerializable(ListStationsFragment.KEY_STATION) as StationEntity?
+
+            station?.let {
+                hasResult = true
+                viewModel.obtainEvent(MapEvent.ItemClicked(station))
+            }
+        }
     }
 
     private fun initOnBackPressed() {
@@ -91,11 +106,12 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
 
     private fun initBottomDialog() {
         bottomSheetBehavior = BottomSheetBehavior.from(binding.infoDialog.bottomSheetLayout)
+        bottomSheetBehavior.hide()
         bottomSheetBehavior.addBottomSheetCallback(object :
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 if (newState == BottomSheetBehavior.STATE_HIDDEN) {
-                    clusterManager.clearSelected()
+                    viewModel.obtainEvent(MapEvent.ItemDetailsClosed)
                 }
             }
 
@@ -147,11 +163,11 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
     }
 
     override fun render(state: MapViewState) {
+        loge(state::class.java.name)
         binding.loading.root.isVisible = state == MapViewState.Loading
         if (state !is MapViewState.Direction) binding.mapDefault.directionInfo.hide()
-        if (state !is MapViewState.Error) {
+        if (state !is MapViewState.Error && state !is MapViewState.ItemDetails) {
             polyline?.remove()
-            bottomSheetBehavior.hide()
         }
 
         when (state) {
@@ -203,6 +219,7 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         when (action) {
             is MapAction.ItemDeleted -> {
                 removeItem(action.item)
+                bottomSheetBehavior.hide()
                 binding.root.showSnackBar(
                     R.string.station_deleted,
                     R.string.undo,
@@ -248,23 +265,28 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
 
     private fun setItems(list: List<StationEntity>) {
         lifecycleScope.launch(Dispatchers.Default) {
-            clusterManager.clearItems()
-            clusterManager.addItems(list.map { Pair(it, false) })
+            clusterManager?.clearItems()
+            clusterManager?.addItems(list.map { Pair(it, false) })
 
             withContext(Dispatchers.Main) {
-                clusterManager.cluster()
+                clusterManager?.cluster()
             }
         }
     }
 
     private fun selectItem(item: StationEntity) {
-        clusterManager.setSelected(item)
-        clusterManager.cluster()
+        clusterManager?.setSelected(item)
+        clusterManager?.cluster()
     }
 
     private fun removeItem(item: StationEntity) {
-        clusterManager.removeItem(item)
-        clusterManager.cluster()
+        clusterManager?.removeItem(item)
+        clusterManager?.cluster()
+    }
+
+    private fun clearSelected() {
+        clusterManager?.clearSelected()
+        clusterManager?.cluster()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -273,26 +295,19 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         map.setOnMapLoadedCallback(this)
 
         // Setup clusterization
-        clusterManager =
-            MyClusterManager(binding.map.context, map, binding.map.width, binding.map.height) {
-                viewModel.obtainEvent(MapEvent.ItemClicked(it.mapClusterItem as StationEntity))
-                return@MyClusterManager true
-            }
+        if (clusterManager == null) {
+            clusterManager =
+                MyClusterManager(binding.map.context, map, binding.map.width, binding.map.height) {
+                    viewModel.obtainEvent(MapEvent.ItemClicked(it.mapClusterItem as StationEntity))
+                    return@MyClusterManager true
+                }
+        }
     }
 
     override fun onMapLoaded() {
-        var hasResult = false
-        setFragmentResultListener(ListStationsFragment.REQUEST_KEY_STATION_RESULT) { _, bundle ->
-            hasResult = true
-            val station =
-                bundle.getSerializable(ListStationsFragment.KEY_STATION) as StationEntity?
-
-            station?.let {
-                viewModel.obtainEvent(MapEvent.ItemClicked(station))
-            }
+        if (!hasResult) {
+            viewModel.obtainEvent(MapEvent.EnterScreen)
         }
-
-        if (!hasResult) viewModel.obtainEvent(MapEvent.EnterScreen)
 
         context?.dataStore?.data?.let {
             flowCollect(it) { prefs ->
@@ -351,7 +366,6 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
     }
 
     companion object {
-        val TAG: String = MapFragment::class.java.simpleName
         private const val DEFAULT_MAX_MAP_ZOOM_MULTIPLIER = .75f
     }
 }

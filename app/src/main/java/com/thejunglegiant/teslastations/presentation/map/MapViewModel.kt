@@ -58,6 +58,7 @@ class MapViewModel(
         when (event) {
             MapEvent.EnterScreen -> fetchData()
             MapEvent.ItemDirectionClicked -> _viewState.value = MapViewState.Loading
+            MapEvent.ItemDetailsClosed -> _viewState.value = MapViewState.Display(stationsList)
             is MapEvent.ItemClicked -> getItem(event.item)
             is MapEvent.ItemDeleteClicked -> deleteItem(event.item)
         }

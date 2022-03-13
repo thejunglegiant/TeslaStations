@@ -18,7 +18,6 @@ class MyClusterManager(
         ClusterManager<ObjectClusterItem>(context, map)
             .apply {
                 setOnClusterItemClickListener {
-//                    this.removeItem(it)
                     onItemClickListener.invoke(it)
                 }
                 algorithm = NonHierarchicalViewBasedAlgorithm(mapWidth, mapHeight)
@@ -90,7 +89,6 @@ class MyClusterManager(
                 }
                 .toList()
         )
-        cluster()
     }
 
     fun clearItems() {

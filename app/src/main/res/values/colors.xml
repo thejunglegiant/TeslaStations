@@ -35,11 +35,11 @@
     <color name="dividerColor">#55707A86</color>
     <color name="colorAccent">@color/thunderbird</color>
 
-    <color name="cluster_item_up_to_20">#266CC0</color>
-    <color name="cluster_item_up_to_50">#3886C2</color>
-    <color name="cluster_item_up_to_100">#329B53</color>
-    <color name="cluster_item_up_to_200">#68BB3B</color>
-    <color name="cluster_item_up_to_500">#B36439</color>
-    <color name="cluster_item_up_to_1000">#BD3A35</color>
-    <color name="cluster_item_more_then_1000">#7A1C1C</color>
+    <color name="cluster_item_up_to_20">#ef9a9a</color>
+    <color name="cluster_item_up_to_50">#e57373</color>
+    <color name="cluster_item_up_to_100">#f44336</color>
+    <color name="cluster_item_up_to_200">#f44336</color>
+    <color name="cluster_item_up_to_500">#e53935</color>
+    <color name="cluster_item_up_to_1000">#d32f2f</color>
+    <color name="cluster_item_more_then_1000">#c62828</color>
 </resources>

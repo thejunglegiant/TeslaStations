@@ -93,6 +93,7 @@ class ListStationsFragment :
 
     private fun setListeners() {
         binding.appBar.btnBack.setOnClickListener {
+            setFragmentResult(REQUEST_KEY_STATION_RESULT, bundleOf(KEY_EMPTY to true))
             findNavController().popBackStack()
         }
         adapter.attachCallback(object : BaseAdapterCallback<StationEntity> {
@@ -141,8 +142,8 @@ class ListStationsFragment :
     }
 
     companion object {
-        val TAG: String = ListStationsFragment::class.java.simpleName
         const val REQUEST_KEY_STATION_RESULT = "REQUEST_KEY_STATION_RESULT"
         const val KEY_STATION = "KEY_STATION"
+        const val KEY_EMPTY = "KEY_EMPTY"
     }
 }
