@@ -1,33 +1,19 @@
-package com.thejunglegiant.teslastations.presentation.map
+package com.thejunglegiant.teslastations.presentation.cluster
 
 import android.content.Context
 import android.util.SparseIntArray
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.maps.android.clustering.Cluster
-import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
 import com.thejunglegiant.teslastations.R
+import com.thejunglegiant.teslastations.extensions.bitmapFromRes
 
-class StationsRender<T : ClusterItem>(
-    private val context: Context, map: GoogleMap, clusterManager: ClusterManager<T>
-) : DefaultClusterRenderer<T>(context, map, clusterManager) {
-
-    interface Callback<T: ClusterItem> {
-
-        fun onClusterClicked(cluster: Cluster<T>): Boolean
-
-        fun onClusterItemClicked(clusterItem: ClusterItem): Boolean
-    }
-
-    private var callback: Callback<T>? = null
-
-    fun setCallback(callback: Callback<T>) {
-        this.callback = callback
-    }
+class StationsRender(
+    private val context: Context, map: GoogleMap, clusterManager: ClusterManager<ObjectClusterItem>
+) : DefaultClusterRenderer<ObjectClusterItem>(context, map, clusterManager) {
 
     private val iconStyles by lazy {
         SparseIntArray().apply {
@@ -53,12 +39,37 @@ class StationsRender<T : ClusterItem>(
         }
     }
 
-    override fun onBeforeClusterItemRendered(item: T, markerOptions: MarkerOptions) {
+    override fun onBeforeClusterItemRendered(
+        item: ObjectClusterItem,
+        markerOptions: MarkerOptions
+    ) {
         super.onBeforeClusterItemRendered(item, markerOptions)
         markerOptions
             .icon(
-                BitmapDescriptorFactory
-                    .fromResource(R.drawable.ic_stations_marker)
+                bitmapFromRes(
+                    context.resources,
+                    if (item.isSelected) {
+                        R.drawable.ic_selected_marker
+                    } else {
+                        R.drawable.ic_marker
+                    }
+                )
+            )
+    }
+
+    override fun onClusterItemUpdated(item: ObjectClusterItem, marker: Marker) {
+        super.onClusterItemUpdated(item, marker)
+
+        marker
+            .setIcon(
+                bitmapFromRes(
+                    context.resources,
+                    if (item.isSelected) {
+                        R.drawable.ic_selected_marker
+                    } else {
+                        R.drawable.ic_marker
+                    }
+                )
             )
     }
 }

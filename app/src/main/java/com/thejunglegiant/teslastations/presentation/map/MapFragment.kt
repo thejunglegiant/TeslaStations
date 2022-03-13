@@ -3,6 +3,7 @@ package com.thejunglegiant.teslastations.presentation.map
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -20,14 +21,13 @@ import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
-import com.google.maps.android.clustering.ClusterManager
-import com.google.maps.android.clustering.algo.NonHierarchicalViewBasedAlgorithm
 import com.thejunglegiant.teslastations.R
 import com.thejunglegiant.teslastations.databinding.FragmentMapBinding
 import com.thejunglegiant.teslastations.domain.entity.BoundsItem
 import com.thejunglegiant.teslastations.domain.entity.StationEntity
 import com.thejunglegiant.teslastations.domain.mapper.toLatLngBounds
 import com.thejunglegiant.teslastations.extensions.*
+import com.thejunglegiant.teslastations.presentation.cluster.MyClusterManager
 import com.thejunglegiant.teslastations.presentation.core.BaseLocationFragment
 import com.thejunglegiant.teslastations.presentation.core.StatusBarMode
 import com.thejunglegiant.teslastations.presentation.core.ViewStateHandler
@@ -47,11 +47,11 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
     private val viewModel: MapViewModel by viewModel()
 
     // Stations' details dialog
-    private var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>? = null
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<*>
 
     // Google Map
     private lateinit var map: GoogleMap
-    private lateinit var clusterManager: ClusterManager<StationEntity>
+    private lateinit var clusterManager: MyClusterManager
 
     // Current route polyline
     private var polyline: Polyline? = null
@@ -66,14 +66,39 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
 
         setupMap()
         setListeners()
-        hideBottomDialog()
+        initBottomDialog()
+        initOnBackPressed()
 
         flowCollectLatest(viewModel.viewState, ::render)
     }
 
-    private fun setupMap() {
-        val mapFragment = binding.map.getFragment<SupportMapFragment>()
-        mapFragment.getMapAsync(this)
+    private fun initOnBackPressed() {
+        activity?.onBackPressedDispatcher?.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (bottomSheetBehavior.isHidden) {
+                        activity?.onBackPressed()
+                    } else {
+                        bottomSheetBehavior.hide()
+                    }
+                }
+            }
+        )
+    }
+
+    private fun initBottomDialog() {
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.infoDialog.bottomSheetLayout)
+        bottomSheetBehavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    clusterManager.clearSelected()
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) = Unit
+        })
     }
 
     private fun setListeners() {
@@ -114,12 +139,17 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         }
     }
 
+    private fun setupMap() {
+        val mapFragment = binding.map.getFragment<SupportMapFragment>()
+        mapFragment.getMapAsync(this)
+    }
+
     override fun render(state: MapViewState) {
         binding.loading.root.isVisible = state == MapViewState.Loading
         if (state !is MapViewState.Direction) binding.mapDefault.directionInfo.hide()
         if (state !is MapViewState.Error) {
             polyline?.remove()
-            hideBottomDialog()
+            bottomSheetBehavior.hide()
         }
 
         when (state) {
@@ -170,17 +200,11 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
                 }
             }
             is MapViewState.ItemDetails -> {
-                if (state.addToMap) addItem(state.item)
+                selectItem(state.item)
                 openInfoDialog(state.item)
             }
             MapViewState.Loading -> {}
         }
-    }
-
-    private fun hideBottomDialog() {
-        // set initial state to STATE_HIDDEN
-        bottomSheetBehavior = BottomSheetBehavior.from(binding.infoDialog.bottomSheetLayout)
-        bottomSheetBehavior?.state = BottomSheetBehavior.STATE_HIDDEN
     }
 
     private fun openInfoDialog(station: StationEntity) {
@@ -215,29 +239,38 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
+    private fun setItems(list: List<StationEntity>) {
+        lifecycleScope.launch(Dispatchers.Default) {
+            clusterManager.clearItems()
+            clusterManager.addItems(list.map { Pair(it, false) })
+
+            withContext(Dispatchers.Main) {
+                clusterManager.cluster()
+            }
+        }
+    }
+
+    private fun selectItem(item: StationEntity) {
+        clusterManager.setSelected(item)
+        clusterManager.cluster()
+    }
+
+    private fun removeItem(item: StationEntity) {
+        clusterManager.removeItem(item)
+        clusterManager.cluster()
+    }
+
     override fun onMapReady(googleMap: GoogleMap) {
         // Setup map
         map = googleMap
         map.setOnMapLoadedCallback(this)
 
         // Setup clusterization
-        clusterManager = ClusterManager<StationEntity>(context, map).apply {
-            setOnClusterItemClickListener { station ->
-                viewModel.obtainEvent(MapEvent.ItemClicked(station))
-                return@setOnClusterItemClickListener true
+        clusterManager =
+            MyClusterManager(binding.map.context, map, binding.map.width, binding.map.height) {
+                viewModel.obtainEvent(MapEvent.ItemClicked(it.mapClusterItem as StationEntity))
+                return@MyClusterManager true
             }
-            algorithm = NonHierarchicalViewBasedAlgorithm(binding.map.width, binding.map.height)
-            renderer = StationsRender(binding.map.context, map, this)
-            map.setOnCameraIdleListener(this)
-        }
-    }
-
-    override fun onLocationReady(location: LatLng) {
-        checkMapReadyThen {
-            map.isMyLocationEnabled = true
-            map.uiSettings.isMyLocationButtonEnabled = false
-            moveMap(location)
-        }
     }
 
     override fun onMapLoaded() {
@@ -266,25 +299,12 @@ class MapFragment : BaseLocationFragment<FragmentMapBinding>(FragmentMapBinding:
         }
     }
 
-    private fun setItems(list: List<StationEntity>) {
-        lifecycleScope.launch(Dispatchers.Default) {
-            clusterManager.clearItems()
-            clusterManager.addItems(list)
-
-            withContext(Dispatchers.Main) {
-                clusterManager.cluster()
-            }
+    override fun onLocationReady(location: LatLng) {
+        checkMapReadyThen {
+            map.isMyLocationEnabled = true
+            map.uiSettings.isMyLocationButtonEnabled = false
+            moveMap(location)
         }
-    }
-
-    private fun addItem(item: StationEntity) {
-        clusterManager.addItem(item)
-        clusterManager.cluster()
-    }
-
-    private fun removeItem(item: StationEntity) {
-        clusterManager.removeItem(item)
-        clusterManager.cluster()
     }
 
     private fun moveMap(

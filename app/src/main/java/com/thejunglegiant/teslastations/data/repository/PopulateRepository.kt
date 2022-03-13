@@ -91,7 +91,6 @@ class PopulateRepository(
                             },
                             async {
                                 val data = prepopulatedTeslaData()
-                                loge(data.size.toString())
                                 stationsDao.insertAll(data)
                             }
                         )

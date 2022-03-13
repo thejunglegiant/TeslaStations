@@ -6,6 +6,7 @@ import com.thejunglegiant.teslastations.domain.entity.StationEntity
 
 fun StationDTO.toStationEntity(): StationEntity = StationEntity(
     id = id.toLong(),
+    title = title,
     address = address ?: "",
     city = city,
     country = country,
