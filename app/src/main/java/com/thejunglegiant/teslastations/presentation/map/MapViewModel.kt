@@ -87,7 +87,7 @@ class MapViewModel(
 
     private fun undoDeleteItem(item: StationEntity) {
         job?.cancel()
-        _viewState.value = MapViewState.ItemDetails(item = item, addToMap = true)
+        _viewState.value = MapViewState.ItemDetails(item = item)
     }
 
     private fun deleteItem(item: StationEntity) {
