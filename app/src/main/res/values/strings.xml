@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TeslaStations</string>
+    <string name="app_name">Tesla Stations</string>
     <string name="station_hint">Station</string>
     <string name="station_description">Description</string>
     <string name="station_description_phone">Phone:</string>

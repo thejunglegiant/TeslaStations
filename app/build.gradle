@@ -71,7 +71,7 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.9.0'
 
     //retrofit
     def retrofitVersion = "2.9.0"
@@ -111,8 +111,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.maps.android:android-maps-utils:2.3.0'
     implementation 'com.google.maps.android:maps-utils-ktx:3.3.0'
-
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
 
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
