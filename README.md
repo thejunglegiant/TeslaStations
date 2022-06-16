@@ -11,7 +11,7 @@
 - Architecture
   - MVI
 - UI
-  - [Jetpack Navigation Compose](https://developer.android.com/jetpack/compose/navigation)
+  - [Jetpack Navigation](https://developer.android.com/guide/navigation)
   - [MotionLayout](https://developer.android.com/training/constraint-layout/motionlayout)
 - Dependency Injection
   - [Koin](https://insert-koin.io/)
